@@ -1,0 +1,23 @@
+Third Year Team Project Meeting
+
+Date:	...	...	[03/10/23]
+Members Absent:		N/A
+Start Time:	...	10:35
+End Time:	...	11:00
+Location:	...	Thurles Campus B223
+
+- Merged beta and main branch on git
+
+- Created release version 0.0 on git
+
+- Updated timeline in technical proposal
+
+- Discussed division of work
+	- Levels
+	- Player Movement
+	- Enemy behavior
+		- Tries to get to a set distance from player
+		- Shoots if within x distance from desired range
+	- Shooting
+	- Level layout
+
