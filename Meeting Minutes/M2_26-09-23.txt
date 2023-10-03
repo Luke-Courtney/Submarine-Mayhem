@@ -1,0 +1,24 @@
+Third Year Team Project Meeting
+
+Date:	...	...	[26/09/23]
+Members Absent:		Cillian Murphy
+Start Time:	...	11:59
+End Time:	...	12:29
+Location:	...	Thurles Campus B223
+
+Topic 1: Technical Proposal
+Team roles decided. Every user is a developer, Luke Courtney is team lead.
+
+Decided upon Agile Methodology.
+
+Quality Assurance plan written.
+
+Measure of success chosen.
+
+Development methodology chosen and justified.
+
+
+Topic 2: Presentation
+Discussed presentation due date.
+
+Discussed presentation work flow.
