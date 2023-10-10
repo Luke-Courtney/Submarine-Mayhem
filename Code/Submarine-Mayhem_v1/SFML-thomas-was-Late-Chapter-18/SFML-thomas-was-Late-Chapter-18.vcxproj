@@ -22,7 +22,6 @@
     <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="code\Bob.h" />
     <ClInclude Include="code\Engine.h" />
     <ClInclude Include="code\HUD.h" />
     <ClInclude Include="code\LevelManager.h" />
@@ -34,7 +33,6 @@
     <ClInclude Include="code\Thomas.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="code\Bob.cpp" />
     <ClCompile Include="code\DetectCollisions.cpp" />
     <ClCompile Include="code\Draw.cpp" />
     <ClCompile Include="code\Engine.cpp" />

@@ -27,9 +27,6 @@ void Engine::draw()
 		// Draw thomas
 		m_Window.draw(m_Thomas.getSprite());
 
-		// Draw thomas
-		m_Window.draw(m_Bob.getSprite());
-
 		// Draw the particle system
 		if (m_PS.running())
 		{
@@ -55,9 +52,6 @@ void Engine::draw()
 
 		// Draw the Level
 		m_Window.draw(m_VALevel, &m_TextureTiles);
-			
-		// Draw thomas
-		m_Window.draw(m_Bob.getSprite());
 
 		// Draw thomas
 		m_Window.draw(m_Thomas.getSprite());
@@ -67,8 +61,6 @@ void Engine::draw()
 		{
 			m_Window.draw(m_PS);
 		}
-		
-		// Now draw Bob's side of the screen
 
 		// Switch to background view
 		m_Window.setView(m_BGRightView);
@@ -86,9 +78,6 @@ void Engine::draw()
 
 		// Draw thomas
 		m_Window.draw(m_Thomas.getSprite());
-
-		// Draw bob
-		m_Window.draw(m_Bob.getSprite());
 
 		// Draw the particle system
 		if (m_PS.running())
