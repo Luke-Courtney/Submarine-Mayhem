@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Bob" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>code\Bob.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Engine" Collapsed="true">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAQAAoAAAAggAEC0CAYAAAAIUMBoEBQQDABIAxgWAQA=</HashCode>
+      <FileName>code\Engine.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hud" Collapsed="true">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAIAAAABAAIAEAAAAAAAAACAAAAAAAAAEwgAA=</HashCode>
+      <FileName>code\HUD.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LevelManager" Collapsed="true">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAARAAgAAAAIAAAABAAAAAEAAEAAABkBBA=</HashCode>
+      <FileName>code\LevelManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Particle" Collapsed="true">
+    <Position X="5.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAACAACAAAAAAAAAACAAAAAAQAAAAAAAAEAAA=</HashCode>
+      <FileName>code\Particle.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ParticleSystem" Collapsed="true">
+    <Position X="7" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAQBAAAAAAAAAJAAAAAACgAAAIAAAAAAAAEAAA=</HashCode>
+      <FileName>code\ParticleSystem.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayableCharacter" Collapsed="true">
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>oICAIQAAgDAQABAIAJAAAAAhGAQAAiAABAIAAQAkAUM=</HashCode>
+      <FileName>code\PlayableCharacter.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SoundManager" Collapsed="true">
+    <Position X="8.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACIAAABAAREIAACAABAIAAAgAAgQMAAAAAACABABA=</HashCode>
+      <FileName>code\SoundManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextureHolder" Collapsed="true">
+    <Position X="5.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAAAgAAAAAAAAAQAAAAAg=</HashCode>
+      <FileName>code\TextureHolder.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Thomas" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>code\Thomas.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
