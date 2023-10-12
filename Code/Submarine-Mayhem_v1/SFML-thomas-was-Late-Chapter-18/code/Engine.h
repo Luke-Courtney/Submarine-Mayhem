@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "TextureHolder.h"
 #include "Thomas.h"
+#include "Bob.h"
 #include "LevelManager.h"
 #include "SoundManager.h"
 #include "HUD.h"
@@ -18,8 +19,9 @@ private:
 	// create a particle system
 	ParticleSystem m_PS;
 
-	// Thomas
+	// Thomas and his friend, Bob
 	Thomas m_Thomas;
+	Bob m_Bob;
 
 	// A class to manage all the levels
 	LevelManager m_LM;
