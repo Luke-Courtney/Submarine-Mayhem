@@ -15,7 +15,7 @@ uniform float uTime;
 void main() {
 	float coef = sin(gl_FragCoord.y * 0.1 + 1.0 * uTime);
 	pCoord=vTexCoord;
-	pCoord.y +=  coef * 0.1;
+	pCoord.y +=  coef * 0.005;
    //  coef = coef *0.03;
 
 	// vTexCoord.y +=coef;
