@@ -45,11 +45,11 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 			block.left = x * TILE_SIZE;
 			block.top = y * TILE_SIZE;
 
+
 			// Has character been burnt or drowned?
-			// Use head as this allows him to sink a bit
 			if (m_ArrayLevel[y][x] == 2 || m_ArrayLevel[y][x] == 3)
 			{
-				if (character.getHead().intersects(block))
+				if (character.getPosition().intersects(block))
 				{
 					character.spawn(m_LM.getStartPosition(), GRAVITY);
 					// Which sound should be played?

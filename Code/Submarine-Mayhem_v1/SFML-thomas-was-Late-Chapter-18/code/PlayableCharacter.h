@@ -12,8 +12,8 @@ protected:
 	// How long does a jump last
 	float m_JumpDuration;
 
-	// Is character currently jumping or falling
-	bool m_IsJumping;
+	// Is character currently moving up or down
+	bool m_isClimbing;
 	bool m_IsFalling;
 
 	// Which directions is the character currently moving in
@@ -68,6 +68,7 @@ public:
 	Sprite getSprite();
 
 	// Make the character stand firm
+	void stopClimbing(float position);
 	void stopFalling(float position);
 	void stopRight(float position);
 	void stopLeft(float position);

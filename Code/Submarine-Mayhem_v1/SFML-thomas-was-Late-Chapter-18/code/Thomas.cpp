@@ -13,6 +13,9 @@ Thomas::Thomas()
 // A virtual function
 bool Thomas::handleInput()
 {
+	/*
+	* Removed jumping in favour of free vertical movement
+	* 
 	m_JustJumped = false;
 
 	if (Keyboard::isKeyPressed(Keyboard::W))
@@ -33,6 +36,26 @@ bool Thomas::handleInput()
 		m_IsFalling = true;
 
 	}
+	*/
+
+	if (Keyboard::isKeyPressed(Keyboard::W))
+	{
+		m_isClimbing = true;
+	}
+	else
+	{
+		m_isClimbing = false;
+	}
+
+	if (Keyboard::isKeyPressed(Keyboard::S))
+	{
+		m_IsFalling = true;
+	}
+	else
+	{
+		m_IsFalling = false;
+	}
+
 	if (Keyboard::isKeyPressed(Keyboard::A))
 	{
 		m_LeftPressed = true;
