@@ -125,9 +125,9 @@ void PlayableCharacter::update(float elapsedTime)
 	m_Right.height = r.height * .3 - 25;
 
 	// Left
-	m_Left.left = r.left + 6;
+	m_Left.left = r.left;
 	m_Left.top = r.top + r.height * .35 - 150;
-	m_Left.width = 1;
+	m_Left.width = - 25;
 	m_Left.height = r.height * .3 - 25;
 
 	// Move the sprite into position
@@ -198,6 +198,8 @@ void PlayableCharacter::stopLeft(float position)
 {
 	m_Position.x = position + m_Sprite.getGlobalBounds().width;
 	m_Sprite.setPosition(m_Position);
+
+	m_Sprite.setRotation(90); //TEST TO DETECT stopLeft()
 }
 
 void PlayableCharacter::stopJump()
