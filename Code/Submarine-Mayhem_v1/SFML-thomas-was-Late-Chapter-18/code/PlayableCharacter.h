@@ -82,8 +82,6 @@ public:
 	void stopFalling(float position);
 	void stopRight(float position);
 	void stopLeft(float position);
-	void stopUp(float position);
-	void stopDown(float position);
 	void stopJump();
 
 	// Where is the center of the character

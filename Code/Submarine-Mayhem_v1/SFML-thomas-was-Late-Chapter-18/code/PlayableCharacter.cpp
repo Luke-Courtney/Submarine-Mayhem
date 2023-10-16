@@ -107,26 +107,26 @@ void PlayableCharacter::update(float elapsedTime)
 
 
 	// Feet
-	m_Feet.left = r.left +3;
+	m_Feet.left = r.left + 25;
 	m_Feet.top = r.top + r.height;
-	m_Feet.width = r.width - 6;
+	m_Feet.width = r.width + 25;
 	m_Feet.height = 1;
 
 	// Head
-	m_Head.left = r.left;
+	m_Head.left = r.left + 25;
 	m_Head.top = r.top + (r.height * .3);
-	m_Head.width = r.width;
+	m_Head.width = r.width + 25;
 	m_Head.height = 1;
 
 	// Right
-	m_Right.left = r.left + r.width + 6;
-	m_Right.top = r.top + r.height * .35 + 15;
-	m_Right.width = 1;
+	m_Right.left = r.left + r.width;
+	m_Right.top = r.top + r.height * .3 + 15;
+	m_Right.width = 5;
 	m_Right.height = r.height * .3 - 25;
 
 	// Left
 	m_Left.left = r.left + 6;
-	m_Left.top = r.top + r.height * .35 - 15;
+	m_Left.top = r.top + r.height * .35 - 150;
 	m_Left.width = 1;
 	m_Left.height = r.height * .3 - 25;
 
@@ -190,13 +190,13 @@ void PlayableCharacter::stopFalling(float position)
 void PlayableCharacter::stopRight(float position)
 {
 	
-	m_Position.x = position - m_Sprite.getGlobalBounds().width - 20;
+	m_Position.x = position - m_Sprite.getGlobalBounds().width;
 	m_Sprite.setPosition(m_Position);
 }
 
 void PlayableCharacter::stopLeft(float position)
 {
-	m_Position.x = position + m_Sprite.getGlobalBounds().width + 20;
+	m_Position.x = position + m_Sprite.getGlobalBounds().width;
 	m_Sprite.setPosition(m_Position);
 }
 
