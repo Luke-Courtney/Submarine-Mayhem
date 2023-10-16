@@ -1,4 +1,6 @@
 #include "PlayableCharacter.h"
+#include <iostream>
+using namespace std;
 
 void PlayableCharacter::spawn(Vector2f startPosition, float gravity)
 {
@@ -23,16 +25,41 @@ void PlayableCharacter::update(float elapsedTime)
 
 	if (m_RightPressed)
 	{
-		m_Position.x += m_Speed * elapsedTime;
+		if (m_RightSpeed < m_Speed) {
+			m_RightSpeed += rampUp;
+		}
+
+		m_Position.x += m_RightSpeed * elapsedTime;
 		m_Sprite.setScale(Vector2f(1, 1));
+	}
+	else if(m_RightSpeed > 0)
+	{
+		m_Position.x += m_RightSpeed * elapsedTime;
+		m_RightSpeed -= rampDown;
+
+		if (m_RightSpeed < 0) {
+			m_RightSpeed = 0;
+		}
 	}
 
 	if (m_LeftPressed)
 	{
-		m_Position.x -= m_Speed * elapsedTime;
+		if (m_LeftSpeed > -m_Speed) {
+			m_LeftSpeed -= rampUp;
+		}
+
+		m_Position.x += m_LeftSpeed * elapsedTime;
 		m_Sprite.setScale(Vector2f(-1, 1));
 	}
+	else if(m_LeftSpeed < 0)
+	{
+		m_Position.x += m_LeftSpeed * elapsedTime;
+		m_LeftSpeed += rampDown;
 
+		if (m_LeftSpeed > 0) {
+			m_LeftSpeed = 0;
+		}
+	}
 
 	// Handle Climbing
 	if (m_isClimbing)
@@ -40,14 +67,39 @@ void PlayableCharacter::update(float elapsedTime)
 		// Update how long the jump has been going
 		m_TimeThisJump += elapsedTime;
 
-		m_Position.y -= m_Speed * elapsedTime;
+		if (m_UpSpeed > -m_Speed) {
+			m_UpSpeed -= rampUp;
+		}
 
+		m_Position.y += m_UpSpeed * elapsedTime;
+	}
+	else if (m_UpSpeed < 0)
+	{
+		m_Position.y += m_UpSpeed * elapsedTime;
+		m_UpSpeed += rampDown;
+
+		if (m_UpSpeed > 0) {
+			m_UpSpeed = 0;
+		}
 	}
 
 	// Move down
 	if (m_IsFalling)
 	{
-		m_Position.y += m_Speed * elapsedTime;
+		if (m_DownSpeed < m_Speed) {
+			m_DownSpeed += rampUp;
+		}
+
+		m_Position.y += m_DownSpeed * elapsedTime;
+	}
+	else if (m_DownSpeed > 0)
+	{
+		m_Position.y += m_DownSpeed * elapsedTime;
+		m_DownSpeed -= rampDown;
+
+		if (m_DownSpeed < 0) {
+			m_DownSpeed = 0;
+		}
 	}
 
 	// Update the rect for all body parts

@@ -32,7 +32,17 @@ private:
 	float m_Gravity;
 
 	// How fast is the character
-	float m_Speed = 400;
+	float m_Speed = 400; //Max speed
+
+	float m_RightSpeed = 0;
+	float m_LeftSpeed = -0;
+	float m_UpSpeed = -0;
+	float m_DownSpeed = 0;
+
+	//How fast the player speeds up and slows down
+	//Smaller number means slower change in speed
+	float rampUp = 0.25f;	//Acceleration
+	float rampDown = 0.5f;	//Decceleration
 
 	// Where is the player
 	Vector2f m_Position;
