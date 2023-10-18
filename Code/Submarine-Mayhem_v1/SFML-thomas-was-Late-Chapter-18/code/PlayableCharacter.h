@@ -12,8 +12,8 @@ protected:
 	// How long does a jump last
 	float m_JumpDuration;
 
-	// Is character currently jumping or falling
-	bool m_IsJumping;
+	// Is character currently moving up or down
+	bool m_isClimbing;
 	bool m_IsFalling;
 
 	// Which directions is the character currently moving in
@@ -32,7 +32,17 @@ private:
 	float m_Gravity;
 
 	// How fast is the character
-	float m_Speed = 400;
+	float m_Speed = 400; //Max speed
+
+	float m_RightSpeed = 0;
+	float m_LeftSpeed = -0;
+	float m_UpSpeed = -0;
+	float m_DownSpeed = 0;
+
+	//How fast the player speeds up and slows down
+	//Smaller number means slower change in speed
+	float rampUp = 0.25f;	//Acceleration
+	float rampDown = 0.5f;	//Decceleration
 
 	// Where is the player
 	Vector2f m_Position;
@@ -68,6 +78,7 @@ public:
 	Sprite getSprite();
 
 	// Make the character stand firm
+	void stopClimbing(float position);
 	void stopFalling(float position);
 	void stopRight(float position);
 	void stopLeft(float position);

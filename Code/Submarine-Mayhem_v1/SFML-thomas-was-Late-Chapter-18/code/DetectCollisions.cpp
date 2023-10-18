@@ -1,4 +1,5 @@
 #include "Engine.h"
+#include <iostream>
 
 bool Engine::detectCollisions(PlayableCharacter& character)
 {
@@ -18,7 +19,7 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 	int endX = (int)(detectionZone.left / TILE_SIZE) + 2;
 
 	// Thomas is quite tall so check a few tiles vertically
-	int endY = (int)(detectionZone.top / TILE_SIZE) + 3;
+	int endY = (int)(detectionZone.top / TILE_SIZE) + 2;
 
 	// Make sure we don't test positions lower than zero
 	// Or higher than the end of the array
@@ -45,11 +46,11 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 			block.left = x * TILE_SIZE;
 			block.top = y * TILE_SIZE;
 
+
 			// Has character been burnt or drowned?
-			// Use head as this allows him to sink a bit
 			if (m_ArrayLevel[y][x] == 2 || m_ArrayLevel[y][x] == 3)
 			{
-				if (character.getHead().intersects(block))
+				if (character.getPosition().intersects(block))
 				{
 					character.spawn(m_LM.getStartPosition(), GRAVITY);
 					// Which sound should be played?
@@ -88,7 +89,7 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 				}
 				else if (character.getHead().intersects(block))
 				{
-					character.stopJump();
+					character.stopClimbing(block.top);
 				}
 			}
 			
