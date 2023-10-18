@@ -22,18 +22,6 @@
     <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="code\Bob.h" />
-    <ClInclude Include="code\Engine.h" />
-    <ClInclude Include="code\HUD.h" />
-    <ClInclude Include="code\LevelManager.h" />
-    <ClInclude Include="code\Particle.h" />
-    <ClInclude Include="code\ParticleSystem.h" />
-    <ClInclude Include="code\PlayableCharacter.h" />
-    <ClInclude Include="code\SoundManager.h" />
-    <ClInclude Include="code\TextureHolder.h" />
-    <ClInclude Include="code\Thomas.h" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="code\Bob.cpp" />
     <ClCompile Include="code\DetectCollisions.cpp" />
     <ClCompile Include="code\Draw.cpp" />
@@ -51,6 +39,18 @@
     <ClCompile Include="code\TextureHolder.cpp" />
     <ClCompile Include="code\Thomas.cpp" />
     <ClCompile Include="code\Update.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="code\Bob.h" />
+    <ClInclude Include="code\Engine.h" />
+    <ClInclude Include="code\HUD.h" />
+    <ClInclude Include="code\LevelManager.h" />
+    <ClInclude Include="code\Particle.h" />
+    <ClInclude Include="code\ParticleSystem.h" />
+    <ClInclude Include="code\PlayableCharacter.h" />
+    <ClInclude Include="code\SoundManager.h" />
+    <ClInclude Include="code\TextureHolder.h" />
+    <ClInclude Include="code\Thomas.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
