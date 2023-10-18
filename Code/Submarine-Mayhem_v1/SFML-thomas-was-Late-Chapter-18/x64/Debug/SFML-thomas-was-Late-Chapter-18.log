@@ -1,27 +1,2 @@
-﻿  PlayableCharacter.cpp
-C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\PlayableCharacter.cpp(117,21): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\PlayableCharacter.cpp(123,38): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\PlayableCharacter.cpp(125,33): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\PlayableCharacter.cpp(129,38): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\PlayableCharacter.cpp(131,32): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
+﻿  LINK : C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\x64\Debug\Submarine-Mayhem.exe not found or not built by the last incremental link; performing full link
   SFML-thomas-was-Late-Chapter-18.vcxproj -> C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\x64\Debug\Submarine-Mayhem.exe
