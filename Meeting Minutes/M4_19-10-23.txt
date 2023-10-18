@@ -1,0 +1,17 @@
+Third Year Team Project Meeting
+
+Date:	...	...	[19/10/23]
+Members Absent:		Luke Courtney
+Start Time:	...	12:55
+End Time:	...		1:20
+Location:	...	Thurles Campus B223
+
+-Discussed what each member will be coding.
+-Luke:Movements/Detect Collisions.
+-Adam:Shooting between enemies and player.
+-Ishka:Level layout/Scoring system/Oxygen tank.
+-Cilian:Pickups Oxygen,Upgrade,Score.
+
+-The members will create separate branches on git for their code.
+-The members will communicate online to ensure no errors when compilling.
+
