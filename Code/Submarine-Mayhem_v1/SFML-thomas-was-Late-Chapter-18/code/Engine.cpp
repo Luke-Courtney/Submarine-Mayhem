@@ -57,6 +57,10 @@ Engine::Engine()
 	// Initialize the particle system
 	m_PS.init(1000);
 
+
+	//Set bob patrol point
+	m_Bob.SetPatrolPoint(Vector2f(500, 450));
+
 }// End Engine constructor
 
 void Engine::run()
