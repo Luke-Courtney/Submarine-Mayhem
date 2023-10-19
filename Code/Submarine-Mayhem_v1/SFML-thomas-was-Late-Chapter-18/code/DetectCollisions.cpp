@@ -38,6 +38,14 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 		character.spawn(m_LM.getStartPosition(), GRAVITY);
 	}
 
+	//Detect thomas collisions with enemy
+	if (m_Thomas.getPosition().intersects(m_Bob.getPosition()))
+	{
+		//Collision detected
+		std::cout << "Thomas hit bob\n";
+		character.spawn(m_LM.getStartPosition(), GRAVITY);
+	}
+
 	for (int x = startX; x < endX; x++)
 	{
 		for (int y = startY; y < endY; y++)

@@ -26,6 +26,9 @@ protected:
 	// Has the player just initialted a jump
 	bool m_JustJumped = false;
 
+	// Where is the player
+	Vector2f m_Position;
+
 	// Private variables and functions come next
 private:
 	// What is the gravity
@@ -43,9 +46,6 @@ private:
 	//Smaller number means slower change in speed
 	float rampUp = 0.25f;	//Acceleration
 	float rampDown = 0.5f;	//Decceleration
-
-	// Where is the player
-	Vector2f m_Position;
 
 	// Where are the characters various body parts?
 	FloatRect m_Feet;

@@ -1,5 +1,6 @@
 #include "Bob.h"
 #include "TextureHolder.h"
+#include <iostream>
 
 Bob::Bob()
 {
@@ -10,52 +11,30 @@ Bob::Bob()
 	m_JumpDuration = .25;
 }
 
+void Bob::SetPatrolPoint(Vector2f newPatrolPoint)
+{
+	patrolPoint = newPatrolPoint;
+}
+
+void Bob::patrol()
+{
+	//If bob moves far enough from of his patrol point, flip direction
+	if (moving && !flipped && m_Position.x > patrolPoint.x + 150)
+	{
+		flipped = true;
+	}
+
+	if (moving && flipped && m_Position.x < patrolPoint.x - 150)
+	{
+		flipped = false;
+	}
+}
+
 bool Bob::handleInput()
 {
-	/*
-	* Removed jumping in favour of free vertical movement
-	*
-	m_JustJumped = false;
+	patrol();
 
-	if (Keyboard::isKeyPressed(Keyboard::W))
-	{
-
-		// Start a jump if not already jumping
-		// but only if standing on a block (not falling)
-		if (!m_IsJumping && !m_IsFalling)
-		{
-			m_IsJumping = true;
-			m_TimeThisJump = 0;
-			m_JustJumped = true;
-		}
-	}
-	else
-	{
-		m_IsJumping = false;
-		m_IsFalling = true;
-
-	}
-	*/
-
-	if (Keyboard::isKeyPressed(Keyboard::Up))
-	{
-		m_isClimbing = true;
-	}
-	else
-	{
-		m_isClimbing = false;
-	}
-
-	if (Keyboard::isKeyPressed(Keyboard::Down))
-	{
-		m_IsFalling = true;
-	}
-	else
-	{
-		m_IsFalling = false;
-	}
-
-	if (Keyboard::isKeyPressed(Keyboard::Left))
+	if (moving && flipped)
 	{
 		m_LeftPressed = true;
 
@@ -66,9 +45,8 @@ bool Bob::handleInput()
 	}
 
 
-	if (Keyboard::isKeyPressed(Keyboard::Right))
+	if (moving && !flipped)
 	{
-
 		m_RightPressed = true;
 
 	}
