@@ -17,6 +17,17 @@ public:
 	bool moving = true;
 	bool flipped = false;	//Non-flipped = Right
 
+	//Health and damage
+	int m_Health = 10;
+	bool alive;
+
+	void setHealth(int newHealth);
+	int getHealth();
+	void damage(int damage);
+	void heal(int heal);
+	void die();
+	bool isAlive();
+
 	// The overriden input handler for Bob
 	bool virtual handleInput();
 

@@ -42,7 +42,6 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 	if (m_Thomas.getPosition().intersects(m_Bob.getPosition()))
 	{
 		//Collision detected
-		std::cout << "Thomas hit bob\n";
 		character.spawn(m_LM.getStartPosition(), GRAVITY);
 	}
 
