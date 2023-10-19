@@ -1,4 +1,5 @@
 #include "Engine.h"
+#include <iostream>
 
 
 Engine::Engine()
@@ -70,6 +71,7 @@ void Engine::run()
 
 	while (m_Window.isOpen())
 	{
+
 		Time dt = clock.restart();
 		// Update the total game time
 		m_GameTimeTotal += dt;

@@ -42,7 +42,6 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 	if (m_Thomas.getPosition().intersects(m_Bob.getPosition()))
 	{
 		//Collision detected
-		std::cout << "Thomas hit bob\n";
 		character.spawn(m_LM.getStartPosition(), GRAVITY);
 	}
 
@@ -99,6 +98,14 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 				{
 					character.stopClimbing(block.top);
 				}
+			}
+
+			//collsion for player and Pickup
+			if (m_Thomas.getPosition().intersects
+			(healthPickup.getPosition()))
+			{
+				healthPickup.spawn(Vector2f(9999, 9999), GRAVITY);
+				m_Thomas.setHealth(healthPickup.gotIt()-30);
 			}
 			
 			// More collision detection here once we have learned about particle effects

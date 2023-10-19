@@ -7,6 +7,7 @@
 #include "SoundManager.h"
 #include "HUD.h"
 #include "ParticleSystem.h"
+#include "Pickup.h"
 
 using namespace sf;
 
@@ -22,6 +23,8 @@ private:
 	// Thomas and his friend, Bob
 	Thomas m_Thomas;
 	Bob m_Bob;
+
+	Pickup healthPickup;
 
 	// A class to manage all the levels
 	LevelManager m_LM;

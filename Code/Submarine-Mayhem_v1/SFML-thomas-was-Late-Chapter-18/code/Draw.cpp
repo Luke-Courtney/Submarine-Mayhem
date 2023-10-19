@@ -30,6 +30,9 @@ void Engine::draw()
 		// Draw thomas
 		m_Window.draw(m_Bob.getSprite());
 
+		//draw Pickup
+		m_Window.draw(healthPickup.getSprite());
+
 		// Draw the particle system
 		if (m_PS.running())
 		{
@@ -56,11 +59,14 @@ void Engine::draw()
 		// Draw the Level
 		m_Window.draw(m_VALevel, &m_TextureTiles);
 			
-		// Draw thomas
+		// Draw bob
 		m_Window.draw(m_Bob.getSprite());
 
 		// Draw thomas
 		m_Window.draw(m_Thomas.getSprite());
+
+		//draw Pickup
+		m_Window.draw(healthPickup.getSprite());
 
 		// Draw the particle system
 		if (m_PS.running())
@@ -89,6 +95,9 @@ void Engine::draw()
 
 		// Draw bob
 		m_Window.draw(m_Bob.getSprite());
+
+		//draw Pickup
+		m_Window.draw(healthPickup.getSprite());
 
 		// Draw the particle system
 		if (m_PS.running())
