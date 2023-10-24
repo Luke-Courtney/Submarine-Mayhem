@@ -58,6 +58,42 @@ void Engine::update(float dtAsSeconds)
 			m_NewLevelRequired = true;
 		}
 
+		// Fire a bullet
+		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+		{
+
+			if (gameTimeTotal.asMilliseconds()
+				- lastPressed.asMilliseconds()
+					> 1000 / fireRate && bulletsInClip > 0)
+			{
+
+				// Pass the centre of the player and the centre of the crosshair
+				// to the shoot function
+				bullets[currentBullet].shoot(
+					m_Thomas.getCenter().x, m_Thomas.getCenter().y,
+					mouseWorldPosition.x, mouseWorldPosition.y);
+
+				currentBullet++;
+				if (currentBullet > 99)
+				{
+					currentBullet = 0;
+				}
+				lastPressed = gameTimeTotal;
+				//shoot.play();
+				bulletsInClip--;
+			}
+
+		}// End fire a bullet
+
+		// Update any bullets that are in-flight
+		for (int i = 0; i < 100; i++)
+		{
+			if (bullets[i].isInFlight())
+			{
+				bullets[i].update(dtAsSeconds);
+			}
+		}
+
 	}// End if playing
 
 	// Check if a fire sound needs to be played

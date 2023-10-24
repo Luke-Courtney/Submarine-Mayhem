@@ -7,6 +7,7 @@
 #include "SoundManager.h"
 #include "HUD.h"
 #include "ParticleSystem.h"
+#include "Bullet.h"
 
 using namespace sf;
 
@@ -22,6 +23,29 @@ private:
 	// Thomas and his friend, Bob
 	Thomas m_Thomas;
 	Bob m_Bob;
+
+	// 100 bullets should do
+	Bullet bullets[100];
+	int currentBullet = 0;
+	int bulletsSpare = 24;
+	int bulletsInClip = 6;
+	int clipSize = 6;
+	float fireRate = 1;
+	// When was the fire button last pressed?
+	Time lastPressed;
+
+	// Ammo
+	Text ammoText;
+	//ammoText.setFont(font);
+	//ammoText.setCharacterSize(55);
+	//ammoText.setFillColor(Color::White);
+	//ammoText.setPosition(200, 980);
+
+	// How long has the game been played
+	Time gameTimeTotal;
+
+	// Where is the mouse in relation to world coordinates
+	Vector2f mouseWorldPosition;
 
 	// A class to manage all the levels
 	LevelManager m_LM;
@@ -104,6 +128,8 @@ private:
 
 	// A vector of Vector2f for the fire emiiter locations
 	vector <Vector2f> m_FireEmitters;
+
+	
 	
 public:
 	// The Engine constructor
