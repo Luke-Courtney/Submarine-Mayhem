@@ -32,6 +32,7 @@ void Engine::draw()
 
 		//draw Pickup
 		m_Window.draw(healthPickup.getSprite());
+		m_Window.draw(SpeedBoost.getSprite());
 
 		// Draw the particle system
 		if (m_PS.running())
@@ -67,6 +68,8 @@ void Engine::draw()
 
 		//draw Pickup
 		m_Window.draw(healthPickup.getSprite());
+		m_Window.draw(SpeedBoost.getSprite());
+
 
 		// Draw the particle system
 		if (m_PS.running())
@@ -98,6 +101,7 @@ void Engine::draw()
 
 		//draw Pickup
 		m_Window.draw(healthPickup.getSprite());
+		m_Window.draw(SpeedBoost.getSprite());
 
 		// Draw the particle system
 		if (m_PS.running())

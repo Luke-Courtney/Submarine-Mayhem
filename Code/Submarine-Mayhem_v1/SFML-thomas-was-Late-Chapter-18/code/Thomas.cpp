@@ -89,6 +89,10 @@ void Thomas::setHealth(int h)
 {
 	health = h;
 }
+void Thomas::setSpeed(int S)
+{
+	m_Speed += S;
+}
 int Thomas::getHealth()
 {
 	return health;

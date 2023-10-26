@@ -37,8 +37,8 @@ void Bob::patrol()
 //Teleports far from anything
 void Bob::die()
 {
-	m_Position = Vector2f(6900, 1400);
-	patrolPoint = Vector2f(6900, 1400);
+	m_Position = Vector2f(100, 100);
+	patrolPoint = Vector2f(100, 100);
 	alive = false;
 }
 
@@ -48,7 +48,7 @@ void Bob::setHealth(int newHealth)
 	m_Health = newHealth;
 	if (m_Health < 1)
 	{
-		die();
+
 	}
 }
 
@@ -64,7 +64,7 @@ void Bob::damage(int damage)
 	m_Health = m_Health - damage;
 	if (m_Health < 1)
 	{
-		die();
+
 	}
 }
 

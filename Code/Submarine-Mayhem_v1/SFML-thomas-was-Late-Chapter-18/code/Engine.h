@@ -25,6 +25,7 @@ private:
 	Bob m_Bob;
 
 	Pickup healthPickup;
+	Pickup SpeedBoost;
 
 	// A class to manage all the levels
 	LevelManager m_LM;

@@ -25,7 +25,8 @@ void Engine::loadLevel()
 	// Spawn Thomas and Bob
 	m_Thomas.spawn(m_LM.getStartPosition(), GRAVITY);
 	m_Bob.spawn(Vector2f(750, 450), GRAVITY);
-	healthPickup.spawn(Vector2f(700, 450), GRAVITY);
+	healthPickup.spawn(Vector2f(6900, 1500), GRAVITY);
+	SpeedBoost.spawn(Vector2f(6900, 1600), GRAVITY);
 
 	// Make sure this code isn't run again
 	m_NewLevelRequired = false;

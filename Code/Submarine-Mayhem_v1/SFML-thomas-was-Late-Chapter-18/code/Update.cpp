@@ -25,6 +25,7 @@ void Engine::update(float dtAsSeconds)
 
 	if (m_Playing)
 	{
+
 		// Update Thomas
 		m_Thomas.update(dtAsSeconds);
 
@@ -32,6 +33,9 @@ void Engine::update(float dtAsSeconds)
 		m_Bob.update(dtAsSeconds);
 
 		healthPickup.update(dtAsSeconds);
+		SpeedBoost.update(dtAsSeconds);
+
+
 
 		// Detect collisions and see if characters have reached the goal tile
 		// The second part of the if condition is only executed

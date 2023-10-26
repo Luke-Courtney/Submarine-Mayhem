@@ -3,9 +3,8 @@
 
 Pickup::Pickup()
 {
-
-	m_Sprite = Sprite(TextureHolder::GetTexture(
-		"graphics/health_1.png"));
+		m_Sprite = Sprite(TextureHolder::GetTexture(
+			"graphics/health_1.png"));
 
 	// How much is pickup worth
 	m_Value = HEALTH_START_VALUE;
@@ -14,6 +13,22 @@ Pickup::Pickup()
 
 	//m_SecondsToLive = START_SECONDS_TO_LIVE;
 	//m_SecondsToWait = START_WAIT_TIME;
+}
+
+void Pickup::refreshSprite()
+{
+	if (m_Type == 1)
+	{
+		m_Sprite = Sprite(TextureHolder::GetTexture(
+			"graphics/health_1.png"));
+		m_Sprite.setOrigin(25, 25);
+	}
+	if (m_Type == 2)
+	{
+		m_Sprite = Sprite(TextureHolder::GetTexture(
+			"graphics/SpeedBoost_1.png"));
+		m_Sprite.setOrigin(25, 25);
+	}
 }
 
 bool Pickup::isSpawned()

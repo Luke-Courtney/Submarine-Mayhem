@@ -11,15 +11,7 @@ private:
 	const int START_WAIT_TIME = 5;
 	const int START_SECONDS_TO_LIVE = 15;
 
-	// How much is this pickup worth?
-	int m_Value=10;
-
-	// What type of pickup is this? 
-	// 1 = health, 2 = ammo, 3 = CannonBall Gun, 4 = Pistol
-	int m_Type=1;
-
 	// Handle spawning and disappearing
-	bool m_Spawned;
 	float m_SecondsSinceSpawn;
 	float m_SecondsSinceDeSpawn;
 	float m_SecondsToLive;
@@ -29,6 +21,23 @@ private:
 public:
 
 	Pickup();
+
+	void refreshSprite();
+
+	//time the speed bost will last
+	int boostTime = 5;
+	bool BoostTimeEnd = true;
+
+	// How much is this pickup worth?
+	int m_Value = 0;
+
+	int spawnNum = 1;
+
+	// What type of pickup is this? 
+	// 1 = health, 2 = ammo, 3 = CannonBall Gun, 4 = Pistol
+	int m_Type = 0;
+
+	bool m_Spawned;
 
 	// Let the pickup update itself each frame
 	void update(float elapsedTime);

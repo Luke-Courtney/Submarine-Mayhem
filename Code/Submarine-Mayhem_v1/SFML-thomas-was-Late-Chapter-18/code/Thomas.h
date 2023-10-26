@@ -13,6 +13,7 @@ public:
 	// The overriden input handler for Thomas
 	bool virtual handleInput();
 	void setHealth(int h);
+	void setSpeed(int S);
 	int getHealth();
 
 };
