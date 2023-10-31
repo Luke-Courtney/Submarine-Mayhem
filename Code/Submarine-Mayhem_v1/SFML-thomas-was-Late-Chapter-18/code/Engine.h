@@ -21,7 +21,9 @@ private:
 
 	// Thomas and his friend, Bob
 	Thomas m_Thomas;
-	Bob m_Bob;
+	Bob m_Bob0;
+	Bob m_Bob1;
+	Bob m_Bob2;
 
 	// A class to manage all the levels
 	LevelManager m_LM;

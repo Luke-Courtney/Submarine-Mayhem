@@ -28,13 +28,15 @@ void Engine::update(float dtAsSeconds)
 		// Update Thomas
 		m_Thomas.update(dtAsSeconds);
 
-		// Update Bob
-		m_Bob.update(dtAsSeconds);
+		// Update Bobs
+		m_Bob0.update(dtAsSeconds);
+		m_Bob1.update(dtAsSeconds);
+		m_Bob2.update(dtAsSeconds);
 
 		// Detect collisions and see if characters have reached the goal tile
 		// The second part of the if condition is only executed
 		// when thomas is touching the home tile
-		if (detectCollisions(m_Thomas) && detectCollisions(m_Bob))
+		if (detectCollisions(m_Thomas) && detectCollisions(m_Bob0) || detectCollisions(m_Thomas) && detectCollisions(m_Bob1) || detectCollisions(m_Thomas) && detectCollisions(m_Bob2))
 		{
 			// New level required
 			m_NewLevelRequired = true;
@@ -46,7 +48,9 @@ void Engine::update(float dtAsSeconds)
 		else
 		{
 			// Run bobs collision detection
-			detectCollisions(m_Bob);
+			detectCollisions(m_Bob0);
+			detectCollisions(m_Bob1);
+			detectCollisions(m_Bob2);
 		}
 
 		// Count down the time the player has left
@@ -87,7 +91,7 @@ void Engine::update(float dtAsSeconds)
 	if (m_SplitScreen)
 	{
 		m_LeftView.setCenter(m_Thomas.getCenter());
-		m_RightView.setCenter(m_Bob.getCenter());
+		m_RightView.setCenter(m_Bob0.getCenter());
 	}
 	else
 	{
@@ -98,7 +102,7 @@ void Engine::update(float dtAsSeconds)
 		}
 		else
 		{
-			m_MainView.setCenter(m_Bob.getCenter());
+			m_MainView.setCenter(m_Bob0.getCenter());
 		}
 	}
 

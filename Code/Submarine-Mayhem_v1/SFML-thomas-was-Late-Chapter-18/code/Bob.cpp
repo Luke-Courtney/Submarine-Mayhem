@@ -2,6 +2,16 @@
 #include "TextureHolder.h"
 #include <iostream>
 
+/*
+References to Bobs in:
+- Engine.h
+- Engine.cpp
+- Draw.cpp
+- LoadLevel.cpp
+- Update.cpp
+- DetectCollisions.cpp
+*/
+
 Bob::Bob()
 {
 	// Associate a texture with the sprite

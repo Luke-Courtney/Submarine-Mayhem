@@ -24,8 +24,15 @@ void Engine::loadLevel()
 
 	// Spawn Thomas and Bob
 	m_Thomas.spawn(m_LM.getStartPosition(), GRAVITY);
-	m_Bob.setType(2);
-	m_Bob.spawn(Vector2f(750, 450), GRAVITY);
+
+	m_Bob0.setType(0);
+	m_Bob0.spawn(Vector2f(750, 450), GRAVITY);
+
+	m_Bob1.setType(1);
+	m_Bob1.spawn(Vector2f(3700, 650), GRAVITY);
+
+	m_Bob2.setType(2);
+	m_Bob2.spawn(Vector2f(1800, 900), GRAVITY);
 
 	// Make sure this code isn't run again
 	m_NewLevelRequired = false;

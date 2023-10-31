@@ -30,8 +30,21 @@ void Engine::input()
 		m_SM.playJump();
 	}
 
-	// Handle input specific to Bob
-	if (m_Bob.handleInput())
+	// Handle input specific to Bobs
+	if (m_Bob0.handleInput())
+	{
+		// Play a jump sound
+		m_SM.playJump();
+	}
+
+	if (m_Bob1.handleInput())
+	{
+		// Play a jump sound
+		m_SM.playJump();
+	}
+
+
+	if (m_Bob2.handleInput())
 	{
 		// Play a jump sound
 		m_SM.playJump();
