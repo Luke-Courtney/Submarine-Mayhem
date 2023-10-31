@@ -70,6 +70,8 @@ Engine::Engine()
 	healthPickup.refreshSprite();
 	SpeedBoost.refreshSprite();
 
+	srand(time(0));
+
 }// End Engine constructor
 
 void Engine::run()
@@ -79,45 +81,17 @@ void Engine::run()
 
 	while (m_Window.isOpen())
 	{
-		Time dt2;
+		//Time dt2;
 		Time dt = clock.restart();
 		// Update the total game time
 		m_GameTimeTotal += dt;
 		// Make a decimal fraction from the delta time
 		float dtAsSeconds = dt.asSeconds();
 
-		if (healthPickup.spawnNum != 3)
-		{
-			if ((m_Bob.getHealth() < 1))
-			{
-				healthPickup.spawnNum = 2;
-			}
-		}
-		if (healthPickup.spawnNum==2)
-		{
-			healthPickup.spawn(Vector2f(m_Bob.getCenter().x, m_Bob.getCenter().y), GRAVITY);
-			SpeedBoost.spawn(Vector2f(m_Bob.getCenter().x, m_Bob.getCenter().y+60), GRAVITY);
-			
-			m_Bob.die();
-			healthPickup.spawnNum = 3;
-		}
-
-		//if (SpeedBoost.BoostTimeEnd == false)
-		//{
-		//	dt2 = clock.restart();
-		//	SpeedBoost.boostTime -= dt2.asSeconds();
-
-		//}
-		//if (SpeedBoost.boostTime <= 0)
-		//{
-		//	SpeedBoost.BoostTimeEnd = true;
-		//	m_Thomas.setSpeed(4);
-		//}
-
 		if (Keyboard::isKeyPressed(Keyboard::O))
 		{
 
-			std::cout << m_Thomas.m_Speed << "Time remining for Boost: " << SpeedBoost.boostTime << "\n";
+			std::cout << m_Thomas.m_Speed << " Time remining for Boost: " << SpeedBoost.boostTime << "\n";
 		}
 
 		input();

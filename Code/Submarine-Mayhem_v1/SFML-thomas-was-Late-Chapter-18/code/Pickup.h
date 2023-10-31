@@ -31,6 +31,7 @@ public:
 	// How much is this pickup worth?
 	int m_Value = 0;
 
+
 	int spawnNum = 1;
 
 	// What type of pickup is this? 
