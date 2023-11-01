@@ -25,6 +25,8 @@ void Engine::update(float dtAsSeconds)
 
 	if (m_Playing)
 	{
+		Time dt2;
+		Clock clock;
 		// Update Thomas
 		m_Thomas.update(dtAsSeconds);
 
@@ -32,6 +34,45 @@ void Engine::update(float dtAsSeconds)
 		m_Bob0.update(dtAsSeconds);
 		m_Bob1.update(dtAsSeconds);
 		m_Bob2.update(dtAsSeconds);
+
+		healthPickup.update(dtAsSeconds);
+		SpeedBoost.update(dtAsSeconds);
+
+
+		if (healthPickup.spawnNum != 3)
+		{
+			if ((m_Bob.getHealth() < 1))
+			{
+				healthPickup.spawnNum = 2;
+			}
+		}
+		if (healthPickup.spawnNum == 2)
+		{
+			healthPickup.spawnNum = rand() % 2 + 4;
+			if (healthPickup.spawnNum == 4)
+			{
+				healthPickup.spawn(Vector2f(m_Bob.getCenter().x, m_Bob.getCenter().y), GRAVITY);
+			}
+			if (healthPickup.spawnNum == 5)
+			{
+				SpeedBoost.spawn(Vector2f(m_Bob.getCenter().x, m_Bob.getCenter().y), GRAVITY);
+			}
+
+			m_Bob.die();
+			healthPickup.spawnNum = 3;
+		}
+
+		//if (SpeedBoost.BoostTimeEnd == false)
+		//{
+		//	dt2 = clock.restart();
+		//	SpeedBoost.boostTime -= dt2.asSeconds();
+
+		//}
+		//if (SpeedBoost.boostTime <= 0)
+		//{
+		//	SpeedBoost.BoostTimeEnd = true;
+		//	m_Thomas.setSpeed(4);
+		//}
 
 		// Detect collisions and see if characters have reached the goal tile
 		// The second part of the if condition is only executed
@@ -111,7 +152,7 @@ void Engine::update(float dtAsSeconds)
 	m_FramesSinceLastHUDUpdate++;
 
 	// Update the HUD every m_TargetFramesPerHUDUpdate frames
-	if (m_FramesSinceLastHUDUpdate > m_TargetFramesPerHUDUpdate)
+	if (m_FramesSinceLastHUDUpdate > m_TargetFramesPerHUDUpdate) 
 	{
 		// Update game HUD text
 		stringstream ssTime;

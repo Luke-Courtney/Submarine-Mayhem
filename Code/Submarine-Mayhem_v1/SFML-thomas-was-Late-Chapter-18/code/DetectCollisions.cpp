@@ -99,7 +99,24 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 					character.stopClimbing(block.top);
 				}
 			}
-			
+
+			//collsion for player and Pickup
+			if (m_Thomas.getPosition().intersects
+			(healthPickup.getPosition()))
+			{
+				healthPickup.spawn(Vector2f(6900, 1500), GRAVITY);
+				m_Thomas.setHealth(healthPickup.gotIt()-30);
+			}
+
+			if (m_Thomas.getPosition().intersects
+			(SpeedBoost.getPosition()))
+			{
+				SpeedBoost.spawn(Vector2f(6900, 1500), GRAVITY);
+				m_Thomas.setSpeed(SpeedBoost.gotIt());
+				//SpeedBoost.BoostTimeEnd = false;
+			}
+
+
 			// More collision detection here once we have learned about particle effects
 			// Has the characters' feet touched fire or water?
 			// If so, start a particle effect

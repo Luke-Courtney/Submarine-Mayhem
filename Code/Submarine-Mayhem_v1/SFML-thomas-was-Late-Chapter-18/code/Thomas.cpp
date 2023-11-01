@@ -1,5 +1,6 @@
 #include "Thomas.h"
 #include "TextureHolder.h"
+#include <iostream>
 
 Thomas::Thomas()
 {
@@ -37,6 +38,12 @@ bool Thomas::handleInput()
 
 	}
 	*/
+
+	if (Keyboard::isKeyPressed(Keyboard::K))
+	{
+
+		std::cout << "player health: " << getHealth() << "\n";
+	}
 
 	if (Keyboard::isKeyPressed(Keyboard::W))
 	{
@@ -76,4 +83,17 @@ bool Thomas::handleInput()
 	}
 
 	return m_JustJumped;
+}
+
+void Thomas::setHealth(int h)
+{
+	health = h;
+}
+void Thomas::setSpeed(int S)
+{
+	m_Speed += S;
+}
+int Thomas::getHealth()
+{
+	return health;
 }

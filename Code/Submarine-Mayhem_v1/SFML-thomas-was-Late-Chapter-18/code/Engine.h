@@ -7,6 +7,7 @@
 #include "SoundManager.h"
 #include "HUD.h"
 #include "ParticleSystem.h"
+#include "Pickup.h"
 
 using namespace sf;
 
@@ -24,6 +25,9 @@ private:
 	Bob m_Bob0;
 	Bob m_Bob1;
 	Bob m_Bob2;
+
+	Pickup healthPickup;
+	Pickup SpeedBoost;
 
 	// A class to manage all the levels
 	LevelManager m_LM;

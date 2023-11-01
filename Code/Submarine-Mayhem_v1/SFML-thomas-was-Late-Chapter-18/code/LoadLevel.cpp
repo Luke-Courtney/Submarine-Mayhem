@@ -34,6 +34,10 @@ void Engine::loadLevel()
 	m_Bob2.setType(2);
 	m_Bob2.spawn(Vector2f(1800, 900), GRAVITY);
 
+	healthPickup.spawn(Vector2f(6900, 1500), GRAVITY);
+	SpeedBoost.spawn(Vector2f(6900, 1600), GRAVITY);
+	
+
 	// Make sure this code isn't run again
 	m_NewLevelRequired = false;
 }

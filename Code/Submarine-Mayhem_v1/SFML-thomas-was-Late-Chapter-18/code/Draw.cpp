@@ -32,6 +32,10 @@ void Engine::draw()
 		m_Window.draw(m_Bob1.getSprite());
 		m_Window.draw(m_Bob2.getSprite());
 
+		//draw Pickup
+		m_Window.draw(healthPickup.getSprite());
+		m_Window.draw(SpeedBoost.getSprite());
+
 		// Draw the particle system
 		if (m_PS.running())
 		{
@@ -66,6 +70,11 @@ void Engine::draw()
 		// Draw thomas
 		m_Window.draw(m_Thomas.getSprite());
 
+		//draw Pickup
+		m_Window.draw(healthPickup.getSprite());
+		m_Window.draw(SpeedBoost.getSprite());
+
+
 		// Draw the particle system
 		if (m_PS.running())
 		{
@@ -95,6 +104,10 @@ void Engine::draw()
 		m_Window.draw(m_Bob0.getSprite());
 		m_Window.draw(m_Bob1.getSprite());
 		m_Window.draw(m_Bob2.getSprite());
+
+		//draw Pickup
+		m_Window.draw(healthPickup.getSprite());
+		m_Window.draw(SpeedBoost.getSprite());
 
 		// Draw the particle system
 		if (m_PS.running())

@@ -33,6 +33,7 @@
     <ClCompile Include="code\Main.cpp" />
     <ClCompile Include="code\Particle.cpp" />
     <ClCompile Include="code\ParticleSystem.cpp" />
+    <ClCompile Include="code\Pickup.cpp" />
     <ClCompile Include="code\PlayableCharacter.cpp" />
     <ClCompile Include="code\PopulateEmitters.cpp" />
     <ClCompile Include="code\SoundManager.cpp" />
@@ -47,6 +48,7 @@
     <ClInclude Include="code\LevelManager.h" />
     <ClInclude Include="code\Particle.h" />
     <ClInclude Include="code\ParticleSystem.h" />
+    <ClInclude Include="code\Pickup.h" />
     <ClInclude Include="code\PlayableCharacter.h" />
     <ClInclude Include="code\SoundManager.h" />
     <ClInclude Include="code\TextureHolder.h" />
