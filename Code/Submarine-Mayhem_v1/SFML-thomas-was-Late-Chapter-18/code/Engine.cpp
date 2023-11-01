@@ -1,7 +1,6 @@
 #include "Engine.h"
 #include <iostream>
 
-
 Engine::Engine()
 {
 	// Get the screen resolution and create an SFML window and View
@@ -30,7 +29,26 @@ Engine::Engine()
 
 	m_BGRightView.setViewport(
 		FloatRect(0.5f, 0.001f, 0.499f, 0.998f));
+	//Set up a menu
+	m_MenuTexture = TextureHolder::GetTexture("graphics/menu.png");
+	m_Menu.setTexture(m_MenuTexture);
+	m_Menu.setPosition(0, 0);
+	// Time bar
+	//timeRemaining = 20;
+	timeBar.setSize(Vector2f(timeBarStartWidth, timeBarHeight));
+	timeBar.setFillColor(Color::Red);
+	timeBar.setPosition((1920 / 2) - timeBarStartWidth / 2, 1080);
+	timeBarWidthPerSecond = timeBarStartWidth / timeRemaining;
+	
+	
+	//set offset value between player and timebar
+	offset.x = 0;
+	offset.y = 450;
+	
 
+		
+
+		
 	// Can this graphics card use shaders?
 	if (!sf::Shader::isAvailable())
 	{

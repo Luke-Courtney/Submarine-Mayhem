@@ -6,6 +6,39 @@ using namespace sf;
 
 void Engine::update(float dtAsSeconds)
 {
+	
+	// Measure time
+	dt = clock.restart();
+	// Subtract from the amount of time remaining
+	timeRemaining = timeRemaining - dt.asSeconds();
+	// size up the time bar
+	timeBar.setSize(Vector2f(timeBarWidthPerSecond *
+		timeRemaining, timeBarHeight));
+
+	timeBar.setPosition(m_Thomas.getCenter() + offset);
+	
+	//if oxygen runs out display a message
+	if (timeRemaining > 0.0f) {
+		//Message for out of oxygen
+		messageText.setCharacterSize(75);
+		messageText.setFillColor(Color::Red);
+		// Change the message shown to the player
+		messageText.setString("Ran Out Of Oxygen!");
+		
+		//Reposition the text based on its new size
+		FloatRect textRect = messageText.getLocalBounds();
+		messageText.setOrigin(textRect.left +
+			textRect.width / 2.0f,
+			textRect.top +
+			textRect.height / 2.0f);
+		
+		messageText.setPosition(m_Thomas.getCenter());
+		//draw message
+		m_Window.draw(messageText);
+	}
+
+
+
 	if (m_NewLevelRequired)
 	{
 		// These calls to spawn will be moved to a new

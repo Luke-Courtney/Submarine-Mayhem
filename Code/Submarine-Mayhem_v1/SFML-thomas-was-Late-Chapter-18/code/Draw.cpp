@@ -37,7 +37,9 @@ void Engine::draw()
 		m_Window.draw(MaxSpeed.getSprite());
 		m_Window.draw(healthPickup2.getSprite());
 
-
+		//draw timebar
+		m_Window.draw(timeBar);
+		
 		// Draw the particle system
 		if (m_PS.running())
 		{
@@ -84,7 +86,9 @@ void Engine::draw()
 		m_Window.draw(healthPickup.getSprite());
 		m_Window.draw(MaxSpeed.getSprite());
 
-
+		//draw timebar
+		m_Window.draw(timeBar);
+		m_Window.draw(m_Menu);
 		// Draw the particle system
 		if (m_PS.running())
 		{
@@ -128,6 +132,9 @@ void Engine::draw()
 		m_Window.draw(MaxSpeed.getSprite());
 		m_Window.draw(healthPickup2.getSprite());
 
+		//draw timebar
+		m_Window.draw(timeBar);
+
 		// Draw the particle system
 		if (m_PS.running())
 		{
@@ -143,6 +150,7 @@ void Engine::draw()
 	m_Window.draw(m_Hud.getTime());
 	//ammo text
 	m_Window.draw(m_Hud.getAmmo());
+	m_Window.draw(m_Menu);
 	if (!m_Playing)
 	{
 		m_Window.draw(m_Hud.getMessage());

@@ -9,12 +9,7 @@ Hud::Hud()
 	// Load the font
 	m_Font.loadFromFile("fonts/Roboto-Light.ttf");
 
-	// Paused
-	m_StartText.setFont(m_Font);
-	m_StartText.setCharacterSize(100);
-	m_StartText.setFillColor(Color::White);
-	m_StartText.setString("Press Enter when ready!");
-
+	
 	// Position the text
 	FloatRect textRect = m_StartText.getLocalBounds();
 

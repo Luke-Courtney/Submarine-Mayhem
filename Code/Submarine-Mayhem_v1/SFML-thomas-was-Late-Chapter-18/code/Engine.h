@@ -65,9 +65,21 @@ private:
 
 	// The force pushing the characters down
 	const int GRAVITY = 300;
-
+	//Text display
+	Text messageText;
 	// A regular RenderWindow
 	RenderWindow m_Window;
+	//Variable to control time
+	Clock clock;
+	//Total game time
+	Time gameTimeTotal;
+	//Make timebar a rectangle shape
+	RectangleShape timeBar;
+	//MENU
+	Sprite m_Menu;
+	Texture m_MenuTexture;
+	//message
+	FloatRect textRect = messageText.getLocalBounds();
 
 	// The main Views
 	View m_MainView;
@@ -132,7 +144,15 @@ private:
 	vector <Vector2f> m_FireEmitters;
 
 	
-	
+
+	//Oxygen bar
+	float timeBarStartWidth = 400;
+	float timeBarHeight = 80;
+	float timeRemaining = 20.0f;
+	float timeBarWidthPerSecond;
+	Time dt;
+	//offset between player and timebar
+	sf::Vector2f offset;
 public:
 	// The Engine constructor
 	Engine();
