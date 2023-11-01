@@ -58,11 +58,17 @@ void Engine::update(float dtAsSeconds)
 			m_NewLevelRequired = true;
 		}
 
+		// Where is the mouse pointer
+		mouseScreenPosition = Mouse::getPosition();
+
+		// Convert mouse position to world coordinates of mainView
+		mouseWorldPosition = m_Window.mapPixelToCoords(Mouse::getPosition(), m_MainView);
+		
 		// Fire a bullet
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 		{
 
-			if (gameTimeTotal.asMilliseconds()
+			if (m_GameTimeTotal.asMilliseconds()
 				- lastPressed.asMilliseconds()
 					> 1000 / fireRate && bulletsInClip > 0)
 			{
@@ -78,14 +84,14 @@ void Engine::update(float dtAsSeconds)
 				{
 					currentBullet = 0;
 				}
-				lastPressed = gameTimeTotal;
+				lastPressed = m_GameTimeTotal;
 				//shoot.play();
 				bulletsInClip--;
 			}
 
 		}// End fire a bullet
-
-		// Update any bullets that are in-flight
+		
+		// Update any bullets that are in - flight
 		for (int i = 0; i < 100; i++)
 		{
 			if (bullets[i].isInFlight())
@@ -93,7 +99,24 @@ void Engine::update(float dtAsSeconds)
 				bullets[i].update(dtAsSeconds);
 			}
 		}
-
+		
+		// Reloading
+		if (Keyboard::isKeyPressed(Keyboard::R))
+		{
+			if (bulletsSpare >= clipSize)
+			{
+				// Plenty of bullets. Reload.
+				bulletsInClip = clipSize;
+				bulletsSpare -= clipSize;
+			}
+			else if (bulletsSpare > 0)
+			{
+				// Only few bullets left
+				bulletsInClip = bulletsSpare;
+				bulletsSpare = 0;
+			}
+			
+		}
 	}// End if playing
 
 	// Check if a fire sound needs to be played
@@ -148,6 +171,7 @@ void Engine::update(float dtAsSeconds)
 		// Update game HUD text
 		stringstream ssTime;
 		stringstream ssLevel;
+		stringstream ssAmmo;
 
 		// Update the time text
 		ssTime << (int)m_TimeRemaining;
@@ -156,6 +180,11 @@ void Engine::update(float dtAsSeconds)
 		// Update the level text
 		ssLevel << "Level:" << m_LM.getCurrentLevel();
 		m_Hud.setLevel(ssLevel.str());
+
+		// Update the ammo text
+		ssAmmo << "Ammo:" << m_LM.getCurrentLevel();
+		ssAmmo << bulletsInClip << "/" << bulletsSpare;
+		m_Hud.setAmmo(ssAmmo.str());
 
 		m_FramesSinceLastHUDUpdate = 0;
 	}

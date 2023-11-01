@@ -35,6 +35,14 @@ void Engine::draw()
 		{
 			m_Window.draw(m_PS);
 		}
+
+		for (int i = 0; i < 100; i++)
+		{
+			if (bullets[i].isInFlight())
+			{
+				m_Window.draw(bullets[i].getShape());
+			}
+		}
 	}
 	else
 	{
@@ -68,6 +76,14 @@ void Engine::draw()
 			m_Window.draw(m_PS);
 		}
 		
+		for (int i = 0; i < 100; i++)
+		{
+			if (bullets[i].isInFlight())
+			{
+				m_Window.draw(bullets[i].getShape());
+			}
+		}
+
 		// Now draw Bob's side of the screen
 
 		// Switch to background view
@@ -103,6 +119,8 @@ void Engine::draw()
 	m_Window.setView(m_HudView);
 	m_Window.draw(m_Hud.getLevel());
 	m_Window.draw(m_Hud.getTime());
+	//ammo text
+	m_Window.draw(m_Hud.getAmmo());
 	if (!m_Playing)
 	{
 		m_Window.draw(m_Hud.getMessage());

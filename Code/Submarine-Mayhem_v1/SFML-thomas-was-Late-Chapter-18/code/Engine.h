@@ -1,4 +1,6 @@
 #pragma once
+#include <sstream>
+#include <fstream>
 #include <SFML/Graphics.hpp>
 #include "TextureHolder.h"
 #include "Thomas.h"
@@ -24,28 +26,21 @@ private:
 	Thomas m_Thomas;
 	Bob m_Bob;
 
+	// Where is the mouse in relation to world coordinates
+	Vector2f mouseWorldPosition;
+	// Where is the mouse in relation to screen coordinates
+	Vector2i mouseScreenPosition;
+
 	// 100 bullets should do
-	Bullet bullets[100];
+	Bullet bullets[999];
 	int currentBullet = 0;
-	int bulletsSpare = 24;
-	int bulletsInClip = 6;
-	int clipSize = 6;
+	int bulletsSpare = 999;
+	int bulletsInClip = 999;
+	int clipSize = 999;
 	float fireRate = 1;
 	// When was the fire button last pressed?
 	Time lastPressed;
-
-	// Ammo
-	Text ammoText;
-	//ammoText.setFont(font);
-	//ammoText.setCharacterSize(55);
-	//ammoText.setFillColor(Color::White);
-	//ammoText.setPosition(200, 980);
-
-	// How long has the game been played
-	Time gameTimeTotal;
-
-	// Where is the mouse in relation to world coordinates
-	Vector2f mouseWorldPosition;
+	Bullet isInFlight;
 
 	// A class to manage all the levels
 	LevelManager m_LM;
