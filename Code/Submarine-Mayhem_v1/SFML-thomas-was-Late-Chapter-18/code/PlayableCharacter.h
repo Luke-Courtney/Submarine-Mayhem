@@ -29,10 +29,6 @@ protected:
 	// Where is the player
 	Vector2f m_Position;
 
-
-	// How fast is the character
-	float m_Speed = 400; //Max speed
-
 	// Private variables and functions come next
 private:
 	// What is the gravity

@@ -39,9 +39,10 @@ void Engine::update(float dtAsSeconds)
 		SpeedBoost.update(dtAsSeconds);
 
 
+		//Pickups from bob0
 		if (healthPickup.spawnNum != 3)
 		{
-			if ((m_Bob.getHealth() < 1))
+			if ((m_Bob0.getHealth() < 1))
 			{
 				healthPickup.spawnNum = 2;
 			}
@@ -51,14 +52,62 @@ void Engine::update(float dtAsSeconds)
 			healthPickup.spawnNum = rand() % 2 + 4;
 			if (healthPickup.spawnNum == 4)
 			{
-				healthPickup.spawn(Vector2f(m_Bob.getCenter().x, m_Bob.getCenter().y), GRAVITY);
+				healthPickup.spawn(Vector2f(m_Bob0.getCenter().x, m_Bob0.getCenter().y), GRAVITY);
 			}
 			if (healthPickup.spawnNum == 5)
 			{
-				SpeedBoost.spawn(Vector2f(m_Bob.getCenter().x, m_Bob.getCenter().y), GRAVITY);
+				SpeedBoost.spawn(Vector2f(m_Bob0.getCenter().x, m_Bob0.getCenter().y), GRAVITY);
 			}
 
-			m_Bob.die();
+			m_Bob0.die();
+			healthPickup.spawnNum = 3;
+		}
+
+		//Pickups from bob1
+		if (healthPickup.spawnNum != 3)
+		{
+			if ((m_Bob1.getHealth() < 1))
+			{
+				healthPickup.spawnNum = 2;
+			}
+		}
+		if (healthPickup.spawnNum == 2)
+		{
+			healthPickup.spawnNum = rand() % 2 + 4;
+			if (healthPickup.spawnNum == 4)
+			{
+				healthPickup.spawn(Vector2f(m_Bob1.getCenter().x, m_Bob1.getCenter().y), GRAVITY);
+			}
+			if (healthPickup.spawnNum == 5)
+			{
+				SpeedBoost.spawn(Vector2f(m_Bob1.getCenter().x, m_Bob1.getCenter().y), GRAVITY);
+			}
+
+			m_Bob1.die();
+			healthPickup.spawnNum = 3;
+		}
+
+		//Pickups from bob2
+		if (healthPickup.spawnNum != 3)
+		{
+			if ((m_Bob2.getHealth() < 1))
+			{
+				healthPickup.spawnNum = 2;
+			}
+		}
+		if (healthPickup.spawnNum == 2)
+		{
+			healthPickup.spawnNum = rand() % 2 + 4;
+			if (healthPickup.spawnNum == 4)
+			{
+				healthPickup.spawn(Vector2f(m_Bob2.getCenter().x, m_Bob2.getCenter().y), GRAVITY);
+			}
+			if (healthPickup.spawnNum == 5)
+			{
+				SpeedBoost.spawn(Vector2f(m_Bob2.getCenter().x, m_Bob2.getCenter().y), GRAVITY);
+			}
+
+			m_Bob2.die();
 			healthPickup.spawnNum = 3;
 		}
 
