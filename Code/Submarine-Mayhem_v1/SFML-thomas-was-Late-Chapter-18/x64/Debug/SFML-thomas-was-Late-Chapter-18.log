@@ -1,62 +1,107 @@
 ﻿  Bob.cpp
   DetectCollisions.cpp
+<<<<<<< HEAD
 C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\DetectCollisions.cpp(13,16): warning C4244: '=': conversion from 'const int' to 'T', possible loss of data
+=======
+C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\DetectCollisions.cpp(13,16): warning C4244: '=': conversion from 'const int' to 'T', possible loss of data
+>>>>>>> Shooting
           with
           [
               T=float
           ]
+<<<<<<< HEAD
 C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\DetectCollisions.cpp(14,17): warning C4244: '=': conversion from 'const int' to 'T', possible loss of data
+=======
+C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\DetectCollisions.cpp(14,17): warning C4244: '=': conversion from 'const int' to 'T', possible loss of data
+>>>>>>> Shooting
           with
           [
               T=float
           ]
+<<<<<<< HEAD
 C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\DetectCollisions.cpp(34,81): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+=======
+C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\DetectCollisions.cpp(34,81): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+>>>>>>> Shooting
           with
           [
               T=float
           ]
+<<<<<<< HEAD
 C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\DetectCollisions.cpp(34,46): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+=======
+C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\DetectCollisions.cpp(34,46): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+>>>>>>> Shooting
           with
           [
               T=float
           ]
+<<<<<<< HEAD
 C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\DetectCollisions.cpp(38,44): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
 C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\DetectCollisions.cpp(45,44): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
 C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\DetectCollisions.cpp(53,19): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+=======
+C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\DetectCollisions.cpp(38,44): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
+C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\DetectCollisions.cpp(46,19): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+>>>>>>> Shooting
           with
           [
               T=float
           ]
+<<<<<<< HEAD
 C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\DetectCollisions.cpp(54,18): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+=======
+C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\DetectCollisions.cpp(47,18): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+>>>>>>> Shooting
           with
           [
               T=float
           ]
+<<<<<<< HEAD
 C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\DetectCollisions.cpp(62,47): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
 C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\DetectCollisions.cpp(107,46): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
 C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\DetectCollisions.cpp(114,44): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
   Draw.cpp
   Engine.cpp
 C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\Engine.cpp(9,44): warning C4244: '=': conversion from 'unsigned int' to 'T', possible loss of data
+=======
+C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\DetectCollisions.cpp(55,47): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
+  Draw.cpp
+  Engine.cpp
+C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\Engine.cpp(8,44): warning C4244: '=': conversion from 'unsigned int' to 'T', possible loss of data
+>>>>>>> Shooting
           with
           [
               T=float
           ]
+<<<<<<< HEAD
 C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\Engine.cpp(10,44): warning C4244: '=': conversion from 'unsigned int' to 'T', possible loss of data
+=======
+C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\Engine.cpp(9,44): warning C4244: '=': conversion from 'unsigned int' to 'T', possible loss of data
+>>>>>>> Shooting
           with
           [
               T=float
           ]
+<<<<<<< HEAD
 C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\Engine.cpp(12,52): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
+=======
+C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\Engine.cpp(11,52): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
+>>>>>>> Shooting
           with
           [
               T=float
           ]
+<<<<<<< HEAD
 C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\Engine.cpp(12,38): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
+=======
+C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\Engine.cpp(11,38): warning C4244: 'argument': conversion from 'T' to 'unsigned int', possible loss of data
+>>>>>>> Shooting
           with
           [
               T=float
           ]
+<<<<<<< HEAD
 C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\Engine.cpp(76,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   Input.cpp
   LoadLevel.cpp
@@ -72,82 +117,234 @@ C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Ch
 C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\Pickup.cpp(86,32): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
   PlayableCharacter.cpp
 C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\PlayableCharacter.cpp(117,21): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+=======
+  HUD.cpp
+C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\HUD.cpp(32,38): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+          with
+          [
+              T=unsigned int
+          ]
+  Input.cpp
+  LevelManager.cpp
+C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\LevelManager.cpp(69,26): warning C4267: '=': conversion from 'size_t' to 'T', possible loss of data
+          with
+          [
+              T=int
+          ]
+C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\LevelManager.cpp(115,31): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
+C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\LevelManager.cpp(115,16): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\LevelManager.cpp(118,45): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\LevelManager.cpp(118,30): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\LevelManager.cpp(121,59): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\LevelManager.cpp(121,30): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\LevelManager.cpp(124,47): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\LevelManager.cpp(124,17): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\LevelManager.cpp(130,19): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\LevelManager.cpp(133,27): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\LevelManager.cpp(133,14): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\LevelManager.cpp(136,35): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\LevelManager.cpp(136,14): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\LevelManager.cpp(139,27): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+  LoadLevel.cpp
+C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\LoadLevel.cpp(26,42): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
+C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\LoadLevel.cpp(27,39): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
+  Main.cpp
+  Particle.cpp
+  ParticleSystem.cpp
+C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\ParticleSystem.cpp(16,17): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  PlayableCharacter.cpp
+C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\PlayableCharacter.cpp(117,21): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+>>>>>>> Shooting
+          with
+          [
+              T=float
+          ]
+<<<<<<< HEAD
 C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\PlayableCharacter.cpp(123,38): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+=======
+C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\PlayableCharacter.cpp(123,38): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+>>>>>>> Shooting
           with
           [
               T=float
           ]
+<<<<<<< HEAD
 C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\PlayableCharacter.cpp(125,33): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+=======
+C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\PlayableCharacter.cpp(125,33): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+>>>>>>> Shooting
           with
           [
               T=float
           ]
+<<<<<<< HEAD
 C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\PlayableCharacter.cpp(129,38): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+=======
+C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\PlayableCharacter.cpp(129,38): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+>>>>>>> Shooting
           with
           [
               T=float
           ]
+<<<<<<< HEAD
 C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\PlayableCharacter.cpp(131,32): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+=======
+C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\PlayableCharacter.cpp(131,32): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
+>>>>>>> Shooting
           with
           [
               T=float
           ]
   PopulateEmitters.cpp
+<<<<<<< HEAD
 C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\PopulateEmitters.cpp(11,22): warning C4858: discarding return value: This member function returns a bool indicating whether the container is empty and has no other effects. It is not useful to call this member function and discard the return value. Use the 'clear()' member function if you want to erase all elements.
 C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\PopulateEmitters.cpp(29,6): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
+=======
+C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\PopulateEmitters.cpp(11,22): warning C4858: discarding return value: This member function returns a bool indicating whether the container is empty and has no other effects. It is not useful to call this member function and discard the return value. Use the 'clear()' member function if you want to erase all elements.
+C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\PopulateEmitters.cpp(29,6): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
+>>>>>>> Shooting
           with
           [
               T=float
           ]
+<<<<<<< HEAD
 C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\PopulateEmitters.cpp(28,6): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
+=======
+C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\PopulateEmitters.cpp(28,6): warning C4244: 'argument': conversion from 'const int' to 'T', possible loss of data
+>>>>>>> Shooting
           with
           [
               T=float
           ]
+<<<<<<< HEAD
 C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\PopulateEmitters.cpp(27,8): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+=======
+C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\PopulateEmitters.cpp(27,8): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+>>>>>>> Shooting
           with
           [
               T=float
           ]
+<<<<<<< HEAD
 C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\PopulateEmitters.cpp(26,22): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+=======
+C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\PopulateEmitters.cpp(26,22): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+>>>>>>> Shooting
           with
           [
               T=float
           ]
+<<<<<<< HEAD
 C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\PopulateEmitters.cpp(33,33): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+=======
+C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\PopulateEmitters.cpp(33,33): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+>>>>>>> Shooting
           with
           [
               T=float
           ]
+<<<<<<< HEAD
 C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\PopulateEmitters.cpp(33,18): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+=======
+C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\PopulateEmitters.cpp(33,18): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+>>>>>>> Shooting
           with
           [
               T=float
           ]
+<<<<<<< HEAD
 C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\PopulateEmitters.cpp(38,31): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+=======
+C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\PopulateEmitters.cpp(38,31): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+>>>>>>> Shooting
           with
           [
               T=float
           ]
+<<<<<<< HEAD
 C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\PopulateEmitters.cpp(39,30): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+=======
+C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\PopulateEmitters.cpp(39,30): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+>>>>>>> Shooting
           with
           [
               T=float
           ]
+<<<<<<< HEAD
 C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\PopulateEmitters.cpp(40,40): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+=======
+C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\PopulateEmitters.cpp(40,40): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+>>>>>>> Shooting
           with
           [
               T=float
           ]
+<<<<<<< HEAD
 C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\PopulateEmitters.cpp(41,41): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+=======
+C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\PopulateEmitters.cpp(41,41): warning C4244: '=': conversion from 'int' to 'T', possible loss of data
+>>>>>>> Shooting
           with
           [
               T=float
           ]
+<<<<<<< HEAD
   Thomas.cpp
 C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\Thomas.cpp(11,19): warning C4305: '=': truncation from 'double' to 'float'
   Update.cpp
@@ -160,3 +357,12 @@ C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Ch
   Generating Code...
   LINK : C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\x64\Debug\Submarine-Mayhem.exe not found or not built by the last incremental link; performing full link
   SFML-thomas-was-Late-Chapter-18.vcxproj -> C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\x64\Debug\Submarine-Mayhem.exe
+=======
+  SoundManager.cpp
+  TextureHolder.cpp
+  Thomas.cpp
+C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\Thomas.cpp(10,19): warning C4305: '=': truncation from 'double' to 'float'
+  Update.cpp
+  Generating Code...
+  SFML-thomas-was-Late-Chapter-18.vcxproj -> C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\x64\Debug\Submarine-Mayhem.exe
+>>>>>>> Shooting
