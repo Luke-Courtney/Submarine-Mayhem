@@ -104,7 +104,7 @@ void Bob::damage(int damage)
 	m_Health = m_Health - damage;
 	if (m_Health < 1)
 	{
-
+		die();
 	}
 }
 

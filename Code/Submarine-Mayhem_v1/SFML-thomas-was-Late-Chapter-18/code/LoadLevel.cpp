@@ -37,7 +37,7 @@ void Engine::loadLevel()
 	healthPickup.spawn(Vector2f(6900, 1500), GRAVITY);
 	MaxSpeed.spawn(Vector2f(6900, 1600), GRAVITY);
 	healthPickup2.spawn(Vector2f(6900, 1700), GRAVITY);
-	SpeedBoost.spawn(Vector2f(6900, 1600), GRAVITY);
+	//SpeedBoost.spawn(Vector2f(6900, 1600), GRAVITY);
 	
 
 	// Make sure this code isn't run again

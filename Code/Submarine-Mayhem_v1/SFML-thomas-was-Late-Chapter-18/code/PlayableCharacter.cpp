@@ -200,8 +200,6 @@ void PlayableCharacter::stopLeft(float position)
 {
 	m_Position.x = position + m_Sprite.getGlobalBounds().width;
 	m_Sprite.setPosition(m_Position);
-
-	m_Sprite.setRotation(90); //TEST TO DETECT stopLeft()
 }
 
 void PlayableCharacter::stopJump()
