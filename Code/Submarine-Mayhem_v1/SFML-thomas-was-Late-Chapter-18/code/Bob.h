@@ -21,6 +21,13 @@ public:
 	int m_Health = 10;
 	bool alive;
 
+	//Enemy type
+	int m_type = 0; //0,1,2
+
+	//Set type
+	void setType(int newType);
+	void setSpriteType();
+
 	void setHealth(int newHealth);
 	int getHealth();
 	void damage(int damage);

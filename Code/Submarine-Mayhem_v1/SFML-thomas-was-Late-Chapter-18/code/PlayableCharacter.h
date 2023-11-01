@@ -34,9 +34,6 @@ private:
 	// What is the gravity
 	float m_Gravity;
 
-	// How fast is the character
-	float m_Speed = 400; //Max speed
-
 	float m_RightSpeed = 0;
 	float m_LeftSpeed = -0;
 	float m_UpSpeed = -0;
@@ -58,6 +55,9 @@ private:
 
 	// All our public functions will come next
 public:
+
+	// How fast is the character
+	float m_Speed = 400; //Max speed
 
 	void spawn(Vector2f startPosition, float gravity);
 

@@ -27,13 +27,31 @@ void Engine::draw()
 		// Draw thomas
 		m_Window.draw(m_Thomas.getSprite());
 
-		// Draw thomas
-		m_Window.draw(m_Bob.getSprite());
+		// Draw bobs
+		m_Window.draw(m_Bob0.getSprite());
+		m_Window.draw(m_Bob1.getSprite());
+		m_Window.draw(m_Bob2.getSprite());
 
+		//draw Pickup
+		m_Window.draw(healthPickup.getSprite());
+		m_Window.draw(MaxSpeed.getSprite());
+		m_Window.draw(healthPickup2.getSprite());
+
+		//draw timebar
+		m_Window.draw(timeBar);
+		
 		// Draw the particle system
 		if (m_PS.running())
 		{
 			m_Window.draw(m_PS);
+		}
+
+		for (int i = 0; i < 100; i++)
+		{
+			if (bullets[i].isInFlight())
+			{
+				m_Window.draw(bullets[i].getShape());
+			}
 		}
 	}
 	else
@@ -56,18 +74,35 @@ void Engine::draw()
 		// Draw the Level
 		m_Window.draw(m_VALevel, &m_TextureTiles);
 			
-		// Draw bob
-		m_Window.draw(m_Bob.getSprite());
+		// Draw bobs
+		m_Window.draw(m_Bob0.getSprite());
+		m_Window.draw(m_Bob1.getSprite());
+		m_Window.draw(m_Bob2.getSprite());
 
 		// Draw thomas
 		m_Window.draw(m_Thomas.getSprite());
 
+		//draw Pickup
+		m_Window.draw(healthPickup.getSprite());
+		m_Window.draw(MaxSpeed.getSprite());
+
+		//draw timebar
+		m_Window.draw(timeBar);
+		m_Window.draw(m_Menu);
 		// Draw the particle system
 		if (m_PS.running())
 		{
 			m_Window.draw(m_PS);
 		}
 		
+		for (int i = 0; i < 100; i++)
+		{
+			if (bullets[i].isInFlight())
+			{
+				m_Window.draw(bullets[i].getShape());
+			}
+		}
+
 		// Now draw Bob's side of the screen
 
 		// Switch to background view
@@ -87,8 +122,18 @@ void Engine::draw()
 		// Draw thomas
 		m_Window.draw(m_Thomas.getSprite());
 
-		// Draw bob
-		m_Window.draw(m_Bob.getSprite());
+		// Draw bobs
+		m_Window.draw(m_Bob0.getSprite());
+		m_Window.draw(m_Bob1.getSprite());
+		m_Window.draw(m_Bob2.getSprite());
+
+		//draw Pickup
+		m_Window.draw(healthPickup.getSprite());
+		m_Window.draw(MaxSpeed.getSprite());
+		m_Window.draw(healthPickup2.getSprite());
+
+		//draw timebar
+		m_Window.draw(timeBar);
 
 		// Draw the particle system
 		if (m_PS.running())
@@ -103,6 +148,9 @@ void Engine::draw()
 	m_Window.setView(m_HudView);
 	m_Window.draw(m_Hud.getLevel());
 	m_Window.draw(m_Hud.getTime());
+	//ammo text
+	m_Window.draw(m_Hud.getAmmo());
+	m_Window.draw(m_Menu);
 	if (!m_Playing)
 	{
 		m_Window.draw(m_Hud.getMessage());

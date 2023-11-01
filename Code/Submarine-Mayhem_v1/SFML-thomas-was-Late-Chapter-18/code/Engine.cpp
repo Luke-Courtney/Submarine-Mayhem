@@ -1,5 +1,5 @@
 #include "Engine.h"
-
+#include <iostream>
 
 Engine::Engine()
 {
@@ -29,7 +29,26 @@ Engine::Engine()
 
 	m_BGRightView.setViewport(
 		FloatRect(0.5f, 0.001f, 0.499f, 0.998f));
+	//Set up a menu
+	m_MenuTexture = TextureHolder::GetTexture("graphics/menu.png");
+	m_Menu.setTexture(m_MenuTexture);
+	m_Menu.setPosition(0, 0);
+	// Time bar
+	//timeRemaining = 20;
+	timeBar.setSize(Vector2f(timeBarStartWidth, timeBarHeight));
+	timeBar.setFillColor(Color::Red);
+	timeBar.setPosition((1920 / 2) - timeBarStartWidth / 2, 1080);
+	timeBarWidthPerSecond = timeBarStartWidth / timeRemaining;
+	
+	
+	//set offset value between player and timebar
+	offset.x = 0;
+	offset.y = 450;
+	
 
+		
+
+		
 	// Can this graphics card use shaders?
 	if (!sf::Shader::isAvailable())
 	{
@@ -59,7 +78,23 @@ Engine::Engine()
 
 
 	//Set bob patrol point
-	m_Bob.SetPatrolPoint(Vector2f(750, 450));
+	m_Bob0.SetPatrolPoint(Vector2f(750, 450));
+	m_Bob1.SetPatrolPoint(Vector2f(3700, 650));
+	m_Bob2.SetPatrolPoint(Vector2f(1800, 900));
+
+
+	healthPickup.m_Value = 10;
+	healthPickup2.m_Value = 25;
+	MaxSpeed.m_Value = 500;
+
+	healthPickup.m_Type = 1;
+	MaxSpeed.m_Type = 2;
+	healthPickup2.m_Type = 3;
+	healthPickup.refreshSprite();
+	healthPickup2.refreshSprite();
+	MaxSpeed.refreshSprite();
+
+	srand(time(0));
 
 }// End Engine constructor
 

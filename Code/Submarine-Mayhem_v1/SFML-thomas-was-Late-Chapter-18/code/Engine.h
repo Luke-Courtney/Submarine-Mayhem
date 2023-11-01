@@ -1,4 +1,6 @@
 #pragma once
+#include <sstream>
+#include <fstream>
 #include <SFML/Graphics.hpp>
 #include "TextureHolder.h"
 #include "Thomas.h"
@@ -7,6 +9,8 @@
 #include "SoundManager.h"
 #include "HUD.h"
 #include "ParticleSystem.h"
+#include "Pickup.h"
+#include "Bullet.h"
 
 using namespace sf;
 
@@ -21,7 +25,29 @@ private:
 
 	// Thomas and his friend, Bob
 	Thomas m_Thomas;
-	Bob m_Bob;
+	Bob m_Bob0;
+	Bob m_Bob1;
+	Bob m_Bob2;
+
+	Pickup healthPickup;
+	Pickup MaxSpeed;
+	Pickup healthPickup2;
+
+	// Where is the mouse in relation to world coordinates
+	Vector2f mouseWorldPosition;
+	// Where is the mouse in relation to screen coordinates
+	Vector2i mouseScreenPosition;
+
+	// 100 bullets should do
+	Bullet bullets[999];
+	int currentBullet = 0;
+	int bulletsSpare = 999;
+	int bulletsInClip = 999;
+	int clipSize = 999;
+	float fireRate = 1;
+	// When was the fire button last pressed?
+	Time lastPressed;
+	Bullet isInFlight;
 
 	// A class to manage all the levels
 	LevelManager m_LM;
@@ -39,9 +65,21 @@ private:
 
 	// The force pushing the characters down
 	const int GRAVITY = 300;
-
+	//Text display
+	Text messageText;
 	// A regular RenderWindow
 	RenderWindow m_Window;
+	//Variable to control time
+	Clock clock;
+	//Total game time
+	Time gameTimeTotal;
+	//Make timebar a rectangle shape
+	RectangleShape timeBar;
+	//MENU
+	Sprite m_Menu;
+	Texture m_MenuTexture;
+	//message
+	FloatRect textRect = messageText.getLocalBounds();
 
 	// The main Views
 	View m_MainView;
@@ -104,7 +142,17 @@ private:
 
 	// A vector of Vector2f for the fire emiiter locations
 	vector <Vector2f> m_FireEmitters;
+
 	
+
+	//Oxygen bar
+	float timeBarStartWidth = 400;
+	float timeBarHeight = 80;
+	float timeRemaining = 20.0f;
+	float timeBarWidthPerSecond;
+	Time dt;
+	//offset between player and timebar
+	sf::Vector2f offset;
 public:
 	// The Engine constructor
 	Engine();

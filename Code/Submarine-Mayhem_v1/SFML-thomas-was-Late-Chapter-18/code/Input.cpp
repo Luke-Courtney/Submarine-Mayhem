@@ -1,5 +1,4 @@
 #include "Engine.h"
-
 void Engine::input()
 {
 	Event event;
@@ -13,12 +12,14 @@ void Engine::input()
 			if (Keyboard::isKeyPressed(Keyboard::Escape))
 			{
 				m_Window.close();
+
 			}
 
 			// Handle the player starting the game
 			if (Keyboard::isKeyPressed(Keyboard::Return))
 			{
 				m_Playing = true;
+				m_Menu.setPosition(-5000, -5000);//GET RID OF MENU
 			}
 		}
 	}	
@@ -30,8 +31,21 @@ void Engine::input()
 		m_SM.playJump();
 	}
 
-	// Handle input specific to Bob
-	if (m_Bob.handleInput())
+	// Handle input specific to Bobs
+	if (m_Bob0.handleInput())
+	{
+		// Play a jump sound
+		m_SM.playJump();
+	}
+
+	if (m_Bob1.handleInput())
+	{
+		// Play a jump sound
+		m_SM.playJump();
+	}
+
+
+	if (m_Bob2.handleInput())
 	{
 		// Play a jump sound
 		m_SM.playJump();

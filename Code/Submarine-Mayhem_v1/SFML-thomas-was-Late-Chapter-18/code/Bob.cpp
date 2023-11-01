@@ -2,11 +2,21 @@
 #include "TextureHolder.h"
 #include <iostream>
 
+/*
+References to Bobs in:
+- Engine.h
+- Engine.cpp
+- Draw.cpp
+- LoadLevel.cpp
+- Update.cpp
+- DetectCollisions.cpp
+*/
+
 Bob::Bob()
 {
 	// Associate a texture with the sprite
 	m_Sprite = Sprite(TextureHolder::GetTexture(
-		"graphics/bob.png"));
+		"graphics/bob0.png"));
 
 	alive = true;
 
@@ -37,9 +47,39 @@ void Bob::patrol()
 //Teleports far from anything
 void Bob::die()
 {
-	m_Position = Vector2f(6900, 1400);
-	patrolPoint = Vector2f(6900, 1400);
+	m_Position = Vector2f(100, 100);
+	patrolPoint = Vector2f(100, 100);
 	alive = false;
+}
+
+void Bob::setType(int newType)
+{
+	m_type = newType;
+	setSpriteType();
+
+}
+
+void Bob::setSpriteType()
+{
+	switch (m_type)
+	{
+		case 0:
+			m_Sprite = Sprite(TextureHolder::GetTexture(
+				"graphics/bob0.png"));
+			m_Speed += 50;
+			break;
+
+		case 1:
+			m_Sprite = Sprite(TextureHolder::GetTexture(
+				"graphics/bob1.png"));
+			break;
+
+		case 2:
+			m_Sprite = Sprite(TextureHolder::GetTexture(
+				"graphics/bob2.png"));
+			m_Speed -= 50;
+			break;
+	}
 }
 
 //Set health value
@@ -48,7 +88,7 @@ void Bob::setHealth(int newHealth)
 	m_Health = newHealth;
 	if (m_Health < 1)
 	{
-		die();
+
 	}
 }
 

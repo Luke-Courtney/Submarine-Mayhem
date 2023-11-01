@@ -32,7 +32,7 @@ void PlayableCharacter::update(float elapsedTime)
 		m_Position.x += m_RightSpeed * elapsedTime;
 		m_Sprite.setScale(Vector2f(1, 1));
 	}
-	else if(m_RightSpeed > 0)
+	else if (m_RightSpeed > 0)
 	{
 		m_Position.x += m_RightSpeed * elapsedTime;
 		m_RightSpeed -= rampDown;
@@ -51,7 +51,7 @@ void PlayableCharacter::update(float elapsedTime)
 		m_Position.x += m_LeftSpeed * elapsedTime;
 		m_Sprite.setScale(Vector2f(-1, 1));
 	}
-	else if(m_LeftSpeed < 0)
+	else if (m_LeftSpeed < 0)
 	{
 		m_Position.x += m_LeftSpeed * elapsedTime;
 		m_LeftSpeed += rampDown;
@@ -102,6 +102,8 @@ void PlayableCharacter::update(float elapsedTime)
 		}
 	}
 
+
+
 	// Update the rect for all body parts
 	FloatRect r = getPosition();
 
@@ -127,7 +129,7 @@ void PlayableCharacter::update(float elapsedTime)
 	// Left
 	m_Left.left = r.left;
 	m_Left.top = r.top + r.height * .35 - 150;
-	m_Left.width = - 25;
+	m_Left.width = -25;
 	m_Left.height = r.height * .3 - 25;
 
 	// Move the sprite into position
@@ -144,7 +146,7 @@ Vector2f PlayableCharacter::getCenter()
 	return Vector2f(
 		m_Position.x + (m_Sprite.getGlobalBounds().width / 2) + 25,
 		m_Position.y + m_Sprite.getGlobalBounds().height / 2
-		);
+	);
 }
 
 FloatRect PlayableCharacter::getFeet()
@@ -189,7 +191,7 @@ void PlayableCharacter::stopFalling(float position)
 
 void PlayableCharacter::stopRight(float position)
 {
-	
+
 	m_Position.x = position - m_Sprite.getGlobalBounds().width;
 	m_Sprite.setPosition(m_Position);
 }
@@ -198,8 +200,6 @@ void PlayableCharacter::stopLeft(float position)
 {
 	m_Position.x = position + m_Sprite.getGlobalBounds().width;
 	m_Sprite.setPosition(m_Position);
-
-	m_Sprite.setRotation(90); //TEST TO DETECT stopLeft()
 }
 
 void PlayableCharacter::stopJump()
