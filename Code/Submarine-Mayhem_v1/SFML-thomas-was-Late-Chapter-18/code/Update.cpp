@@ -33,8 +33,10 @@ void Engine::update(float dtAsSeconds)
 		// Update Bob
 		m_Bob.update(dtAsSeconds);
 
+		//Update Pickups
 		healthPickup.update(dtAsSeconds);
-		SpeedBoost.update(dtAsSeconds);
+		MaxSpeed.update(dtAsSeconds);
+		healthPickup2.update(dtAsSeconds);
 
 
 		if (healthPickup.spawnNum != 3)
@@ -46,14 +48,18 @@ void Engine::update(float dtAsSeconds)
 		}
 		if (healthPickup.spawnNum == 2)
 		{
-			healthPickup.spawnNum = rand() % 2 + 4;
-			if (healthPickup.spawnNum == 4)
+			healthPickup.spawnNum = rand() % 5 + 4;
+			if (healthPickup.spawnNum >=4 && healthPickup.spawnNum <=5)
 			{
 				healthPickup.spawn(Vector2f(m_Bob.getCenter().x, m_Bob.getCenter().y), GRAVITY);
 			}
-			if (healthPickup.spawnNum == 5)
+			if (healthPickup.spawnNum >=6 && healthPickup.spawnNum <=7)
 			{
-				SpeedBoost.spawn(Vector2f(m_Bob.getCenter().x, m_Bob.getCenter().y), GRAVITY);
+				MaxSpeed.spawn(Vector2f(m_Bob.getCenter().x, m_Bob.getCenter().y), GRAVITY);
+			}
+			if (healthPickup.spawnNum == 8)
+			{
+				healthPickup2.spawn(Vector2f(m_Bob.getCenter().x, m_Bob.getCenter().y), GRAVITY);
 			}
 
 			m_Bob.die();
