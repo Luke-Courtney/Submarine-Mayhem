@@ -57,7 +57,7 @@ private:
 public:
 
 	// How fast is the character
-	float m_Speed = 400; //Max speed
+	float m_Speed = 200; //Max speed
 
 	void spawn(Vector2f startPosition, float gravity);
 
