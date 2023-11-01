@@ -1,5 +1,4 @@
 #include "Engine.h"
-
 void Engine::input()
 {
 	Event event;
@@ -13,12 +12,14 @@ void Engine::input()
 			if (Keyboard::isKeyPressed(Keyboard::Escape))
 			{
 				m_Window.close();
+
 			}
 
 			// Handle the player starting the game
 			if (Keyboard::isKeyPressed(Keyboard::Return))
 			{
 				m_Playing = true;
+				m_Menu.setPosition(-5000, -5000);//GET RID OF MENU
 			}
 		}
 	}	

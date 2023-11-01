@@ -29,7 +29,9 @@ void Engine::draw()
 
 		// Draw thomas
 		m_Window.draw(m_Bob.getSprite());
-
+		//draw timebar
+		m_Window.draw(timeBar);
+		
 		// Draw the particle system
 		if (m_PS.running())
 		{
@@ -61,7 +63,9 @@ void Engine::draw()
 
 		// Draw thomas
 		m_Window.draw(m_Thomas.getSprite());
-
+		//draw timebar
+		m_Window.draw(timeBar);
+		m_Window.draw(m_Menu);
 		// Draw the particle system
 		if (m_PS.running())
 		{
@@ -89,6 +93,8 @@ void Engine::draw()
 
 		// Draw bob
 		m_Window.draw(m_Bob.getSprite());
+		//draw timebar
+		m_Window.draw(timeBar);
 
 		// Draw the particle system
 		if (m_PS.running())
@@ -103,6 +109,7 @@ void Engine::draw()
 	m_Window.setView(m_HudView);
 	m_Window.draw(m_Hud.getLevel());
 	m_Window.draw(m_Hud.getTime());
+	m_Window.draw(m_Menu);
 	if (!m_Playing)
 	{
 		m_Window.draw(m_Hud.getMessage());
