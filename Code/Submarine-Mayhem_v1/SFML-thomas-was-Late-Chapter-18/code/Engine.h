@@ -1,4 +1,6 @@
 #pragma once
+#include <sstream>
+#include <fstream>
 #include <SFML/Graphics.hpp>
 #include "TextureHolder.h"
 #include "Thomas.h"
@@ -8,6 +10,7 @@
 #include "HUD.h"
 #include "ParticleSystem.h"
 #include "Pickup.h"
+#include "Bullet.h"
 
 using namespace sf;
 
@@ -28,6 +31,22 @@ private:
 
 	Pickup healthPickup;
 	Pickup SpeedBoost;
+
+	// Where is the mouse in relation to world coordinates
+	Vector2f mouseWorldPosition;
+	// Where is the mouse in relation to screen coordinates
+	Vector2i mouseScreenPosition;
+
+	// 100 bullets should do
+	Bullet bullets[999];
+	int currentBullet = 0;
+	int bulletsSpare = 999;
+	int bulletsInClip = 999;
+	int clipSize = 999;
+	float fireRate = 1;
+	// When was the fire button last pressed?
+	Time lastPressed;
+	Bullet isInFlight;
 
 	// A class to manage all the levels
 	LevelManager m_LM;
@@ -110,6 +129,8 @@ private:
 
 	// A vector of Vector2f for the fire emiiter locations
 	vector <Vector2f> m_FireEmitters;
+
+	
 	
 public:
 	// The Engine constructor

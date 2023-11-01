@@ -16,7 +16,7 @@ bool Thomas::handleInput()
 {
 	/*
 	* Removed jumping in favour of free vertical movement
-	* 
+	*
 	m_JustJumped = false;
 
 	if (Keyboard::isKeyPressed(Keyboard::W))

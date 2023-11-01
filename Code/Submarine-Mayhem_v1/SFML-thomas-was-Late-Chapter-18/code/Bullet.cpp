@@ -1,4 +1,5 @@
 #include "bullet.h"
+//#include 'd'
 
 
 // The constructor
@@ -14,7 +15,8 @@ void Bullet::shoot(float startX, float startY,
 	m_InFlight = true;
 	m_Position.x = startX;
 	m_Position.y = startY;
-
+	m_Position.x -= 60;
+	m_Position.y -= 150;
 	// Calculate the gradient of the flight path
 	float gradient = (startX - targetX) / (startY - targetY);
 

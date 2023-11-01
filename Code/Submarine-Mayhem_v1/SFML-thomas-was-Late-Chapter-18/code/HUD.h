@@ -10,13 +10,17 @@ private:
 	Text m_StartText;
 	Text m_TimeText;
 	Text m_LevelText;
+	Text m_AmmoText;
 
 public:
 	Hud();
 	Text getMessage();
 	Text getLevel();
 	Text getTime();
+	// Ammo
+	Text getAmmo();
 
 	void setLevel(String text);
 	void setTime(String text);
+	void setAmmo(String text);
 };

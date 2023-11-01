@@ -38,6 +38,13 @@ Hud::Hud()
 	m_LevelText.setFillColor(Color::White);
 	m_LevelText.setPosition(25, 0);
 	m_LevelText.setString("1");
+
+	//Ammo 
+	m_AmmoText.setFont(m_Font);
+	m_AmmoText.setCharacterSize(75);
+	m_AmmoText.setFillColor(Color::White);
+	m_AmmoText.setPosition(25, 900);
+	m_AmmoText.setString("Ammo:");
 }
 
 Text Hud::getMessage()
@@ -55,6 +62,11 @@ Text Hud::getTime()
 	return m_TimeText;
 }
 
+Text Hud::getAmmo()
+{
+	return m_AmmoText;
+}
+
 void Hud::setLevel(String text)
 {
 	m_LevelText.setString(text);
@@ -63,4 +75,9 @@ void Hud::setLevel(String text)
 void Hud::setTime(String text)
 {
 	m_TimeText.setString(text);
+}
+
+void Hud::setAmmo(String text)
+{
+	m_AmmoText.setString(text);
 }

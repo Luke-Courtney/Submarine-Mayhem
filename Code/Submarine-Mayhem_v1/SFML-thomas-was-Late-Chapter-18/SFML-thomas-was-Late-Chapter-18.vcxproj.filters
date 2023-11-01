@@ -69,7 +69,11 @@
     <ClCompile Include="code\Update.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="code\Pickup.cpp">
+=======
+    <ClCompile Include="code\Bullet.cpp">
+>>>>>>> Shooting
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -104,7 +108,11 @@
     <ClInclude Include="code\Thomas.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="code\Pickup.h">
+=======
+    <ClInclude Include="code\Bullet.h">
+>>>>>>> Shooting
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
