@@ -35,6 +35,8 @@ void Engine::loadLevel()
 	m_Bob2.spawn(Vector2f(1800, 900), GRAVITY);
 
 	healthPickup.spawn(Vector2f(6900, 1500), GRAVITY);
+	MaxSpeed.spawn(Vector2f(6900, 1600), GRAVITY);
+	healthPickup2.spawn(Vector2f(6900, 1700), GRAVITY);
 	SpeedBoost.spawn(Vector2f(6900, 1600), GRAVITY);
 	
 

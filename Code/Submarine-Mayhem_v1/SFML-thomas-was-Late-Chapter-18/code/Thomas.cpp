@@ -87,9 +87,9 @@ bool Thomas::handleInput()
 
 void Thomas::setHealth(int h)
 {
-	health = h;
+	health += h;
 }
-void Thomas::setSpeed(int S)
+void Thomas::setMaxSpeed(int S)
 {
 	m_Speed += S;
 }

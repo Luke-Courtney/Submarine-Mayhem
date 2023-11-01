@@ -66,12 +66,15 @@ Engine::Engine()
 
 
 	healthPickup.m_Value = 10;
-	SpeedBoost.m_Value = 500;
+	healthPickup2.m_Value = 25;
+	MaxSpeed.m_Value = 500;
 
 	healthPickup.m_Type = 1;
-	SpeedBoost.m_Type = 2;
+	MaxSpeed.m_Type = 2;
+	healthPickup2.m_Type = 3;
 	healthPickup.refreshSprite();
-	SpeedBoost.refreshSprite();
+	healthPickup2.refreshSprite();
+	MaxSpeed.refreshSprite();
 
 	srand(time(0));
 
@@ -84,18 +87,11 @@ void Engine::run()
 
 	while (m_Window.isOpen())
 	{
-		//Time dt2;
 		Time dt = clock.restart();
 		// Update the total game time
 		m_GameTimeTotal += dt;
 		// Make a decimal fraction from the delta time
 		float dtAsSeconds = dt.asSeconds();
-
-		if (Keyboard::isKeyPressed(Keyboard::O))
-		{
-
-			std::cout << m_Thomas.m_Speed << " Time remining for Boost: " << SpeedBoost.boostTime << "\n";
-		}
 
 		input();
 		update(dtAsSeconds);

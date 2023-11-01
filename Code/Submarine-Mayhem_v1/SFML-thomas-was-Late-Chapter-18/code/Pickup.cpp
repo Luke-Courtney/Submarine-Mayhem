@@ -26,7 +26,13 @@ void Pickup::refreshSprite()
 	if (m_Type == 2)
 	{
 		m_Sprite = Sprite(TextureHolder::GetTexture(
-			"graphics/SpeedBoost_1.png"));
+			"graphics/MaxSpeed_1.png"));
+		m_Sprite.setOrigin(25, 25);
+	}
+	if (m_Type == 3)
+	{
+		m_Sprite = Sprite(TextureHolder::GetTexture(
+			"graphics/health_2.png"));
 		m_Sprite.setOrigin(25, 25);
 	}
 }

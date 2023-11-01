@@ -30,7 +30,8 @@ private:
 	Bob m_Bob2;
 
 	Pickup healthPickup;
-	Pickup SpeedBoost;
+	Pickup MaxSpeed;
+	Pickup healthPickup2;
 
 	// Where is the mouse in relation to world coordinates
 	Vector2f mouseWorldPosition;

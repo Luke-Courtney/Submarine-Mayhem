@@ -105,14 +105,21 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 			(healthPickup.getPosition()))
 			{
 				healthPickup.spawn(Vector2f(6900, 1500), GRAVITY);
-				m_Thomas.setHealth(healthPickup.gotIt()-30);
+				m_Thomas.setHealth(healthPickup.gotIt());
 			}
 
 			if (m_Thomas.getPosition().intersects
-			(SpeedBoost.getPosition()))
+			(healthPickup2.getPosition()))
 			{
-				SpeedBoost.spawn(Vector2f(6900, 1500), GRAVITY);
-				m_Thomas.setSpeed(SpeedBoost.gotIt());
+				healthPickup2.spawn(Vector2f(6900, 1500), GRAVITY);
+				m_Thomas.setHealth(healthPickup2.gotIt());
+			}
+
+			if (m_Thomas.getPosition().intersects
+			(MaxSpeed.getPosition()))
+			{
+				MaxSpeed.spawn(Vector2f(6900, 1500), GRAVITY);
+				m_Thomas.setMaxSpeed(MaxSpeed.gotIt());
 				//SpeedBoost.BoostTimeEnd = false;
 			}
 
