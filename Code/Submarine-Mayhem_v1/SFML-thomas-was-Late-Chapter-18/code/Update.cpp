@@ -174,6 +174,14 @@ void Engine::update(float dtAsSeconds)
 			}
 
 		}// End fire a bullet
+
+		//Enemies shoot thomas
+		float distance = abs((m_Bob0.getCenter().x - m_Thomas.getCenter().x) + (m_Bob0.getCenter().y - m_Thomas.getCenter().y));
+		if (distance < 10)
+		{
+			//Shoot function takes in start pos and target pos
+			bullets[currentBullet].shoot(m_Bob0.getCenter().x, m_Bob0.getCenter().y, m_Thomas.getCenter().x, m_Thomas.getCenter().y);
+		}
 		
 		// Update any bullets that are in - flight
 		for (int i = 0; i < 100; i++)
