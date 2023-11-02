@@ -41,8 +41,8 @@ private:
 
 	//How fast the player speeds up and slows down
 	//Smaller number means slower change in speed
-	float rampUp = 0.25f;	//Acceleration
-	float rampDown = 0.5f;	//Decceleration
+	float rampUp = 0.15f;	//Acceleration
+	float rampDown = 0.25f;	//Decceleration
 
 	// Where are the characters various body parts?
 	FloatRect m_Feet;
