@@ -1,5 +1,7 @@
 #include "Bob.h"
 #include "TextureHolder.h"
+#include "Bullet.h"
+#include "Engine.h"
 #include <iostream>
 
 /*
@@ -185,4 +187,15 @@ bool Bob::handleInput()
 	}
 
 	return m_JustJumped;
+
+}
+
+void shootTargetInRange(Vector2f position)
+{
+	Vector2f myPosition;
+	if (position == myPosition)
+	{
+		//Shoot function takes in start pos and target pos
+		//shoot(myPositon, position)
+	}
 }

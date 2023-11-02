@@ -1,4 +1,5 @@
 #include "Engine.h"
+#include "Bob.h"
 #include <iostream>
 
 bool Engine::detectCollisions(PlayableCharacter& character)
@@ -44,6 +45,8 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 		//Collision detected
 		character.spawn(m_LM.getStartPosition(), GRAVITY);
 	}
+
+	
 
 	for (int x = startX; x < endX; x++)
 	{

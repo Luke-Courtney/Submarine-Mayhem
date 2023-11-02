@@ -18,7 +18,7 @@ void Bullet::shoot(float startX, float startY,
 	m_Position.x -= 60;
 	m_Position.y -= 150;
 	// Calculate the gradient of the flight path
-	float gradient = (startX - targetX) / (startY - targetY);
+	float gradient = (startX - targetX) / (startY - (targetY - 150));
 
 	// Any gradient less than zero needs to be negative
 	if (gradient < 0)
@@ -31,7 +31,7 @@ void Bullet::shoot(float startX, float startY,
 
 	// Set the "speed" horizontally and vertically
 	m_BulletDistanceY = ratioXY;
-	m_BulletDistanceX = ratioXY * gradient;
+	m_BulletDistanceX = ratioXY * gradient * 2;
 
 	// Point the bullet in the right direction
 	if (targetX < startX)

@@ -201,6 +201,32 @@ void Engine::update(float dtAsSeconds)
 			}
 			
 		}
+
+		//check to see if player is in enemy range to shoot
+
+
+		/*
+		// Have any enemies been shot?
+		for (int i = 0; i < 100; i++)
+		{
+			if (bullets[i].isInFlight() && m_Bob0.isAlive() || bullets[i].isInFlight() && m_Bob1.isAlive() ||
+				bullets[i].isInFlight() && m_Bob2.isAlive())
+			{
+				if (bullets[i].getPosition().intersects(m_Bob0.getPosition()) || bullets[i].getPosition().intersects(m_Bob1.getPosition()) ||
+					bullets[i].getPosition().intersects(m_Bob2.getPosition()))
+				{
+					// Stop the bullet
+					bullets[i].stop();
+
+					// Register the hit and see if it was a kill
+					//if (m_Bob0.damage() || m_Bob1.damage() || m_Bob2.damage()) {
+						// Not just a hit but a kill too
+						//die();
+					//}
+				}
+			}
+		}
+		*/
 	}// End if playing
 
 	// Check if a fire sound needs to be played
