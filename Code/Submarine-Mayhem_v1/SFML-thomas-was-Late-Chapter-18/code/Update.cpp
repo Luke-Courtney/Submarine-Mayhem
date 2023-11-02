@@ -203,7 +203,9 @@ void Engine::update(float dtAsSeconds)
 		}
 	}// End if playing
 
-	// Check if a fire sound needs to be played
+	
+	 /*
+	 // Check if a fire sound needs to be played
 	vector<Vector2f>::iterator it;
 
 	// Iterate through the vector of Vector2f objects
@@ -225,7 +227,8 @@ void Engine::update(float dtAsSeconds)
 			m_SM.playFire(Vector2f(posX, posY), m_Thomas.getCenter());
 		}
 	}
-		
+	*/
+
 	// Set the appropriate view around the appropriate character
 	if (m_SplitScreen)
 	{
