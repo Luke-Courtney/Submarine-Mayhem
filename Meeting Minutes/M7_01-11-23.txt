@@ -1,0 +1,23 @@
+Third Year Team Project Meeting
+
+Date:	...	...	[07/11/23]
+Members Absent:		N/A
+Start Time:	...	12:00
+End Time:	...	
+Location:	...	Thurles Campus B223
+
+
+Discussed progress and what each member is currently working on
+
+Luke	- Level changes
+	- Hitboxes
+	- Enemy tweaks
+	- Player movement tweaks
+
+Ishka	- Oxygen bar
+	- Menus
+	- Sprites
+
+Adam	- Enemies shooting
+
+Cillian	- Enemies into list
