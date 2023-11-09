@@ -3,6 +3,8 @@
 
 Engine::Engine()
 {
+	list<Bob*>::const_iterator iter;
+	counter = 0;
 	// Get the screen resolution and create an SFML window and View
 	Vector2f resolution;
 	resolution.x = VideoMode::getDesktopMode().width;
@@ -45,9 +47,6 @@ Engine::Engine()
 	offset.x = 0;
 	offset.y = 450;
 	
-
-		
-
 		
 	// Can this graphics card use shaders?
 	if (!sf::Shader::isAvailable())
@@ -76,11 +75,32 @@ Engine::Engine()
 	// Initialize the particle system
 	m_PS.init(1000);
 
+	m_Bob0 = new Bob();
+	m_Bob1 = new Bob();
+	m_Bob2 = new Bob();
+
+	Enemy.push_back(m_Bob0);
+	Enemy.push_back(m_Bob1);
+	Enemy.push_back(m_Bob2);
 
 	//Set bob patrol point
-	m_Bob0.SetPatrolPoint(Vector2f(750, 450));
-	m_Bob1.SetPatrolPoint(Vector2f(3700, 650));
-	m_Bob2.SetPatrolPoint(Vector2f(1800, 900));
+	for (iter = Enemy.begin(); iter != Enemy.end(); ++iter)
+	{
+		(*iter)->setType(counter);
+		if (counter == 0)
+		{
+			(*iter)->SetPatrolPoint(Vector2f(750, 450));
+		}
+		if (counter == 1)
+		{
+			(*iter)->SetPatrolPoint(Vector2f(3700, 650));
+		}
+		if (counter == 2)
+		{
+			(*iter)->SetPatrolPoint(Vector2f(1800, 900));
+		}
+		counter++;
+	}
 
 
 	healthPickup.m_Value = 10;
@@ -105,11 +125,23 @@ void Engine::run()
 
 	while (m_Window.isOpen())
 	{
+		list<Bob*>::const_iterator iter;
+
 		Time dt = clock.restart();
 		// Update the total game time
 		m_GameTimeTotal += dt;
 		// Make a decimal fraction from the delta time
 		float dtAsSeconds = dt.asSeconds();
+
+		if (Keyboard::isKeyPressed(Keyboard::Num1))
+		{
+			//Deals 1 damage and outputs new health
+			for (iter = Enemy.begin(); iter != Enemy.end(); ++iter)
+			{
+				(*iter)->damage(1);
+				std::cout << "Dealt 1 damage. Health: " << (*iter)->getHealth() << "\n";
+			}
+		}
 
 		input();
 		update(dtAsSeconds);

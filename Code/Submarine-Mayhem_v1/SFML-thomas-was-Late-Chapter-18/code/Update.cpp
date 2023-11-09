@@ -58,47 +58,47 @@ void Engine::update(float dtAsSeconds)
 
 	if (m_Playing)
 	{
-		Time dt2;
-		Clock clock;
+		list<Bob*>::const_iterator iter;
 		// Update Thomas
 		m_Thomas.update(dtAsSeconds);
 
 		// Update Bobs
-		m_Bob0.update(dtAsSeconds);
-		m_Bob1.update(dtAsSeconds);
-		m_Bob2.update(dtAsSeconds);
+		m_Bob0->update(dtAsSeconds);
+		m_Bob1->update(dtAsSeconds);
+		m_Bob2->update(dtAsSeconds);
 
 		//Update Pickups
 		healthPickup.update(dtAsSeconds);
+		MaxSpeed.update(dtAsSeconds);
 		//SpeedBoost.update(dtAsSeconds);
 
 #		//Pickups for Bob0
-		if (healthPickup.spawnNum != 3)
+		for (iter = Enemy.begin(); iter != Enemy.end(); ++iter)
 		{
-			if ((m_Bob0.getHealth() < 1))
+				if ((*iter)->getHealth() < 1 && (*iter)->isAlive())
+				{
+					healthPickup.spawnNum = 2;
+				}
+			
+			if (healthPickup.spawnNum == 2)
 			{
-				healthPickup.spawnNum = 2;
+				healthPickup.spawnNum = rand() % 5 + 4;
+				if (healthPickup.spawnNum >= 4 && healthPickup.spawnNum <= 5)
+				{
+					healthPickup.spawn(Vector2f((*iter)->getCenter().x, (*iter)->getCenter().y), GRAVITY);
+				}
+				if (healthPickup.spawnNum >= 6 && healthPickup.spawnNum <= 7)
+				{
+					MaxSpeed.spawn(Vector2f((*iter)->getCenter().x, (*iter)->getCenter().y), GRAVITY);
+				}
+				if (healthPickup.spawnNum == 8)
+				{
+					//SpeedBoost.spawn(Vector2f(m_Bob2.getCenter().x, m_Bob0.getCenter().y), GRAVITY);
+					healthPickup2.spawn(Vector2f((*iter)->getCenter().x, (*iter)->getCenter().y), GRAVITY);
+				}
+				healthPickup.spawnNum = 1;
+				(*iter)->die();
 			}
-		}
-		if (healthPickup.spawnNum == 2)
-		{
-			healthPickup.spawnNum = rand() % 5 + 4;
-			if (healthPickup.spawnNum >=4 && healthPickup.spawnNum <=5)
-			{
-				healthPickup.spawn(Vector2f(m_Bob2.getCenter().x, m_Bob2.getCenter().y), GRAVITY);
-			}
-			if (healthPickup.spawnNum >=6 && healthPickup.spawnNum <=7)
-			{
-				MaxSpeed.spawn(Vector2f(m_Bob0.getCenter().x, m_Bob0.getCenter().y), GRAVITY);
-			}
-			if (healthPickup.spawnNum == 8)
-			{
-				//SpeedBoost.spawn(Vector2f(m_Bob2.getCenter().x, m_Bob0.getCenter().y), GRAVITY);
-				healthPickup2.spawn(Vector2f(m_Bob0.getCenter().x, m_Bob0.getCenter().y), GRAVITY);
-			}
-
-			m_Bob2.die();
-			healthPickup.spawnNum = 3;
 		}
 
 		//if (SpeedBoost.BoostTimeEnd == false)
@@ -116,7 +116,7 @@ void Engine::update(float dtAsSeconds)
 		// Detect collisions and see if characters have reached the goal tile
 		// The second part of the if condition is only executed
 		// when thomas is touching the home tile
-		if (detectCollisions(m_Thomas) && detectCollisions(m_Bob0) || detectCollisions(m_Thomas) && detectCollisions(m_Bob1) || detectCollisions(m_Thomas) && detectCollisions(m_Bob2))
+		if (detectCollisions(m_Thomas) && detectCollisions(*m_Bob0) || detectCollisions(m_Thomas) && detectCollisions(*m_Bob1) || detectCollisions(m_Thomas) && detectCollisions(*m_Bob2))
 		{
 			// New level required
 			m_NewLevelRequired = true;
@@ -128,9 +128,9 @@ void Engine::update(float dtAsSeconds)
 		else
 		{
 			// Run bobs collision detection
-			detectCollisions(m_Bob0);
-			detectCollisions(m_Bob1);
-			detectCollisions(m_Bob2);
+			detectCollisions(*m_Bob0);
+			detectCollisions(*m_Bob1);
+			detectCollisions(*m_Bob2);
 		}
 
 		// Count down the time the player has left
@@ -226,24 +226,23 @@ void Engine::update(float dtAsSeconds)
 		}
 	}
 		
-	// Set the appropriate view around the appropriate character
-	if (m_SplitScreen)
-	{
-		m_LeftView.setCenter(m_Thomas.getCenter());
-		m_RightView.setCenter(m_Bob0.getCenter());
-	}
-	else
-	{
-		// Centre full screen around appropriate character
-		if (m_Character1)
-		{
-			m_MainView.setCenter(m_Thomas.getCenter());
-		}
-		else
-		{
-			m_MainView.setCenter(m_Bob0.getCenter());
-		}
-	}
+	//// Set the appropriate view around the appropriate character
+	//if (m_SplitScreen)
+	//{
+	//	m_LeftView.setCenter(m_Thomas.getCenter());
+	//	m_RightView.setCenter(m_Bob0.getCenter());
+	//}
+	
+	// Centre full screen around appropriate character
+		//if (m_Character1)
+		//{
+	m_MainView.setCenter(m_Thomas.getCenter());
+		//}
+		//else
+		//{
+		//	m_MainView.setCenter(m_Bob0.getCenter());
+		//}
+	//}
 
 	// Time to update the HUD?
 	// Increment the number of frames since the last HUD calculation

@@ -2,6 +2,7 @@
 #include <sstream>
 #include <fstream>
 #include <SFML/Graphics.hpp>
+#include <list>
 #include "TextureHolder.h"
 #include "Thomas.h"
 #include "Bob.h"
@@ -25,9 +26,12 @@ private:
 
 	// Thomas and his friend, Bob
 	Thomas m_Thomas;
-	Bob m_Bob0;
-	Bob m_Bob1;
-	Bob m_Bob2;
+	Bob* m_Bob0;
+	Bob* m_Bob1;
+	Bob* m_Bob2;
+	int counter;
+	list<Bob*> Enemy;
+
 
 	Pickup healthPickup;
 	Pickup MaxSpeed;

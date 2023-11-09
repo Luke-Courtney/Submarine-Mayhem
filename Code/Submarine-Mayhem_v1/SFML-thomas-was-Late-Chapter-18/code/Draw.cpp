@@ -2,6 +2,7 @@
 
 void Engine::draw()
 {
+	list<Bob*>::const_iterator iter;
 	// Rub out the last frame
 	m_Window.clear(Color::White);
 	
@@ -28,9 +29,10 @@ void Engine::draw()
 		m_Window.draw(m_Thomas.getSprite());
 
 		// Draw bobs
-		m_Window.draw(m_Bob0.getSprite());
-		m_Window.draw(m_Bob1.getSprite());
-		m_Window.draw(m_Bob2.getSprite());
+		for (iter = Enemy.begin(); iter != Enemy.end(); ++iter)
+		{
+			m_Window.draw((*iter)->getSprite());
+		}
 
 		//draw Pickup
 		m_Window.draw(healthPickup.getSprite());
@@ -54,94 +56,7 @@ void Engine::draw()
 			}
 		}
 	}
-	else
-	{
-		// Split-screen view is active
-
-		// First draw Thomas' side of the screen
-
-		// Switch to background view
-		m_Window.setView(m_BGLeftView);
-		// Draw the background
-		//m_Window.draw(m_BackgroundSprite);
-
-		// Draw the background, complete with shader effect
-		m_Window.draw(m_BackgroundSprite, &m_RippleShader);
-
-		// Switch to m_LeftView
-		m_Window.setView(m_LeftView);
-
-		// Draw the Level
-		m_Window.draw(m_VALevel, &m_TextureTiles);
-			
-		// Draw bobs
-		m_Window.draw(m_Bob0.getSprite());
-		m_Window.draw(m_Bob1.getSprite());
-		m_Window.draw(m_Bob2.getSprite());
-
-		// Draw thomas
-		m_Window.draw(m_Thomas.getSprite());
-
-		//draw Pickup
-		m_Window.draw(healthPickup.getSprite());
-		m_Window.draw(MaxSpeed.getSprite());
-
-		//draw timebar
-		m_Window.draw(timeBar);
-		m_Window.draw(m_Menu);
-		// Draw the particle system
-		if (m_PS.running())
-		{
-			m_Window.draw(m_PS);
-		}
-		
-		for (int i = 0; i < 100; i++)
-		{
-			if (bullets[i].isInFlight())
-			{
-				m_Window.draw(bullets[i].getShape());
-			}
-		}
-
-		// Now draw Bob's side of the screen
-
-		// Switch to background view
-		m_Window.setView(m_BGRightView);
-		// Draw the background
-		//m_Window.draw(m_BackgroundSprite);
-
-		// Draw the background, complete with shader effect
-		m_Window.draw(m_BackgroundSprite, &m_RippleShader);
-
-		// Switch to m_RightView
-		m_Window.setView(m_RightView);
-
-		// Draw the Level
-		m_Window.draw(m_VALevel, &m_TextureTiles);
-
-		// Draw thomas
-		m_Window.draw(m_Thomas.getSprite());
-
-		// Draw bobs
-		m_Window.draw(m_Bob0.getSprite());
-		m_Window.draw(m_Bob1.getSprite());
-		m_Window.draw(m_Bob2.getSprite());
-
-		//draw Pickup
-		m_Window.draw(healthPickup.getSprite());
-		m_Window.draw(MaxSpeed.getSprite());
-		m_Window.draw(healthPickup2.getSprite());
-
-		//draw timebar
-		m_Window.draw(timeBar);
-
-		// Draw the particle system
-		if (m_PS.running())
-		{
-			m_Window.draw(m_PS);
-		}
-				
-	}
+	
 	
 	// Draw the HUD
 	// Switch to m_HudView

@@ -102,10 +102,6 @@ int Bob::getHealth()
 void Bob::damage(int damage)
 {
 	m_Health = m_Health - damage;
-	if (m_Health < 1)
-	{
-		die();
-	}
 }
 
 //Heal health
@@ -149,12 +145,12 @@ bool Bob::handleInput()
 
 	//vvv TEST KEYS vvv
 	//Num1 - Damage Enemy
-	if (Keyboard::isKeyPressed(Keyboard::Num1))
-	{
-		//Deals 1 damage and outputs new health
-		damage(1);
-		std::cout << "Dealt 1 damage. Health: " << getHealth() << "\n";
-	}
+	//if (Keyboard::isKeyPressed(Keyboard::Num1))
+	//{
+	//	//Deals 1 damage and outputs new health
+	//	damage(1);
+	//	std::cout << "Dealt 1 damage. Health: " << getHealth() << "\n";
+	//}
 
 	//Num2 - Heal Enemy
 	if (Keyboard::isKeyPressed(Keyboard::Num2))

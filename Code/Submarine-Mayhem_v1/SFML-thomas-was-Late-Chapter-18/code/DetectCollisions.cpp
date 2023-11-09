@@ -39,7 +39,7 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 	}
 
 	//Detect thomas collisions with enemy
-	if (m_Thomas.getPosition().intersects(m_Bob0.getPosition()) || m_Thomas.getPosition().intersects(m_Bob1.getPosition()) || m_Thomas.getPosition().intersects(m_Bob2.getPosition()))
+	if (m_Thomas.getPosition().intersects(m_Bob0->getPosition()) || m_Thomas.getPosition().intersects(m_Bob1->getPosition()) || m_Thomas.getPosition().intersects(m_Bob2->getPosition()))
 	{
 		//Collision detected
 		character.spawn(m_LM.getStartPosition(), GRAVITY);
@@ -120,7 +120,6 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 			{
 				MaxSpeed.spawn(Vector2f(6900, 1500), GRAVITY);
 				m_Thomas.setMaxSpeed(MaxSpeed.gotIt());
-				//SpeedBoost.BoostTimeEnd = false;
 			}
 
 
