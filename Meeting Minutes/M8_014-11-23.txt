@@ -1,0 +1,28 @@
+Third Year Team Project Meeting
+
+Date:	...	...	[07/11/23]
+Members Absent:		Cillian Murphy
+Start Time:	...	12:20
+End Time:	...	
+Location:	...	Thurles Campus B223
+
+
+Discussed progress and what each member is currently working on
+
+Adam
+	- Further work on shooting
+	- Enemy and players colliding with bullets
+	- Enemy damage
+
+Luke
+	- Further work on hitboxes
+	- Set deadline on hitbox work
+
+Ishka
+	- Finished oxygen bar
+	- Further work on game menus and screens
+
+Cillian
+	- N/A
+
+
