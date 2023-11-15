@@ -60,7 +60,6 @@ void Engine::draw()
 	// Switch to m_HudView
 	m_Window.setView(m_HudView);
 	m_Window.draw(m_Hud.getLevel());
-	m_Window.draw(m_Hud.getTime());
 	//ammo text
 	m_Window.draw(m_Hud.getAmmo());
 	m_Window.draw(m_Menu);
@@ -68,7 +67,6 @@ void Engine::draw()
 	{
 		m_Window.draw(m_Hud.getMessage());
 	}
-	
 	
 	// Show everything we have just drawn
 	m_Window.display();

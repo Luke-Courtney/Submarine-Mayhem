@@ -113,8 +113,6 @@ private:
 	// Start in full screen mode
 	bool m_SplitScreen = false;
 
-	// How much time is left in the current level
-	float m_TimeRemaining = 10;
 	Time m_GameTimeTotal;
 
 	// Is it time for a new/first level?

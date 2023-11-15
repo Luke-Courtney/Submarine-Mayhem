@@ -94,6 +94,7 @@ void Engine::update(float dtAsSeconds)
 		if (detectCollisions(m_Thomas) && detectCollisions(*m_Bob0) || detectCollisions(m_Thomas) && detectCollisions(*m_Bob1) || detectCollisions(m_Thomas) && detectCollisions(*m_Bob2))
 		{
 			// New level required
+			
 			m_NewLevelRequired = true;
 
 			// Play the reach goal sound
@@ -106,15 +107,6 @@ void Engine::update(float dtAsSeconds)
 			detectCollisions(*m_Bob0);
 			detectCollisions(*m_Bob1);
 			detectCollisions(*m_Bob2);
-		}
-
-		// Count down the time the player has left
-		m_TimeRemaining -= dtAsSeconds;
-
-		// Have Thomas and Bob run out of time?
-		if (m_TimeRemaining <= 0)
-		{
-			m_NewLevelRequired = true;
 		}
 
 		// Where is the mouse pointer
@@ -230,10 +222,6 @@ void Engine::update(float dtAsSeconds)
 		stringstream ssTime;
 		stringstream ssLevel;
 		stringstream ssAmmo;
-
-		// Update the time text
-		ssTime << (int)m_TimeRemaining;
-		m_Hud.setTime(ssTime.str());
 
 		// Update the level text
 		ssLevel << "Level:" << m_LM.getCurrentLevel();

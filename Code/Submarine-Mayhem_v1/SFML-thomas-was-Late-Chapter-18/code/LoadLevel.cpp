@@ -22,9 +22,6 @@ void Engine::loadLevel()
 	// Prepare the sound emitters
 	populateEmitters(m_FireEmitters, m_ArrayLevel);
 
-	// How long is this new time limit
-	m_TimeRemaining = m_LM.getTimeLimit();
-
 	// Spawn Thomas and Bob
 	m_Thomas.spawn(m_LM.getStartPosition(), GRAVITY);
 
