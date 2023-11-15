@@ -16,10 +16,10 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 	// Build a zone around thomas to detect collisions
 	int startX = (int)(detectionZone.left / TILE_SIZE) - 1;
 	int startY = (int)(detectionZone.top / TILE_SIZE) - 1;
-	int endX = (int)(detectionZone.left / TILE_SIZE) + 2;
+	int endX = (int)(detectionZone.left / TILE_SIZE) + 3;
 
 	// Thomas is quite tall so check a few tiles vertically
-	int endY = (int)(detectionZone.top / TILE_SIZE) + 2;
+	int endY = (int)(detectionZone.top / TILE_SIZE) +2;
 
 	// Make sure we don't test positions lower than zero
 	// Or higher than the end of the array
@@ -52,7 +52,6 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 			// Initialize the starting position of the current block
 			block.left = x * TILE_SIZE;
 			block.top = y * TILE_SIZE;
-
 
 			// Has character been burnt or drowned?
 			if (m_ArrayLevel[y][x] == 2 || m_ArrayLevel[y][x] == 3)
@@ -144,8 +143,13 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 			// Has the character reached the goal?
 			if (m_ArrayLevel[y][x] == 4)
 			{
-				// Character has reached the goal
-				reachedGoal = true;
+				block.left = x * TILE_SIZE - 50;
+
+				if (m_Thomas.getPosition().intersects(block))
+				{
+					// Character has reached the goal
+					reachedGoal = true;
+				}
 			}
 
 		}

@@ -116,22 +116,22 @@ void Engine::update(float dtAsSeconds)
 		// Detect collisions and see if characters have reached the goal tile
 		// The second part of the if condition is only executed
 		// when thomas is touching the home tile
-		if (detectCollisions(m_Thomas) && detectCollisions(m_Bob0) || detectCollisions(m_Thomas) && detectCollisions(m_Bob1) || detectCollisions(m_Thomas) && detectCollisions(m_Bob2))
+		if (detectCollisions(m_Thomas))
 		{
 			// New level required
 			m_NewLevelRequired = true;
 
 			// Play the reach goal sound
-			m_SM.playReachGoal();
+			//m_SM.playReachGoal();
 
 		}
-		else
-		{
-			// Run bobs collision detection
-			detectCollisions(m_Bob0);
-			detectCollisions(m_Bob1);
-			detectCollisions(m_Bob2);
-		}
+		//else
+		//{
+		//	// Run bobs collision detection    <- i dont think this is needed but im not sure
+		//	detectCollisions(m_Bob0);
+		//	detectCollisions(m_Bob1);
+		//	detectCollisions(m_Bob2);
+		//}
 
 		// Count down the time the player has left
 		m_TimeRemaining -= dtAsSeconds;
