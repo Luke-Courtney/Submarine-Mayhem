@@ -14,30 +14,9 @@ Thomas::Thomas()
 // A virtual function
 bool Thomas::handleInput()
 {
-	/*
-	* Removed jumping in favour of free vertical movement
-	*
-	m_JustJumped = false;
+	
+	//Removed jumping in favour of free vertical movement
 
-	if (Keyboard::isKeyPressed(Keyboard::W))
-	{
-
-		// Start a jump if not already jumping
-		// but only if standing on a block (not falling)
-		if (!m_IsJumping && !m_IsFalling)
-		{
-			m_IsJumping = true;
-			m_TimeThisJump = 0;
-			m_JustJumped = true;
-		}
-	}
-	else
-	{
-		m_IsJumping = false;
-		m_IsFalling = true;
-
-	}
-	*/
 
 	if (Keyboard::isKeyPressed(Keyboard::K))
 	{
@@ -92,6 +71,10 @@ void Thomas::setHealth(int h)
 void Thomas::setMaxSpeed(int S)
 {
 	m_Speed += S;
+}
+void Thomas::setAcceleration(int A)
+{
+	rampUp += A;
 }
 int Thomas::getHealth()
 {

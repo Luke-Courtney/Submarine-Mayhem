@@ -41,19 +41,8 @@ void Engine::update(float dtAsSeconds)
 
 	if (m_NewLevelRequired)
 	{
-		// These calls to spawn will be moved to a new
-		// LoadLevel function soon
-		// Spawn Thomas and Bob
-		//m_Thomas.spawn(Vector2f(0,0), GRAVITY);
-		//m_Bob.spawn(Vector2f(100, 0), GRAVITY);
-
-		// Make sure spawn is called only once
-		//m_TimeRemaining = 10;
-		//m_NewLevelRequired = false;
-
 		// Load a level
 		loadLevel();
-		
 	}
 
 	if (m_Playing)
@@ -70,48 +59,34 @@ void Engine::update(float dtAsSeconds)
 		//Update Pickups
 		healthPickup.update(dtAsSeconds);
 		MaxSpeed.update(dtAsSeconds);
-		//SpeedBoost.update(dtAsSeconds);
+		SpeedBoost.update(dtAsSeconds);
+		healthPickup2.update(dtAsSeconds);
 
 #		//Pickups for Bob0
 		for (iter = Enemy.begin(); iter != Enemy.end(); ++iter)
 		{
-				if ((*iter)->getHealth() < 1 && (*iter)->isAlive())
-				{
-					healthPickup.spawnNum = 2;
-				}
-			
-			if (healthPickup.spawnNum == 2)
+			if ((*iter)->getHealth() < 1 && (*iter)->isAlive())
 			{
-				healthPickup.spawnNum = rand() % 5 + 4;
-				if (healthPickup.spawnNum >= 4 && healthPickup.spawnNum <= 5)
+				healthPickup.spawnNum = rand() % 7;
+				if (healthPickup.spawnNum >=0 && healthPickup.spawnNum <= 1)
 				{
 					healthPickup.spawn(Vector2f((*iter)->getCenter().x, (*iter)->getCenter().y), GRAVITY);
 				}
-				if (healthPickup.spawnNum >= 6 && healthPickup.spawnNum <= 7)
+				if (healthPickup.spawnNum >= 2 && healthPickup.spawnNum <= 3)
 				{
 					MaxSpeed.spawn(Vector2f((*iter)->getCenter().x, (*iter)->getCenter().y), GRAVITY);
 				}
-				if (healthPickup.spawnNum == 8)
+				if (healthPickup.spawnNum >= 4 && healthPickup.spawnNum <= 5)
 				{
-					//SpeedBoost.spawn(Vector2f(m_Bob2.getCenter().x, m_Bob0.getCenter().y), GRAVITY);
+					SpeedBoost.spawn(Vector2f((*iter)->getCenter().x, (*iter)->getCenter().y), GRAVITY);
+				}
+				if (healthPickup.spawnNum == 6)
+				{
 					healthPickup2.spawn(Vector2f((*iter)->getCenter().x, (*iter)->getCenter().y), GRAVITY);
 				}
-				healthPickup.spawnNum = 1;
 				(*iter)->die();
 			}
 		}
-
-		//if (SpeedBoost.BoostTimeEnd == false)
-		//{
-		//	dt2 = clock.restart();
-		//	SpeedBoost.boostTime -= dt2.asSeconds();
-
-		//}
-		//if (SpeedBoost.boostTime <= 0)
-		//{
-		//	SpeedBoost.BoostTimeEnd = true;
-		//	m_Thomas.setSpeed(4);
-		//}
 
 		// Detect collisions and see if characters have reached the goal tile
 		// The second part of the if condition is only executed

@@ -9,8 +9,6 @@ void Engine::draw()
 	// Update the shader parameters
 	m_RippleShader.setUniform("uTime", m_GameTimeTotal.asSeconds());
 
-	if (!m_SplitScreen)
-	{
 		// Switch to background view
 		m_Window.setView(m_BGMainView);
 		// Draw the background
@@ -38,6 +36,7 @@ void Engine::draw()
 		m_Window.draw(healthPickup.getSprite());
 		m_Window.draw(MaxSpeed.getSprite());
 		m_Window.draw(healthPickup2.getSprite());
+		m_Window.draw(SpeedBoost.getSprite());
 
 		//draw timebar
 		m_Window.draw(timeBar);
@@ -55,7 +54,6 @@ void Engine::draw()
 				m_Window.draw(bullets[i].getShape());
 			}
 		}
-	}
 	
 	
 	// Draw the HUD

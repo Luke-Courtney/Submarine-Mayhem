@@ -29,13 +29,11 @@ public:
 	bool BoostTimeEnd = true;
 
 	// How much is this pickup worth?
-	int m_Value = 0;
-
+	float m_Value = 0;
 
 	int spawnNum = 1;
 
 	// What type of pickup is this? 
-	// 1 = health, 2 = ammo, 3 = CannonBall Gun, 4 = Pistol
 	int m_Type = 0;
 
 	bool m_Spawned;
@@ -50,10 +48,6 @@ public:
 
 	// Get the goodness from the pickup
 	int gotIt();
-
-	// Upgrade the value of each pickup
-	void upgrade();
-
 };
 
 

@@ -34,7 +34,7 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 	FloatRect level(0, 0, m_LM.getLevelSize().x * TILE_SIZE, m_LM.getLevelSize().y * TILE_SIZE);
 	if (!character.getPosition().intersects(level))
 	{
-		// respawn the character
+		//respawn the character
 		//character.spawn(m_LM.getStartPosition(), GRAVITY);
 	}
 
@@ -43,6 +43,7 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 	{
 		//Collision detected
 		character.spawn(m_LM.getStartPosition(), GRAVITY);
+		m_Thomas.health--; //thomas loses health when colliding with enemy
 	}
 
 	for (int x = startX; x < endX; x++)
@@ -121,6 +122,13 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 				MaxSpeed.spawn(Vector2f(6900, 1500), GRAVITY);
 				m_Thomas.setMaxSpeed(MaxSpeed.gotIt());
 			}
+			if (m_Thomas.getPosition().intersects
+			(SpeedBoost.getPosition()))
+			{
+				SpeedBoost.spawn(Vector2f(6900, 1500), GRAVITY);
+				m_Thomas.setMaxSpeed(SpeedBoost.gotIt());
+			}
+
 
 
 			// More collision detection here once we have learned about particle effects
