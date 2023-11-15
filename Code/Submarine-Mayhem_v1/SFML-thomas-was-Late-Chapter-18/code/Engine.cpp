@@ -75,10 +75,12 @@ Engine::Engine()
 	// Initialize the particle system
 	m_PS.init(1000);
 
+	//create enemy
 	m_Bob0 = new Bob();
 	m_Bob1 = new Bob();
 	m_Bob2 = new Bob();
 
+	//put enemy on list
 	Enemy.push_back(m_Bob0);
 	Enemy.push_back(m_Bob1);
 	Enemy.push_back(m_Bob2);
@@ -102,16 +104,18 @@ Engine::Engine()
 		counter++;
 	}
 
-
+	// how much does it increase whatever it increases
 	healthPickup.m_Value = 10;
 	healthPickup2.m_Value = 25;
 	MaxSpeed.m_Value = 500;
 	SpeedBoost.m_Value = 0.2f;
 
+	//selecting the sprite to be used
 	healthPickup.m_Type = 1;
 	MaxSpeed.m_Type = 2;
 	healthPickup2.m_Type = 3;
 	SpeedBoost.m_Type = 4;
+
 	healthPickup.refreshSprite();
 	healthPickup2.refreshSprite();
 	MaxSpeed.refreshSprite();
