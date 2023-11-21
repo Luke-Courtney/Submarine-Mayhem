@@ -2,7 +2,11 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
+<<<<<<< HEAD
       <FullPath>C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\x64\Debug\Submarine-Mayhem.exe</FullPath>
+=======
+      <FullPath>C:\Users\cilli\Source\Repos\Luke-Courtney\Submarine-Mayhem\Code\Submarine-Mayhem_v1\x64\Debug\Submarine-Mayhem.exe</FullPath>
+>>>>>>> origin/enemy-iterator
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

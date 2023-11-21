@@ -20,13 +20,6 @@ Hud::Hud()
 
 	m_StartText.setPosition(resolution.x / 2.0f, resolution.y / 2.0f);
 
-	// Time
-	m_TimeText.setFont(m_Font);
-	m_TimeText.setCharacterSize(75);
-	m_TimeText.setFillColor(Color::White);
-	m_TimeText.setPosition(resolution.x - 150, 0);
-	m_TimeText.setString("------");
-
 	// Level
 	m_LevelText.setFont(m_Font);
 	m_LevelText.setCharacterSize(75);
@@ -52,11 +45,6 @@ Text Hud::getLevel()
 	return m_LevelText;
 }
 
-Text Hud::getTime()
-{
-	return m_TimeText;
-}
-
 Text Hud::getAmmo()
 {
 	return m_AmmoText;
@@ -65,11 +53,6 @@ Text Hud::getAmmo()
 void Hud::setLevel(String text)
 {
 	m_LevelText.setString(text);
-}
-
-void Hud::setTime(String text)
-{
-	m_TimeText.setString(text);
 }
 
 void Hud::setAmmo(String text)

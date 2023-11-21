@@ -15,6 +15,7 @@ public:
 	bool virtual handleInput();
 	void setHealth(int h);
 	void setMaxSpeed(int S);
+	void setAcceleration(int S);
 	int getHealth();
 	bool isAlive();
 	void damage(int damage);

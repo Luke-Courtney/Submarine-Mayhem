@@ -41,84 +41,60 @@ void Engine::update(float dtAsSeconds)
 
 	if (m_NewLevelRequired)
 	{
-		// These calls to spawn will be moved to a new
-		// LoadLevel function soon
-		// Spawn Thomas and Bob
-		//m_Thomas.spawn(Vector2f(0,0), GRAVITY);
-		//m_Bob.spawn(Vector2f(100, 0), GRAVITY);
-
-		// Make sure spawn is called only once
-		//m_TimeRemaining = 10;
-		//m_NewLevelRequired = false;
-
 		// Load a level
 		loadLevel();
-		
 	}
 
 	if (m_Playing)
 	{
-		Time dt2;
-		Clock clock;
+		list<Bob*>::const_iterator iter;
 		// Update Thomas
 		m_Thomas.update(dtAsSeconds);
 
 		// Update Bobs
-		m_Bob0.update(dtAsSeconds);
-		m_Bob1.update(dtAsSeconds);
-		m_Bob2.update(dtAsSeconds);
+		m_Bob0->update(dtAsSeconds);
+		m_Bob1->update(dtAsSeconds);
+		m_Bob2->update(dtAsSeconds);
 
 		//Update Pickups
 		healthPickup.update(dtAsSeconds);
-		//SpeedBoost.update(dtAsSeconds);
+		MaxSpeed.update(dtAsSeconds);
+		SpeedBoost.update(dtAsSeconds);
+		healthPickup2.update(dtAsSeconds);
 
 #		//Pickups for Bob0
-		if (healthPickup.spawnNum != 3)
+		for (iter = Enemy.begin(); iter != Enemy.end(); ++iter)
 		{
-			if ((m_Bob0.getHealth() < 1))
+			if ((*iter)->getHealth() < 1 && (*iter)->isAlive())
 			{
-				healthPickup.spawnNum = 2;
+				healthPickup.spawnNum = rand() % 7;
+				if (healthPickup.spawnNum >=0 && healthPickup.spawnNum <= 1)
+				{
+					healthPickup.spawn(Vector2f((*iter)->getCenter().x, (*iter)->getCenter().y), GRAVITY);
+				}
+				if (healthPickup.spawnNum >= 2 && healthPickup.spawnNum <= 3)
+				{
+					MaxSpeed.spawn(Vector2f((*iter)->getCenter().x, (*iter)->getCenter().y), GRAVITY);
+				}
+				if (healthPickup.spawnNum >= 4 && healthPickup.spawnNum <= 5)
+				{
+					SpeedBoost.spawn(Vector2f((*iter)->getCenter().x, (*iter)->getCenter().y), GRAVITY);
+				}
+				if (healthPickup.spawnNum == 6)
+				{
+					healthPickup2.spawn(Vector2f((*iter)->getCenter().x, (*iter)->getCenter().y), GRAVITY);
+				}
+				(*iter)->die();
 			}
 		}
-		if (healthPickup.spawnNum == 2)
-		{
-			healthPickup.spawnNum = rand() % 5 + 4;
-			if (healthPickup.spawnNum >=4 && healthPickup.spawnNum <=5)
-			{
-				healthPickup.spawn(Vector2f(m_Bob2.getCenter().x, m_Bob2.getCenter().y), GRAVITY);
-			}
-			if (healthPickup.spawnNum >=6 && healthPickup.spawnNum <=7)
-			{
-				MaxSpeed.spawn(Vector2f(m_Bob0.getCenter().x, m_Bob0.getCenter().y), GRAVITY);
-			}
-			if (healthPickup.spawnNum == 8)
-			{
-				//SpeedBoost.spawn(Vector2f(m_Bob2.getCenter().x, m_Bob0.getCenter().y), GRAVITY);
-				healthPickup2.spawn(Vector2f(m_Bob0.getCenter().x, m_Bob0.getCenter().y), GRAVITY);
-			}
-
-			m_Bob2.die();
-			healthPickup.spawnNum = 3;
-		}
-
-		//if (SpeedBoost.BoostTimeEnd == false)
-		//{
-		//	dt2 = clock.restart();
-		//	SpeedBoost.boostTime -= dt2.asSeconds();
-
-		//}
-		//if (SpeedBoost.boostTime <= 0)
-		//{
-		//	SpeedBoost.BoostTimeEnd = true;
-		//	m_Thomas.setSpeed(4);
-		//}
 
 		// Detect collisions and see if characters have reached the goal tile
 		// The second part of the if condition is only executed
 		// when thomas is touching the home tile
-		if (detectCollisions(m_Thomas) && detectCollisions(m_Bob0) || detectCollisions(m_Thomas) && detectCollisions(m_Bob1) || detectCollisions(m_Thomas) && detectCollisions(m_Bob2))
+		if (detectCollisions(m_Thomas) && detectCollisions(*m_Bob0) || detectCollisions(m_Thomas) && detectCollisions(*m_Bob1) || detectCollisions(m_Thomas) && detectCollisions(*m_Bob2))
 		{
 			// New level required
+			
 			m_NewLevelRequired = true;
 
 			// Play the reach goal sound
@@ -128,18 +104,9 @@ void Engine::update(float dtAsSeconds)
 		else
 		{
 			// Run bobs collision detection
-			detectCollisions(m_Bob0);
-			detectCollisions(m_Bob1);
-			detectCollisions(m_Bob2);
-		}
-
-		// Count down the time the player has left
-		m_TimeRemaining -= dtAsSeconds;
-
-		// Have Thomas and Bob run out of time?
-		if (m_TimeRemaining <= 0)
-		{
-			m_NewLevelRequired = true;
+			detectCollisions(*m_Bob0);
+			detectCollisions(*m_Bob1);
+			detectCollisions(*m_Bob2);
 		}
 
 		// Where is the mouse pointer
@@ -273,27 +240,9 @@ void Engine::update(float dtAsSeconds)
 			m_SM.playFire(Vector2f(posX, posY), m_Thomas.getCenter());
 		}
 	}
-	*/
 
-	// Set the appropriate view around the appropriate character
-	if (m_SplitScreen)
-	{
-		m_LeftView.setCenter(m_Thomas.getCenter());
-		m_RightView.setCenter(m_Bob0.getCenter());
-	}
-	else
-	{
-		// Centre full screen around appropriate character
-		if (m_Character1)
-		{
-			m_MainView.setCenter(m_Thomas.getCenter());
-		}
-		else
-		{
-			m_MainView.setCenter(m_Bob0.getCenter());
-		}
-	}
-
+	m_MainView.setCenter(m_Thomas.getCenter());
+		
 	// Time to update the HUD?
 	// Increment the number of frames since the last HUD calculation
 	m_FramesSinceLastHUDUpdate++;
@@ -305,10 +254,6 @@ void Engine::update(float dtAsSeconds)
 		stringstream ssTime;
 		stringstream ssLevel;
 		stringstream ssAmmo;
-
-		// Update the time text
-		ssTime << (int)m_TimeRemaining;
-		m_Hud.setTime(ssTime.str());
 
 		// Update the level text
 		ssLevel << "Level:" << m_LM.getCurrentLevel();

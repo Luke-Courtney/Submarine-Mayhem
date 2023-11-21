@@ -2,6 +2,7 @@
 #include <sstream>
 #include <fstream>
 #include <SFML/Graphics.hpp>
+#include <list>
 #include "TextureHolder.h"
 #include "Thomas.h"
 #include "Bob.h"
@@ -25,13 +26,17 @@ private:
 
 	// Thomas and his friend, Bob
 	Thomas m_Thomas;
-	Bob m_Bob0;
-	Bob m_Bob1;
-	Bob m_Bob2;
+	Bob* m_Bob0;
+	Bob* m_Bob1;
+	Bob* m_Bob2;
+	int counter;
+	list<Bob*> Enemy;
+
 
 	Pickup healthPickup;
 	Pickup MaxSpeed;
 	Pickup healthPickup2;
+	Pickup SpeedBoost;
 
 	// Where is the mouse in relation to world coordinates
 	Vector2f mouseWorldPosition;
@@ -109,8 +114,6 @@ private:
 	// Start in full screen mode
 	bool m_SplitScreen = false;
 
-	// How much time is left in the current level
-	float m_TimeRemaining = 10;
 	Time m_GameTimeTotal;
 
 	// Is it time for a new/first level?
