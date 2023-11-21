@@ -1,6 +1,2 @@
-PlatformToolSet=v143:VCToolArchitecture=Native64Bit:VCToolsVersion=14.37.32822:TargetPlatformVersion=10.0.19041.0:
-<<<<<<< HEAD
-Debug|x64|C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\|
-=======
-Debug|x64|C:\Users\cilli\Source\Repos\Luke-Courtney\Submarine-Mayhem\Code\Submarine-Mayhem_v1\|
->>>>>>> origin/enemy-iterator
+PlatformToolSet=v143:VCToolArchitecture=Native64Bit:VCToolsVersion=14.37.32822:TargetPlatformVersion=10.0.22000.0:
+Debug|x64|C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\|

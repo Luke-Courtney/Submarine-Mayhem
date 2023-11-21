@@ -142,27 +142,27 @@ void Engine::update(float dtAsSeconds)
 
 		}// End fire a bullet
 
-		float Bob0shoot = (m_Bob0.getCenter().x, m_Bob0.getCenter().y);
-		float Bob1shoot = (m_Bob1.getCenter().x, m_Bob1.getCenter().y);
-		float Bob2shoot = (m_Bob2.getCenter().x, m_Bob2.getCenter().y);
+		float Bob0shoot = (m_Bob0->getCenter().x, m_Bob0->getCenter().y);
+		float Bob1shoot = (m_Bob1->getCenter().x, m_Bob1->getCenter().y);
+		float Bob2shoot = (m_Bob2->getCenter().x, m_Bob2->getCenter().y);
 
 		//Enemies shoot thomas
-		float distance = abs((m_Bob0.getCenter().x - m_Thomas.getCenter().x) + (m_Bob0.getCenter().y - m_Thomas.getCenter().y));
-		float distance1 = abs((m_Bob1.getCenter().x - m_Thomas.getCenter().x) + (m_Bob1.getCenter().y - m_Thomas.getCenter().y));
-		float distance2 = abs((m_Bob2.getCenter().x - m_Thomas.getCenter().x) + (m_Bob2.getCenter().y - m_Thomas.getCenter().y));
+		float distance = abs((m_Bob0->getCenter().x - m_Thomas.getCenter().x) + (m_Bob0->getCenter().y - m_Thomas.getCenter().y));
+		float distance1 = abs((m_Bob1->getCenter().x - m_Thomas.getCenter().x) + (m_Bob1->getCenter().y - m_Thomas.getCenter().y));
+		float distance2 = abs((m_Bob2->getCenter().x - m_Thomas.getCenter().x) + (m_Bob2->getCenter().y - m_Thomas.getCenter().y));
 
 		if (distance < 10)
 		{
 			//Shoot function takes in start pos and target pos
-			bullets[currentBullet].shoot(m_Bob0.getCenter().x, m_Bob0.getCenter().y, m_Thomas.getCenter().x, m_Thomas.getCenter().y);
+			bullets[currentBullet].shoot(m_Bob0->getCenter().x, m_Bob0->getCenter().y, m_Thomas.getCenter().x, m_Thomas.getCenter().y);
 		}
 		else if (distance1 < 10)
 		{
-			bullets[currentBullet].shoot(m_Bob1.getCenter().x, m_Bob1.getCenter().y, m_Thomas.getCenter().x, m_Thomas.getCenter().y);
+			bullets[currentBullet].shoot(m_Bob1->getCenter().x, m_Bob1->getCenter().y, m_Thomas.getCenter().x, m_Thomas.getCenter().y);
 		}
 		else if (distance2 < 10)
 		{
-			bullets[currentBullet].shoot(m_Bob2.getCenter().x, m_Bob2.getCenter().y, m_Thomas.getCenter().x, m_Thomas.getCenter().y);
+			bullets[currentBullet].shoot(m_Bob2->getCenter().x, m_Bob2->getCenter().y, m_Thomas.getCenter().x, m_Thomas.getCenter().y);
 		}
 		
 		// Update any bullets that are in - flight
@@ -240,6 +240,7 @@ void Engine::update(float dtAsSeconds)
 			m_SM.playFire(Vector2f(posX, posY), m_Thomas.getCenter());
 		}
 	}
+	*/
 
 	m_MainView.setCenter(m_Thomas.getCenter());
 		

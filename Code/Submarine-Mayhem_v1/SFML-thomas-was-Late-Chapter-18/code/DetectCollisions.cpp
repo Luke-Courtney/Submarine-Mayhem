@@ -39,6 +39,13 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 		//character.spawn(m_LM.getStartPosition(), GRAVITY);
 	}
 
+	//Has thomas fallen out of map?
+	if (!m_Thomas.getPosition().intersects(level))
+	{
+		m_Thomas.spawn(m_LM.getStartPosition(), GRAVITY);
+	}
+	
+
 	//Detect thomas collisions with enemy
 	if (m_Thomas.getPosition().intersects(m_Bob0->getPosition()) || m_Thomas.getPosition().intersects(m_Bob1->getPosition()) || m_Thomas.getPosition().intersects(m_Bob2->getPosition()))
 	{
@@ -50,24 +57,24 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 	//Check if bullet collide enemy or player
 	for (int i = 0; i < 100; i++)
 	{
-		if (bullets[i].isInFlight() && m_Bob0.isAlive() && m_Bob1.isAlive() && m_Bob2.isAlive())
+		if (bullets[i].isInFlight())
 		{
-			if (bullets[i].getPosition().intersects(m_Bob0.getPosition()))
+			if (bullets[i].getPosition().intersects(m_Bob0->getPosition()) && m_Bob0->isAlive())
 			{
 				//stop the bullet
 				bullets[i].stop();
 				//enemy take damage
-				m_Bob0.damage(1);
+				m_Bob0->damage(1);
 			}
-			else if (bullets[i].getPosition().intersects(m_Bob1.getPosition()))
+			else if (bullets[i].getPosition().intersects(m_Bob1->getPosition()) && m_Bob1->isAlive())
 			{
 				bullets[i].stop();
-				m_Bob1.damage(1);
+				m_Bob1->damage(1);
 			}
-			else if (bullets[i].getPosition().intersects(m_Bob2.getPosition()))
+			else if (bullets[i].getPosition().intersects(m_Bob2->getPosition()) && m_Bob2->isAlive())
 			{
 				bullets[i].stop();
-				m_Bob2.damage(1);
+				m_Bob2->damage(1);
 			}
 			/*else if (bullets[i].getPosition().intersects(m_Thomas.getPosition()))
 			{
