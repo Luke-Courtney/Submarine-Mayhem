@@ -40,6 +40,7 @@ private:
 
 	// 100 bullets should do
 	Bullet bullets[999];
+	//Bullet enemyBullets[999];
 	int currentBullet = 0;
 	int bulletsSpare = 999;
 	int bulletsInClip = 999;

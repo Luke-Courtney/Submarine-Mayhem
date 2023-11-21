@@ -1,5 +1,7 @@
 #include "Bob.h"
 #include "TextureHolder.h"
+#include "Bullet.h"
+#include "Engine.h"
 #include <iostream>
 
 /*
@@ -185,4 +187,5 @@ bool Bob::handleInput()
 	}
 
 	return m_JustJumped;
+
 }
