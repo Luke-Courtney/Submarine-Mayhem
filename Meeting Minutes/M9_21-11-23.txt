@@ -1,0 +1,12 @@
+Third Year Team Project Meeting
+
+Date:	...	...	[21/11/23]
+Members Absent:		Ishka Yao
+Start Time:	...	11:49
+End Time:	...	11:46
+Location:	...	Thurles Campus B223
+
+
+Discussed current work
+Made decision to merge all branches to common beta version before branching again
+Discussed hitbox issues. Will be worked on later if time allows
