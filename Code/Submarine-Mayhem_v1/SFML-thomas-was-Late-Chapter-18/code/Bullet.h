@@ -49,6 +49,9 @@ public:
 	// Launch a new bullet
 	void shoot(float startX, float startY, float xTarget, float yTarget);
 
+	//Launch an enemy bullet
+	void enemyShoot(float startX, float startY, float xTarget, float yTarget);
+
 	// Tell the calling code where the bullet is in the world
 	FloatRect getPosition();
 

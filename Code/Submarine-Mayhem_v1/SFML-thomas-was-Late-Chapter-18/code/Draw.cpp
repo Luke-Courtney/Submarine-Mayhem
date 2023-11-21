@@ -47,10 +47,11 @@ void Engine::draw()
 		}
 
 		for (int i = 0; i < 100; i++)
-		{
+		{// && enemyBullets[i].isInFlight()
 			if (bullets[i].isInFlight())
 			{
 				m_Window.draw(bullets[i].getShape());
+				//m_Window.draw(enemyBullets[i].getShape());
 			}
 		}
 	}

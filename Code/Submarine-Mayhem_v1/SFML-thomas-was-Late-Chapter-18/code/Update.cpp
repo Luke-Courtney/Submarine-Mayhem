@@ -160,7 +160,7 @@ void Engine::update(float dtAsSeconds)
 				// Pass the centre of the player and the centre of the crosshair
 				// to the shoot function
 				bullets[currentBullet].shoot(
-					m_Thomas.getCenter().x, m_Thomas.getCenter().y,
+					(m_Thomas.getCenter().x + 50), m_Thomas.getCenter().y,
 					mouseWorldPosition.x, mouseWorldPosition.y);
 
 				currentBullet++;
@@ -175,20 +175,36 @@ void Engine::update(float dtAsSeconds)
 
 		}// End fire a bullet
 
+		float Bob0shoot = (m_Bob0.getCenter().x, m_Bob0.getCenter().y);
+		float Bob1shoot = (m_Bob1.getCenter().x, m_Bob1.getCenter().y);
+		float Bob2shoot = (m_Bob2.getCenter().x, m_Bob2.getCenter().y);
+
 		//Enemies shoot thomas
 		float distance = abs((m_Bob0.getCenter().x - m_Thomas.getCenter().x) + (m_Bob0.getCenter().y - m_Thomas.getCenter().y));
+		float distance1 = abs((m_Bob1.getCenter().x - m_Thomas.getCenter().x) + (m_Bob1.getCenter().y - m_Thomas.getCenter().y));
+		float distance2 = abs((m_Bob2.getCenter().x - m_Thomas.getCenter().x) + (m_Bob2.getCenter().y - m_Thomas.getCenter().y));
+
 		if (distance < 10)
 		{
 			//Shoot function takes in start pos and target pos
 			bullets[currentBullet].shoot(m_Bob0.getCenter().x, m_Bob0.getCenter().y, m_Thomas.getCenter().x, m_Thomas.getCenter().y);
 		}
+		else if (distance1 < 10)
+		{
+			bullets[currentBullet].shoot(m_Bob1.getCenter().x, m_Bob1.getCenter().y, m_Thomas.getCenter().x, m_Thomas.getCenter().y);
+		}
+		else if (distance2 < 10)
+		{
+			bullets[currentBullet].shoot(m_Bob2.getCenter().x, m_Bob2.getCenter().y, m_Thomas.getCenter().x, m_Thomas.getCenter().y);
+		}
 		
 		// Update any bullets that are in - flight
 		for (int i = 0; i < 100; i++)
-		{
+		{// && enemyBullets[i].isInFlight()
 			if (bullets[i].isInFlight())
 			{
 				bullets[i].update(dtAsSeconds);
+				//enemyBullets[i].update(dtAsSeconds);
 			}
 		}
 		
@@ -209,10 +225,6 @@ void Engine::update(float dtAsSeconds)
 			}
 			
 		}
-
-		//check to see if player is in enemy range to shoot
-
-
 		/*
 		// Have any enemies been shot?
 		for (int i = 0; i < 100; i++)

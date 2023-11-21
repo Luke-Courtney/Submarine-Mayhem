@@ -46,7 +46,36 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 		character.spawn(m_LM.getStartPosition(), GRAVITY);
 	}
 
-	
+	//Check if bullet collide enemy or player
+	for (int i = 0; i < 100; i++)
+	{
+		if (bullets[i].isInFlight() && m_Bob0.isAlive() && m_Bob1.isAlive() && m_Bob2.isAlive())
+		{
+			if (bullets[i].getPosition().intersects(m_Bob0.getPosition()))
+			{
+				//stop the bullet
+				bullets[i].stop();
+				//enemy take damage
+				m_Bob0.damage(1);
+			}
+			else if (bullets[i].getPosition().intersects(m_Bob1.getPosition()))
+			{
+				bullets[i].stop();
+				m_Bob1.damage(1);
+			}
+			else if (bullets[i].getPosition().intersects(m_Bob2.getPosition()))
+			{
+				bullets[i].stop();
+				m_Bob2.damage(1);
+			}
+			/*else if (bullets[i].getPosition().intersects(m_Thomas.getPosition()))
+			{
+				bullets[i].stop();
+				character.spawn(m_LM.getStartPosition(), GRAVITY);
+			}*/
+		}
+
+	}
 
 	for (int x = startX; x < endX; x++)
 	{

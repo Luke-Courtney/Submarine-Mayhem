@@ -97,3 +97,19 @@ int Thomas::getHealth()
 {
 	return health;
 }
+bool Thomas::isAlive()
+{
+	return alive;
+}
+
+//Deal damage
+void Thomas::damage(int damage)
+{
+	health = health - damage;
+	if (health < 1)
+	{
+		//die();
+	}
+}
+
+
