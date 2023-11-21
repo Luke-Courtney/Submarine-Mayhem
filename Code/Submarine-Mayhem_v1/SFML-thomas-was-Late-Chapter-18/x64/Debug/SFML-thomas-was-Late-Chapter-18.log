@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿  DetectCollisions.cpp
 C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\DetectCollisions.cpp(14,16): warning C4244: '=': conversion from 'const int' to 'T', possible loss of data
           with
@@ -34,6 +35,9 @@ C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Ch
 C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\DetectCollisions.cpp(139,46): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
 C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\DetectCollisions.cpp(146,47): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
 C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\DetectCollisions.cpp(153,42): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
+=======
+﻿  SoundManager.cpp
+>>>>>>> level_changes
   Update.cpp
 C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\Update.cpp(88,78): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
 C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\Update.cpp(92,74): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
