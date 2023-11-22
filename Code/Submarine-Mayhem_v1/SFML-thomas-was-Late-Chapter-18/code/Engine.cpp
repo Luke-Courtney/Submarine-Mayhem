@@ -28,21 +28,35 @@ Engine::Engine()
 
 	m_BGRightView.setViewport(
 		FloatRect(0.5f, 0.001f, 0.499f, 0.998f));
-	//Set up a menu
-	m_MenuTexture = TextureHolder::GetTexture("graphics/menu.png");
-	m_Menu.setTexture(m_MenuTexture);
-	m_Menu.setPosition(0, 0);
+	// Set up a menu
+	MENU.loadFromFile("graphics/menu.png");
+	menu.setTexture(MENU);
+	// Set up a pause screen
+	PAUSE.loadFromFile("graphics/pause.png");
+	pause.setTexture(PAUSE);
 	// Time bar
 	//timeRemaining = 20;
 	timeBar.setSize(Vector2f(timeBarStartWidth, timeBarHeight));
 	timeBar.setFillColor(Color::Red);
-	timeBar.setPosition((1920 / 2) - timeBarStartWidth / 2, 1080);
+	timeBar.setPosition((resolution.x / 2) - timeBarStartWidth / 2, resolution.y);//position
 	timeBarWidthPerSecond = timeBarStartWidth / timeRemaining;
+
+
+	//Game over text ran out of oxygen
+	// Load the font
+	Font.loadFromFile("fonts/Roboto-Light.ttf");
+	messageText.setFont(Font);
+	messageText.setCharacterSize(100);
+	messageText.setFillColor(Color::Red);
+	// Change the message shown to the player
+	messageText.setString("Ran Out Of Oxygen!");
+	messageText.setPosition((resolution.x/2)-500,(resolution.y/2));
 	
 	
+
 	//set offset value between player and timebar
 	offset.x = 0;
-	offset.y = 450;
+	offset.y = 400;
 	
 
 		

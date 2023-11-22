@@ -39,8 +39,11 @@ private:
 
 	// The force pushing the characters down
 	const int GRAVITY = 300;
+
 	//Text display
+	Font Font;
 	Text messageText;
+
 	// A regular RenderWindow
 	RenderWindow m_Window;
 	//Variable to control time
@@ -50,8 +53,11 @@ private:
 	//Make timebar a rectangle shape
 	RectangleShape timeBar;
 	//MENU
-	Sprite m_Menu;
-	Texture m_MenuTexture;
+	Texture MENU;
+	Sprite menu;
+	//MENU
+	Texture PAUSE;
+	Sprite pause;
 	//message
 	FloatRect textRect = messageText.getLocalBounds();
 
@@ -72,7 +78,8 @@ private:
 	Texture m_BackgroundTexture;
 	// Declare a shader for the background
 	Shader m_RippleShader;
-
+	//pause
+	bool paused = false;
 	// Is the game currently playing?
 	bool m_Playing = false;
 
@@ -85,6 +92,7 @@ private:
 	// How much time is left in the current level
 	float m_TimeRemaining = 10;
 	Time m_GameTimeTotal;
+	bool oxygenGone = false;
 
 	// Is it time for a new/first level?
 	bool m_NewLevelRequired = true;

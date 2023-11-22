@@ -37,6 +37,10 @@ void Engine::draw()
 		{
 			m_Window.draw(m_PS);
 		}
+
+		
+		
+		
 	}
 	else
 	{
@@ -65,7 +69,7 @@ void Engine::draw()
 		m_Window.draw(m_Thomas.getSprite());
 		//draw timebar
 		m_Window.draw(timeBar);
-		m_Window.draw(m_Menu);
+		m_Window.draw(menu);
 		// Draw the particle system
 		if (m_PS.running())
 		{
@@ -101,6 +105,10 @@ void Engine::draw()
 		{
 			m_Window.draw(m_PS);
 		}
+
+		
+		
+		
 				
 	}
 	
@@ -109,13 +117,22 @@ void Engine::draw()
 	m_Window.setView(m_HudView);
 	m_Window.draw(m_Hud.getLevel());
 	m_Window.draw(m_Hud.getTime());
-	m_Window.draw(m_Menu);
+	m_Window.draw(menu);
 	if (!m_Playing)
 	{
 		m_Window.draw(m_Hud.getMessage());
 	}
-	
-	
+
+	if (oxygenGone)
+	{
+		m_Window.draw(messageText);
+	}
+
+	if (paused)
+	{
+		m_Window.draw(pause);
+	}
+
 	// Show everything we have just drawn
 	m_Window.display();
 }
