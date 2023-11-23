@@ -63,8 +63,8 @@ void Engine::draw()
 	m_Window.draw(m_Hud.getLevel());
 	//ammo text
 	m_Window.draw(m_Hud.getAmmo());
-	m_Window.draw(m_Menu);
-	m_Window.draw(m_Hud.getTime());
+	//m_Window.draw(m_Menu);
+	//m_Window.draw(m_Hud.getTime());
 	m_Window.draw(menu);
 	if (!m_Playing)
 	{
