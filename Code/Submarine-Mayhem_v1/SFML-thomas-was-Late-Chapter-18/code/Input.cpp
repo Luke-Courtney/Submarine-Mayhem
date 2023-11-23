@@ -14,12 +14,18 @@ void Engine::input()
 				m_Window.close();
 
 			}
-
+			// Handle the player quitting
+			if (Keyboard::isKeyPressed(Keyboard::P))
+			{
+				paused = true;
+				m_Playing = false;
+			}
 			// Handle the player starting the game
 			if (Keyboard::isKeyPressed(Keyboard::Return))
 			{
+				paused = false;
 				m_Playing = true;
-				m_Menu.setPosition(-5000, -5000);//GET RID OF MENU
+				menu.setPosition(-5000, -5000);//GET RID OF MENU
 			}
 		}
 	}	

@@ -64,11 +64,23 @@ void Engine::draw()
 	//ammo text
 	m_Window.draw(m_Hud.getAmmo());
 	m_Window.draw(m_Menu);
+	m_Window.draw(m_Hud.getTime());
+	m_Window.draw(menu);
 	if (!m_Playing)
 	{
 		m_Window.draw(m_Hud.getMessage());
 	}
-	
+
+	if (oxygenGone)
+	{
+		m_Window.draw(messageText);
+	}
+
+	if (paused)
+	{
+		m_Window.draw(pause);
+	}
+
 	// Show everything we have just drawn
 	m_Window.display();
 }
