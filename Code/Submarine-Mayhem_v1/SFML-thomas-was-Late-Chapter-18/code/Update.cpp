@@ -102,11 +102,10 @@ void Engine::update(float dtAsSeconds)
 				- lastPressed.asMilliseconds()
 					> 1000 / fireRate && bulletsInClip > 0)
 			{
-
 				// Pass the centre of the player and the centre of the crosshair
 				// to the shoot function
 				bullets[currentBullet].shoot(
-					(m_Thomas.getCenter().x + 50), m_Thomas.getCenter().y,
+						(m_Thomas.getCenter().x - 80), m_Thomas.getCenter().y,
 					mouseWorldPosition.x, mouseWorldPosition.y);
 
 				currentBullet++;
@@ -171,28 +170,6 @@ void Engine::update(float dtAsSeconds)
 			}
 			
 		}
-		/*
-		// Have any enemies been shot?
-		for (int i = 0; i < 100; i++)
-		{
-			if (bullets[i].isInFlight() && m_Bob0.isAlive() || bullets[i].isInFlight() && m_Bob1.isAlive() ||
-				bullets[i].isInFlight() && m_Bob2.isAlive())
-			{
-				if (bullets[i].getPosition().intersects(m_Bob0.getPosition()) || bullets[i].getPosition().intersects(m_Bob1.getPosition()) ||
-					bullets[i].getPosition().intersects(m_Bob2.getPosition()))
-				{
-					// Stop the bullet
-					bullets[i].stop();
-
-					// Register the hit and see if it was a kill
-					//if (m_Bob0.damage() || m_Bob1.damage() || m_Bob2.damage()) {
-						// Not just a hit but a kill too
-						//die();
-					//}
-				}
-			}
-		}
-		*/
 
 		// size up the time bar
 		timeBar.setSize(Vector2f(timeBarWidthPerSecond *
