@@ -26,7 +26,7 @@ int** LevelManager::nextLevel(VertexArray& rVaLevel)
 	switch (m_CurrentLevel)
 	{
 	case 1:
-		levelToLoad = "levels/level1.txt";
+		levelToLoad = "levels/level2.txt";
 		m_StartPosition.x = 300;
 		m_StartPosition.y = 250;
 		break;

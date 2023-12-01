@@ -167,7 +167,19 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 				SpeedBoost.spawn(Vector2f(6900, 1500), GRAVITY);
 				m_Thomas.setMaxSpeed(SpeedBoost.gotIt());
 			}
-
+			if (m_Thomas.getPosition().intersects
+			(BulletFireRate.getPosition()))
+			{
+				BulletFireRate.spawn(Vector2f(6900, 1500), GRAVITY);
+				//m_Thomas.setMaxSpeed(BulletFireRate.gotIt());           need to set how the pickup is applied
+			}															  
+			if (m_Thomas.getPosition().intersects						  
+			(BulletSpeed.getPosition()))								  
+			{															  
+				BulletSpeed.spawn(Vector2f(6900, 1500), GRAVITY);		  
+				//m_Thomas.setMaxSpeed(BulletSpeed.gotIt());              need to set how the pickup is applied
+			}															  
+																		  
 
 
 			// More collision detection here once we have learned about particle effects

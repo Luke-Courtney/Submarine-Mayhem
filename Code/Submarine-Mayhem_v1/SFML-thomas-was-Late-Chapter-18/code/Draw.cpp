@@ -37,6 +37,8 @@ void Engine::draw()
 		m_Window.draw(MaxSpeed.getSprite());
 		m_Window.draw(healthPickup2.getSprite());
 		m_Window.draw(SpeedBoost.getSprite());
+		m_Window.draw(BulletFireRate.getSprite());
+		m_Window.draw(BulletSpeed.getSprite());
 
 		//draw timebar
 		m_Window.draw(timeBar);

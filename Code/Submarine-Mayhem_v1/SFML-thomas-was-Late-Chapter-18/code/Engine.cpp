@@ -103,18 +103,21 @@ Engine::Engine()
 	for (iter = Enemy.begin(); iter != Enemy.end(); ++iter)
 	{
 		(*iter)->setType(counter);
-		if (counter == 0)
-		{
-			(*iter)->SetPatrolPoint(Vector2f(750, 450));
-		}
-		if (counter == 1)
-		{
-			(*iter)->SetPatrolPoint(Vector2f(3700, 650));
-		}
-		if (counter == 2)
-		{
-			(*iter)->SetPatrolPoint(Vector2f(1800, 900));
-		}
+		//if (current level = 1)
+		//{
+			if (counter == 0)
+			{
+				(*iter)->SetPatrolPoint(Vector2f(750, 450));
+			}
+			if (counter == 1)
+			{
+				(*iter)->SetPatrolPoint(Vector2f(3700, 650));
+			}
+			if (counter == 2)
+			{
+				(*iter)->SetPatrolPoint(Vector2f(1800, 900));
+			}
+		//}
 		counter++;
 	}
 
@@ -123,17 +126,23 @@ Engine::Engine()
 	healthPickup2.m_Value = 25;
 	MaxSpeed.m_Value = 500;
 	SpeedBoost.m_Value = 0.2f;
+	BulletFireRate.m_Value = 2;
+	BulletSpeed.m_Value = 2;
 
 	//selecting the sprite to be used
 	healthPickup.m_Type = 1;
 	MaxSpeed.m_Type = 2;
 	healthPickup2.m_Type = 3;
 	SpeedBoost.m_Type = 4;
+	BulletFireRate.m_Type = 5;
+	BulletSpeed.m_Type = 6;
 
 	healthPickup.refreshSprite();
 	healthPickup2.refreshSprite();
 	MaxSpeed.refreshSprite();
 	SpeedBoost.refreshSprite();
+	BulletFireRate.refreshSprite();
+	BulletSpeed.refreshSprite();
 
 	srand(time(0));
 

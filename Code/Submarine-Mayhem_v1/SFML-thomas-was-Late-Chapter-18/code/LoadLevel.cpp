@@ -43,10 +43,12 @@ void Engine::loadLevel()
 		counter++;
 	}
 
-	healthPickup.spawn(Vector2f(6900, 1500), GRAVITY);
-	MaxSpeed.spawn(Vector2f(6900, 1600), GRAVITY);
-	healthPickup2.spawn(Vector2f(6900, 1700), GRAVITY);
-	SpeedBoost.spawn(Vector2f(6900, 1600), GRAVITY);
+	healthPickup.spawn(Vector2f(7900, 1500), GRAVITY);
+	MaxSpeed.spawn(Vector2f(7900, 1600), GRAVITY);
+	healthPickup2.spawn(Vector2f(7900, 1700), GRAVITY);
+	SpeedBoost.spawn(Vector2f(7900, 1600), GRAVITY);
+	BulletSpeed.spawn(Vector2f(7900, 1600), GRAVITY);
+	BulletFireRate.spawn(Vector2f(7900, 1600), GRAVITY);
 	
 
 	// Make sure this code isn't run again

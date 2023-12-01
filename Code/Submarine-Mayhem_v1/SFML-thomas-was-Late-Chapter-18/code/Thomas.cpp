@@ -94,5 +94,3 @@ void Thomas::damage(int damage)
 		//die();
 	}
 }
-
-

@@ -32,11 +32,12 @@ private:
 	int counter;
 	list<Bob*> Enemy;
 
-
 	Pickup healthPickup;
 	Pickup MaxSpeed;
 	Pickup healthPickup2;
 	Pickup SpeedBoost;
+	Pickup BulletFireRate;
+	Pickup BulletSpeed;
 
 	// Where is the mouse in relation to world coordinates
 	Vector2f mouseWorldPosition;
@@ -156,7 +157,6 @@ private:
 	vector <Vector2f> m_FireEmitters;
 
 	
-
 	//Oxygen bar
 	float timeBarStartWidth = 400;
 	float timeBarHeight = 80;

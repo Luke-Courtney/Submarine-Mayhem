@@ -39,14 +39,16 @@ void Engine::update(float dtAsSeconds)
 		healthPickup.update(dtAsSeconds);
 		MaxSpeed.update(dtAsSeconds);
 		SpeedBoost.update(dtAsSeconds);
-		healthPickup2.update(dtAsSeconds);
+		BulletFireRate.update(dtAsSeconds);
+		BulletSpeed.update(dtAsSeconds);
+
 
 #		//Pickups for Bob0
 		for (iter = Enemy.begin(); iter != Enemy.end(); ++iter)
 		{
 			if ((*iter)->getHealth() < 1 && (*iter)->isAlive())
 			{
-				healthPickup.spawnNum = rand() % 7;
+				healthPickup.spawnNum = rand() % 11;
 				if (healthPickup.spawnNum >=0 && healthPickup.spawnNum <= 1)
 				{
 					healthPickup.spawn(Vector2f((*iter)->getCenter().x, (*iter)->getCenter().y), GRAVITY);
@@ -59,7 +61,15 @@ void Engine::update(float dtAsSeconds)
 				{
 					SpeedBoost.spawn(Vector2f((*iter)->getCenter().x, (*iter)->getCenter().y), GRAVITY);
 				}
-				if (healthPickup.spawnNum == 6)
+				if (healthPickup.spawnNum >= 6 && healthPickup.spawnNum <= 7)
+				{
+					BulletFireRate.spawn(Vector2f((*iter)->getCenter().x, (*iter)->getCenter().y), GRAVITY);
+				}
+				if (healthPickup.spawnNum >= 8 && healthPickup.spawnNum <= 9)
+				{
+					BulletSpeed.spawn(Vector2f((*iter)->getCenter().x, (*iter)->getCenter().y), GRAVITY);
+				}
+				if (healthPickup.spawnNum == 10)
 				{
 					healthPickup2.spawn(Vector2f((*iter)->getCenter().x, (*iter)->getCenter().y), GRAVITY);
 				}
