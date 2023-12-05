@@ -146,6 +146,7 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 			{
 				healthPickup.spawn(Vector2f(6900, 1500), GRAVITY);
 				m_Thomas.setHealth(healthPickup.gotIt());
+				m_SM.playPickupSound();
 			}
 
 			if (m_Thomas.getPosition().intersects
@@ -153,6 +154,7 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 			{
 				healthPickup2.spawn(Vector2f(6900, 1500), GRAVITY);
 				m_Thomas.setHealth(healthPickup2.gotIt());
+				m_SM.playPickupSound();
 			}
 
 			if (m_Thomas.getPosition().intersects
@@ -160,12 +162,14 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 			{
 				MaxSpeed.spawn(Vector2f(6900, 1500), GRAVITY);
 				m_Thomas.setMaxSpeed(MaxSpeed.gotIt());
+				m_SM.playPickupSound();
 			}
 			if (m_Thomas.getPosition().intersects
 			(SpeedBoost.getPosition()))
 			{
 				SpeedBoost.spawn(Vector2f(6900, 1500), GRAVITY);
 				m_Thomas.setMaxSpeed(SpeedBoost.gotIt());
+				m_SM.playPickupSound();
 			}
 
 

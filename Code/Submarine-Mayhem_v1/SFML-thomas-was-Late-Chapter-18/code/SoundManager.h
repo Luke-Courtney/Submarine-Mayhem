@@ -12,6 +12,9 @@ private:
 	SoundBuffer m_FallInWaterBuffer;
 	SoundBuffer m_JumpBuffer;
 	SoundBuffer m_ReachGoalBuffer;
+	SoundBuffer m_ShootBuffer;
+	SoundBuffer m_DamageBuffer;
+	SoundBuffer m_PickupBuffer;
 
 	// The Sounds
 	Sound m_Fire1Sound;
@@ -21,6 +24,12 @@ private:
 	Sound m_FallInWaterSound;
 	Sound m_JumpSound;
 	Sound m_ReachGoalSound;
+	Sound m_ShootSound;
+	Sound m_DamageSound;
+	Sound m_PickupSound;
+
+	//Music
+	Music m_Music;
 
 	// Which sound should we use next, fire 1, 2 or 3
 	int m_NextSound = 1;
@@ -34,5 +43,9 @@ public:
 	void playFallInWater();
 	void playJump();
 	void playReachGoal();
+	void playShootSound();
+	void playDamageSound();
+	void playPickupSound();
+	void playMusic();
 };
 
