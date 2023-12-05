@@ -137,6 +137,11 @@ Engine::Engine()
 
 	srand(time(0));
 
+	// Hide the mouse pointer and replace it with crosshair
+	m_Window.setMouseCursorVisible(true);
+	spriteCrosshair.setTexture(textureCrosshair);
+	spriteCrosshair.setOrigin(25, 50);
+
 }// End Engine constructor
 
 void Engine::run()

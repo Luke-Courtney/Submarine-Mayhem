@@ -43,13 +43,16 @@ private:
 	// Where is the mouse in relation to screen coordinates
 	Vector2i mouseScreenPosition;
 
+	Sprite spriteCrosshair;
+	Texture textureCrosshair = TextureHolder::GetTexture("graphics/crosshair.png");
+
 	// 100 bullets should do
 	Bullet bullets[999];
 	//Bullet enemyBullets[999];
 	int currentBullet = 0;
-	int bulletsSpare = 999;
-	int bulletsInClip = 999;
-	int clipSize = 999;
+	int bulletsSpare = 100000;
+	int bulletsInClip = 100000;
+	int clipSize = 100000;
 	float fireRate = 1;
 	// When was the fire button last pressed?
 	Time lastPressed;

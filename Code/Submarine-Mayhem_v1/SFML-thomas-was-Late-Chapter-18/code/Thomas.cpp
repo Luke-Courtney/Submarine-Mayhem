@@ -45,6 +45,7 @@ bool Thomas::handleInput()
 	if (Keyboard::isKeyPressed(Keyboard::A))
 	{
 		m_LeftPressed = true;
+		//flipped = true;
 	}
 	else
 	{
@@ -55,6 +56,7 @@ bool Thomas::handleInput()
 	if (Keyboard::isKeyPressed(Keyboard::D))
 	{
 		m_RightPressed = true;
+		//flipped = false;
 	}
 	else
 	{

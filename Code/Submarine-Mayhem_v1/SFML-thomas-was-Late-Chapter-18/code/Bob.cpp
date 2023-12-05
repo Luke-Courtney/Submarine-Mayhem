@@ -90,7 +90,7 @@ void Bob::setHealth(int newHealth)
 	m_Health = newHealth;
 	if (m_Health < 1)
 	{
-
+		//die();
 	}
 }
 

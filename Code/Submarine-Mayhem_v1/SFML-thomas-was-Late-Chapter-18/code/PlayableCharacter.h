@@ -56,6 +56,8 @@ public:
 	float rampUp = 0.25f;	//Acceleration
 	float rampDown = 0.5f;	//Decceleration
 
+	bool isFlipped;
+
 	// How fast is the character
 	float m_Speed = 200; //Max speed
 

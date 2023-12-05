@@ -48,21 +48,28 @@ void Engine::draw()
 		}
 
 		for (int i = 0; i < 100; i++)
-		{// && enemyBullets[i].isInFlight()
+		{
 			if (bullets[i].isInFlight())
 			{
 				m_Window.draw(bullets[i].getShape());
-				//m_Window.draw(enemyBullets[i].getShape());
 			}
+			/*
+			else if (enemyBullets[i].isInFlight())
+			{
+				m_Window.draw(enemyBullets[i].getShape());
+			}
+			*/
 		}
 	
+		//Draw the crosshair
+		m_Window.draw(spriteCrosshair);
 	
 	// Draw the HUD
 	// Switch to m_HudView
 	m_Window.setView(m_HudView);
 	m_Window.draw(m_Hud.getLevel());
 	//ammo text
-	m_Window.draw(m_Hud.getAmmo());
+	//m_Window.draw(m_Hud.getAmmo());
 	//m_Window.draw(m_Menu);
 	//m_Window.draw(m_Hud.getTime());
 	m_Window.draw(menu);
