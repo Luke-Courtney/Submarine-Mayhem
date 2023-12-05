@@ -11,21 +11,18 @@ void Engine::update(float dtAsSeconds)
 		// Measure time
 		dt = clock.restart();
 		
-
-
-
-		
-
-	
-
 	if (m_NewLevelRequired)
 	{
 		// Load a level
 		loadLevel();
+
+		//Start playing music on level load
+		m_SM.playMusic();
 	}
 
 	if (m_Playing)
 	{
+
 		list<Bob*>::const_iterator iter;
 		// Update Thomas
 		m_Thomas.update(dtAsSeconds);
@@ -115,7 +112,7 @@ void Engine::update(float dtAsSeconds)
 					currentBullet = 0;
 				}
 				lastPressed = m_GameTimeTotal;
-				//shoot.play();
+				m_SM.playShootSound();
 				bulletsInClip--;
 			}
 
