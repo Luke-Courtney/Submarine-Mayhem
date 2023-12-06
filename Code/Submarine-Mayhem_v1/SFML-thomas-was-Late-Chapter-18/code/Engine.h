@@ -169,13 +169,7 @@ private:
 	vector <Vector2f> m_FireEmitters;
 
 	
-<<<<<<< HEAD
-=======
-
-	
 public:
-
->>>>>>> Gamestate
 	//Oxygen bar
 	float timeBarStartWidth = 400;
 	float timeBarHeight = 80;
