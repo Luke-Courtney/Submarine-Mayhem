@@ -141,6 +141,8 @@ private:
 	void input();
 	void update(float dtAsSeconds);
 	void draw();	
+	int plusHealth();
+	int minusHealth();
 
 	// Load a new level
 	void loadLevel();
@@ -157,6 +159,9 @@ private:
 
 	
 
+	
+public:
+
 	//Oxygen bar
 	float timeBarStartWidth = 400;
 	float timeBarHeight = 80;
@@ -165,7 +170,7 @@ private:
 	Time dt;
 	//offset between player and timebar
 	sf::Vector2f offset;
-public:
+
 	// The Engine constructor
 	Engine();
 

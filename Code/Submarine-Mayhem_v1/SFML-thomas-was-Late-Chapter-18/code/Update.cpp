@@ -20,8 +20,11 @@ void Engine::update(float dtAsSeconds)
 
 	if (m_NewLevelRequired)
 	{
-		// Load a level
-		loadLevel();
+		 
+			// Load a level
+			loadLevel();
+		
+		
 	}
 
 	if (m_Playing)
@@ -171,8 +174,19 @@ void Engine::update(float dtAsSeconds)
 			}
 			
 		}
+
+		if (Keyboard::isKeyPressed(Keyboard::J))
+		{
+			plusHealth();
+
+		}
+
+		if (Keyboard::isKeyPressed(Keyboard::I))
+		{
+			minusHealth();
+		}
 		/*
-		// Have any enemies been shot?
+		/Have any enemies been shot?
 		for (int i = 0; i < 100; i++)
 		{
 			if (bullets[i].isInFlight() && m_Bob0.isAlive() || bullets[i].isInFlight() && m_Bob1.isAlive() ||
@@ -205,7 +219,7 @@ void Engine::update(float dtAsSeconds)
 		if (timeRemaining > 0)
 		{
 
-			timeRemaining = timeRemaining - (dt.asSeconds()/2);
+			timeRemaining = timeRemaining - (dt.asSeconds()/20);
 		}
 
 		//if oxygen runs out display a message
@@ -214,6 +228,8 @@ void Engine::update(float dtAsSeconds)
 
 			oxygenGone = true;
 		}
+
+		
 
 	}// End if playing
 

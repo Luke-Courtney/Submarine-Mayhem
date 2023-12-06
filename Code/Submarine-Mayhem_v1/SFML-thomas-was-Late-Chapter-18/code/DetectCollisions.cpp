@@ -147,7 +147,7 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 				healthPickup.spawn(Vector2f(6900, 1500), GRAVITY);
 				m_Thomas.setHealth(healthPickup.gotIt());
 			}
-
+			
 			if (m_Thomas.getPosition().intersects
 			(healthPickup2.getPosition()))
 			{
