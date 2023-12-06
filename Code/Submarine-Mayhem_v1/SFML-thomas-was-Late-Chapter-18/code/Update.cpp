@@ -217,7 +217,7 @@ void Engine::update(float dtAsSeconds)
 			{
 				Ebullets[i].update(dtAsSeconds);
 			}
-			*/
+			
 		}
 		
 		// Reloading

@@ -64,7 +64,7 @@ void Engine::draw()
 			{
 				m_Window.draw(Ebullets[i].getShape());
 			}
-			*/
+			
 		}
 	
 		//Draw the crosshair

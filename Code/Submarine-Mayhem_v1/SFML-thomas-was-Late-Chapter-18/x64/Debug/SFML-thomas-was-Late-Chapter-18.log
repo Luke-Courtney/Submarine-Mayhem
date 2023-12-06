@@ -1,11 +1,12 @@
-<<<<<<< HEAD
-﻿  Update.cpp
-C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\Update.cpp(49,83): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
-C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\Update.cpp(53,79): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
-C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\Update.cpp(57,81): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
-C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\Update.cpp(61,84): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
-  SFML-thomas-was-Late-Chapter-18.vcxproj -> C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\x64\Debug\Submarine-Mayhem.exe
-=======
 ﻿  Draw.cpp
-  SFML-thomas-was-Late-Chapter-18.vcxproj -> C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\x64\Debug\Submarine-Mayhem.exe
->>>>>>> Shooting
+  Update.cpp
+C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\Update.cpp(52,83): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
+C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\Update.cpp(56,79): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
+C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\Update.cpp(60,81): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
+C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\Update.cpp(64,85): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
+C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\Update.cpp(68,82): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
+C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\Update.cpp(72,80): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
+C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\Update.cpp(76,84): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
+  Generating Code...
+  LINK : C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\x64\Debug\Submarine-Mayhem.exe not found or not built by the last incremental link; performing full link
+  SFML-thomas-was-Late-Chapter-18.vcxproj -> C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\x64\Debug\Submarine-Mayhem.exe
