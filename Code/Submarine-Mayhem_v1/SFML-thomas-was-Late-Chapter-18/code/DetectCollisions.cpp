@@ -151,7 +151,7 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 				m_Thomas.setHealth(healthPickup.gotIt());
 				m_SM.playPickupSound();
 			}
-
+			
 			if (m_Thomas.getPosition().intersects
 			(healthPickup2.getPosition()))
 			{

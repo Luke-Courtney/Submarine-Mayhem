@@ -238,6 +238,39 @@ void Engine::update(float dtAsSeconds)
 			
 		}
 
+		if (Keyboard::isKeyPressed(Keyboard::J))
+		{
+			plusHealth();
+
+		}
+
+		if (Keyboard::isKeyPressed(Keyboard::I))
+		{
+			minusHealth();
+		}
+		/*
+		/Have any enemies been shot?
+		for (int i = 0; i < 100; i++)
+		{
+			if (bullets[i].isInFlight() && m_Bob0.isAlive() || bullets[i].isInFlight() && m_Bob1.isAlive() ||
+				bullets[i].isInFlight() && m_Bob2.isAlive())
+			{
+				if (bullets[i].getPosition().intersects(m_Bob0.getPosition()) || bullets[i].getPosition().intersects(m_Bob1.getPosition()) ||
+					bullets[i].getPosition().intersects(m_Bob2.getPosition()))
+				{
+					// Stop the bullet
+					bullets[i].stop();
+
+					// Register the hit and see if it was a kill
+					//if (m_Bob0.damage() || m_Bob1.damage() || m_Bob2.damage()) {
+						// Not just a hit but a kill too
+						//die();
+					//}
+				}
+			}
+		}
+		*/
+
 		// size up the time bar
 		timeBar.setSize(Vector2f(timeBarWidthPerSecond *
 			timeRemaining, timeBarHeight));
@@ -249,7 +282,7 @@ void Engine::update(float dtAsSeconds)
 		if (timeRemaining > 0)
 		{
 
-			timeRemaining = timeRemaining - (dt.asSeconds()/2);
+			timeRemaining = timeRemaining - (dt.asSeconds()/20);
 		}
 
 		//if oxygen runs out display a message
@@ -258,6 +291,8 @@ void Engine::update(float dtAsSeconds)
 
 			oxygenGone = true;
 		}
+
+		
 
 	}// End if playing
 

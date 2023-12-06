@@ -152,6 +152,8 @@ private:
 	void input();
 	void update(float dtAsSeconds);
 	void draw();	
+	int plusHealth();
+	int minusHealth();
 
 	// Load a new level
 	void loadLevel();
@@ -167,6 +169,13 @@ private:
 	vector <Vector2f> m_FireEmitters;
 
 	
+<<<<<<< HEAD
+=======
+
+	
+public:
+
+>>>>>>> Gamestate
 	//Oxygen bar
 	float timeBarStartWidth = 400;
 	float timeBarHeight = 80;
@@ -175,7 +184,7 @@ private:
 	Time dt;
 	//offset between player and timebar
 	sf::Vector2f offset;
-public:
+
 	// The Engine constructor
 	Engine();
 

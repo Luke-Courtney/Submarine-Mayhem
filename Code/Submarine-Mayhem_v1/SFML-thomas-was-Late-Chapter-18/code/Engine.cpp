@@ -161,3 +161,13 @@ void Engine::run()
 		draw();
 	}
 }
+int Engine::plusHealth()
+{
+	timeRemaining = timeRemaining - 1;
+	return timeRemaining;
+}
+int Engine::minusHealth()
+{
+	timeRemaining = timeRemaining + 1;
+	return timeRemaining;
+}
