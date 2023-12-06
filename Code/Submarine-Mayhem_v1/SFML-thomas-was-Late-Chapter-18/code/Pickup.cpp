@@ -20,22 +20,40 @@ void Pickup::refreshSprite()
 			"graphics/health_1.png"));
 		m_Sprite.setOrigin(25, 25);
 	}
-	if (m_Type == 2)
+	else if (m_Type == 2)
 	{
 		m_Sprite = Sprite(TextureHolder::GetTexture(
 			"graphics/MaxSpeed_1.png"));
 		m_Sprite.setOrigin(25, 25);
 	}
-	if (m_Type == 3)
+	else if (m_Type == 3)
 	{
 		m_Sprite = Sprite(TextureHolder::GetTexture(
 			"graphics/health_2.png"));
 		m_Sprite.setOrigin(25, 25);
 	}
-	if (m_Type == 4)
+	else if (m_Type == 4)
 	{
 		m_Sprite = Sprite(TextureHolder::GetTexture(
 			"graphics/SpeedBoost_1.png"));
+		m_Sprite.setOrigin(25, 25);
+	}
+	else if (m_Type == 5)
+	{
+		m_Sprite = Sprite(TextureHolder::GetTexture(
+			"graphics/BulletFireRate_1.png"));
+		m_Sprite.setOrigin(25, 25);
+	}
+	else if (m_Type == 6)
+	{
+		m_Sprite = Sprite(TextureHolder::GetTexture(
+			"graphics/BulletSpeed_1.png"));
+		m_Sprite.setOrigin(25, 25);
+	}
+	else if (m_Type == 7)
+	{
+		m_Sprite = Sprite(TextureHolder::GetTexture(
+			"graphics/BulletDMG.png"));
 		m_Sprite.setOrigin(25, 25);
 	}
 }

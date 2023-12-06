@@ -32,11 +32,13 @@ private:
 	int counter;
 	list<Bob*> Enemy;
 
-
 	Pickup healthPickup;
 	Pickup MaxSpeed;
 	Pickup healthPickup2;
 	Pickup SpeedBoost;
+	Pickup BulletFireRate;
+	Pickup BulletSpeed;
+	Pickup BulletDMG;
 
 	// Where is the mouse in relation to world coordinates
 	Vector2f mouseWorldPosition;
@@ -47,15 +49,25 @@ private:
 	Texture textureCrosshair = TextureHolder::GetTexture("graphics/crosshair.png");
 
 	// 100 bullets should do
-	Bullet bullets[999];
+	Bullet bullets[500];
 	//Bullet enemyBullets[999];
 	int currentBullet = 0;
 	int bulletsSpare = 100000;
 	int bulletsInClip = 100000;
 	int clipSize = 100000;
 	float fireRate = 1;
+
+	Bullet Ebullets[500];
+	//Bullet enemyBullets[999];
+	int EcurrentBullet = 0;
+	int EbulletsSpare = 999;
+	int EbulletsInClip = 999;
+	int EclipSize = 999;
+	float EfireRate = 1;
+
 	// When was the fire button last pressed?
 	Time lastPressed;
+	Time ElastPressed;
 	Bullet isInFlight;
 
 	// A class to manage all the levels
@@ -98,13 +110,9 @@ private:
 
 	// The main Views
 	View m_MainView;
-	View m_LeftView;
-	View m_RightView;
 
 	// Three views for the background
 	View m_BGMainView;
-	View m_BGLeftView;
-	View m_BGRightView;
 
 	View m_HudView;
 
@@ -159,11 +167,10 @@ private:
 	vector <Vector2f> m_FireEmitters;
 
 	
-
 	//Oxygen bar
 	float timeBarStartWidth = 400;
 	float timeBarHeight = 80;
-	float timeRemaining = 20.0f;
+	float timeRemaining =20.0f;
 	float timeBarWidthPerSecond;
 	Time dt;
 	//offset between player and timebar

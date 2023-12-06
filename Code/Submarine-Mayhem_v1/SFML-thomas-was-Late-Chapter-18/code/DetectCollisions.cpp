@@ -5,6 +5,7 @@
 bool Engine::detectCollisions(PlayableCharacter& character)
 {
 	bool reachedGoal = false;
+	list<Bob*>::const_iterator iter;
 	// Make a rect for all his parts
 	FloatRect detectionZone = character.getPosition();
 
@@ -64,17 +65,17 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 				//stop the bullet
 				bullets[i].stop();
 				//enemy take damage
-				m_Bob0->damage(1);
+				m_Bob0->Getdamage();
 			}
 			else if (bullets[i].getPosition().intersects(m_Bob1->getPosition()) && m_Bob1->isAlive())
 			{
 				bullets[i].stop();
-				m_Bob1->damage(1);
+				m_Bob1->Getdamage();
 			}
 			else if (bullets[i].getPosition().intersects(m_Bob2->getPosition()) && m_Bob2->isAlive())
 			{
 				bullets[i].stop();
-				m_Bob2->damage(1);
+				m_Bob2->Getdamage();
 			}
 			else if (bullets[i].getPosition().intersects(m_Thomas.getPosition()))
 			{
@@ -173,7 +174,32 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 				m_Thomas.setMaxSpeed(SpeedBoost.gotIt());
 				m_SM.playPickupSound();
 			}
-
+			if (m_Thomas.getPosition().intersects
+			(BulletFireRate.getPosition()))
+			{
+				BulletFireRate.spawn(Vector2f(6900, 1500), GRAVITY);
+				fireRate = fireRate + (BulletFireRate.gotIt());
+			}															  
+			if (m_Thomas.getPosition().intersects						  
+			(BulletSpeed.getPosition()))								  
+			{															  
+				BulletSpeed.spawn(Vector2f(6900, 1500), GRAVITY);
+				for (int i = 0; i < 100; i++)
+				{
+					bullets[i].SetBulletSpeed(BulletSpeed.gotIt());
+				}
+			}
+			if (m_Thomas.getPosition().intersects
+			(BulletDMG.getPosition()))
+			{
+				BulletDMG.spawn(Vector2f(6900, 1500), GRAVITY);
+				for (iter = Enemy.begin(); iter != Enemy.end(); ++iter)
+				{
+					(*iter)->Setdamage(BulletDMG.gotIt());
+				}
+			}
+			
+																		  
 
 
 			// More collision detection here once we have learned about particle effects

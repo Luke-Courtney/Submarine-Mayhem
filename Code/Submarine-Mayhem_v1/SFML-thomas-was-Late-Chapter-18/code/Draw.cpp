@@ -37,6 +37,10 @@ void Engine::draw()
 		m_Window.draw(MaxSpeed.getSprite());
 		m_Window.draw(healthPickup2.getSprite());
 		m_Window.draw(SpeedBoost.getSprite());
+		m_Window.draw(BulletFireRate.getSprite());
+		m_Window.draw(BulletSpeed.getSprite());
+		m_Window.draw(BulletDMG.getSprite());
+
 
 		//draw timebar
 		m_Window.draw(timeBar);
@@ -53,10 +57,12 @@ void Engine::draw()
 			{
 				m_Window.draw(bullets[i].getShape());
 			}
-			/*
-			else if (enemyBullets[i].isInFlight())
+		}
+		for (int i = 0; i < 100; i++)
+		{// && enemyBullets[i].isInFlight()
+			if (Ebullets[i].isInFlight())
 			{
-				m_Window.draw(enemyBullets[i].getShape());
+				m_Window.draw(Ebullets[i].getShape());
 			}
 			*/
 		}

@@ -19,18 +19,6 @@ Engine::Engine()
 	m_HudView.reset(
 		FloatRect(0, 0, resolution.x, resolution.y));
 
-	// Inititialize the split-screen Views
-	m_LeftView.setViewport(
-		FloatRect(0.001f, 0.001f, 0.498f, 0.998f));
-
-	m_RightView.setViewport(
-		FloatRect(0.5f, 0.001f, 0.499f, 0.998f));
-
-	m_BGLeftView.setViewport(
-		FloatRect(0.001f, 0.001f, 0.498f, 0.998f));
-
-	m_BGRightView.setViewport(
-		FloatRect(0.5f, 0.001f, 0.499f, 0.998f));
 	// Set up a menu
 	MENU.loadFromFile("graphics/menu.png");
 	menu.setTexture(MENU);
@@ -99,41 +87,31 @@ Engine::Engine()
 	Enemy.push_back(m_Bob1);
 	Enemy.push_back(m_Bob2);
 
-	//Set bob patrol point
-	for (iter = Enemy.begin(); iter != Enemy.end(); ++iter)
-	{
-		(*iter)->setType(counter);
-		if (counter == 0)
-		{
-			(*iter)->SetPatrolPoint(Vector2f(750, 450));
-		}
-		if (counter == 1)
-		{
-			(*iter)->SetPatrolPoint(Vector2f(3700, 650));
-		}
-		if (counter == 2)
-		{
-			(*iter)->SetPatrolPoint(Vector2f(1800, 900));
-		}
-		counter++;
-	}
-
 	// how much does it increase whatever it increases
 	healthPickup.m_Value = 10;
 	healthPickup2.m_Value = 25;
 	MaxSpeed.m_Value = 500;
 	SpeedBoost.m_Value = 0.2f;
+	BulletFireRate.m_Value = 2;
+	BulletSpeed.m_Value = 50;
+	BulletDMG.m_Value = 2;
 
 	//selecting the sprite to be used
 	healthPickup.m_Type = 1;
 	MaxSpeed.m_Type = 2;
 	healthPickup2.m_Type = 3;
 	SpeedBoost.m_Type = 4;
+	BulletFireRate.m_Type = 5;
+	BulletSpeed.m_Type = 6;
+	BulletDMG.m_Type = 7;
 
 	healthPickup.refreshSprite();
 	healthPickup2.refreshSprite();
 	MaxSpeed.refreshSprite();
 	SpeedBoost.refreshSprite();
+	BulletFireRate.refreshSprite();
+	BulletSpeed.refreshSprite();
+	BulletDMG.refreshSprite();
 
 	srand(time(0));
 
@@ -164,13 +142,18 @@ void Engine::run()
 			//Deals 1 damage and outputs new health
 			for (iter = Enemy.begin(); iter != Enemy.end(); ++iter)
 			{
-				(*iter)->damage(1);
+				(*iter)->Getdamage();
 				std::cout << "Dealt 1 damage. Health: " << (*iter)->getHealth() << "\n";
 			}
 		}
 		if (Keyboard::isKeyPressed(Keyboard::K))
 		{
 				std::cout << "Thomas Health: " << m_Thomas.getHealth() << "\n";
+		}
+
+		if (Keyboard::isKeyPressed(Keyboard::U))
+		{
+			BulletSpeed.spawn(Vector2f(m_Thomas.getCenter().x + 10, m_Thomas.getCenter().y), GRAVITY);
 		}
 
 		input();

@@ -28,25 +28,55 @@ void Engine::loadLevel()
 	for (iter = Enemy.begin(); iter != Enemy.end(); ++iter)
 	{
 		(*iter)->setType(counter);
-		if (counter == 0)
+		if (m_LM.getCurrentLevel() == 1)
 		{
-			(*iter)->spawn(Vector2f(750, 450), GRAVITY);
+			if (counter == 0)
+			{
+				(*iter)->spawn(Vector2f(750, 450), GRAVITY);
+				(*iter)->SetPatrolPoint(Vector2f(750, 450));
+			}
+			if (counter == 1)
+			{
+				(*iter)->spawn(Vector2f(3700, 650), GRAVITY);
+				(*iter)->SetPatrolPoint(Vector2f(3700, 650));
+			}
+			if (counter == 2)
+			{
+				(*iter)->spawn(Vector2f(1800, 900), GRAVITY);
+				(*iter)->SetPatrolPoint(Vector2f(1800, 900));
+			}
 		}
-		if (counter == 1)
+		else if (m_LM.getCurrentLevel() == 2)
 		{
-			(*iter)->spawn(Vector2f(3700, 650), GRAVITY);
+			if (counter == 0)
+			{
+				(*iter)->spawn(Vector2f(750, 450), GRAVITY);
+				(*iter)->SetPatrolPoint(Vector2f(750, 450));
+				counter++;
+			}
+			if (counter == 1)
+			{
+				(*iter)->spawn(Vector2f(3700, 650), GRAVITY);
+				(*iter)->SetPatrolPoint(Vector2f(3700, 650));
+				counter++;
+			}
+			if (counter == 2)
+			{
+				(*iter)->spawn(Vector2f(1800, 900), GRAVITY);
+				(*iter)->SetPatrolPoint(Vector2f(1800, 900));
+				counter++;
+			}
 		}
-		if (counter == 2)
-		{
-			(*iter)->spawn(Vector2f(1800, 900), GRAVITY);
-		}
-		counter++;
+		counter=0;
 	}
 
-	healthPickup.spawn(Vector2f(6900, 1500), GRAVITY);
-	MaxSpeed.spawn(Vector2f(6900, 1600), GRAVITY);
-	healthPickup2.spawn(Vector2f(6900, 1700), GRAVITY);
-	SpeedBoost.spawn(Vector2f(6900, 1600), GRAVITY);
+	healthPickup.spawn(Vector2f(7900, 1500), GRAVITY);
+	MaxSpeed.spawn(Vector2f(7900, 1600), GRAVITY);
+	healthPickup2.spawn(Vector2f(7900, 1700), GRAVITY);
+	SpeedBoost.spawn(Vector2f(7900, 1600), GRAVITY);
+	BulletSpeed.spawn(Vector2f(7900, 1600), GRAVITY);
+	BulletFireRate.spawn(Vector2f(7900, 1600), GRAVITY);
+	BulletDMG.spawn(Vector2f(7900, 1600), GRAVITY);
 	
 
 	// Make sure this code isn't run again

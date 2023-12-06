@@ -7,11 +7,11 @@ using namespace sf;
 
 void Engine::update(float dtAsSeconds)
 {
-	
-	
 		// Measure time
 		dt = clock.restart();
 		
+	
+
 	if (m_NewLevelRequired)
 	{
 		// Load a level
@@ -37,27 +37,41 @@ void Engine::update(float dtAsSeconds)
 		healthPickup.update(dtAsSeconds);
 		MaxSpeed.update(dtAsSeconds);
 		SpeedBoost.update(dtAsSeconds);
-		healthPickup2.update(dtAsSeconds);
+		BulletFireRate.update(dtAsSeconds);
+		BulletSpeed.update(dtAsSeconds);
+		BulletDMG.update(dtAsSeconds);
 
 #		//Pickups for Bob0
 		for (iter = Enemy.begin(); iter != Enemy.end(); ++iter)
 		{
 			if ((*iter)->getHealth() < 1 && (*iter)->isAlive())
 			{
-				healthPickup.spawnNum = rand() % 7;
-				if (healthPickup.spawnNum >=0 && healthPickup.spawnNum <= 1)
+				healthPickup.spawnNum = rand() % 13;
+				if (healthPickup.spawnNum >= 0 && healthPickup.spawnNum <= 1)
 				{
 					healthPickup.spawn(Vector2f((*iter)->getCenter().x, (*iter)->getCenter().y), GRAVITY);
 				}
-				if (healthPickup.spawnNum >= 2 && healthPickup.spawnNum <= 3)
+				else if (healthPickup.spawnNum >= 2 && healthPickup.spawnNum <= 3)
 				{
 					MaxSpeed.spawn(Vector2f((*iter)->getCenter().x, (*iter)->getCenter().y), GRAVITY);
 				}
-				if (healthPickup.spawnNum >= 4 && healthPickup.spawnNum <= 5)
+				else if (healthPickup.spawnNum >= 4 && healthPickup.spawnNum <= 5)
 				{
 					SpeedBoost.spawn(Vector2f((*iter)->getCenter().x, (*iter)->getCenter().y), GRAVITY);
 				}
-				if (healthPickup.spawnNum == 6)
+				else if (healthPickup.spawnNum >= 6 && healthPickup.spawnNum <= 7)
+				{
+					BulletFireRate.spawn(Vector2f((*iter)->getCenter().x, (*iter)->getCenter().y), GRAVITY);
+				}
+				else if (healthPickup.spawnNum >= 8 && healthPickup.spawnNum <= 9)
+				{
+					BulletSpeed.spawn(Vector2f((*iter)->getCenter().x, (*iter)->getCenter().y), GRAVITY);
+				}
+				else if (healthPickup.spawnNum >= 10 && healthPickup.spawnNum <= 11)
+				{
+					BulletDMG.spawn(Vector2f((*iter)->getCenter().x, (*iter)->getCenter().y), GRAVITY);
+				}
+				else if (healthPickup.spawnNum == 12)
 				{
 					healthPickup2.spawn(Vector2f((*iter)->getCenter().x, (*iter)->getCenter().y), GRAVITY);
 				}
@@ -71,7 +85,7 @@ void Engine::update(float dtAsSeconds)
 		if (detectCollisions(m_Thomas)) //&& detectCollisions(*m_Bob0) || detectCollisions(m_Thomas) && detectCollisions(*m_Bob1) || detectCollisions(m_Thomas) && detectCollisions(*m_Bob2))
 		{
 			// New level required
-			
+
 			m_NewLevelRequired = true;
 
 			// Play the reach goal sound
@@ -101,7 +115,7 @@ void Engine::update(float dtAsSeconds)
 
 			if (m_GameTimeTotal.asMilliseconds()
 				- lastPressed.asMilliseconds()
-					> 1000 / fireRate && bulletsInClip > 0)
+			> 1000 / fireRate && bulletsInClip > 0)
 			{
 				// Pass the centre of the player and the centre of the crosshair
 				// to the shoot function
@@ -120,7 +134,7 @@ void Engine::update(float dtAsSeconds)
 				}
 				
 				currentBullet++;
-				if (currentBullet > 99)
+				if (currentBullet > 500)
 				{
 					currentBullet = 0;
 				}
@@ -140,31 +154,68 @@ void Engine::update(float dtAsSeconds)
 		float distance1 = abs((m_Bob1->getCenter().x - m_Thomas.getCenter().x) + (m_Bob1->getCenter().y - m_Thomas.getCenter().y));
 		float distance2 = abs((m_Bob2->getCenter().x - m_Thomas.getCenter().x) + (m_Bob2->getCenter().y - m_Thomas.getCenter().y));
 
-		if (distance < 10)
-		{
-			//Shoot function takes in start pos and target pos
-			bullets[currentBullet].shoot(m_Bob0->getCenter().x + 50, m_Bob0->getCenter().y, m_Thomas.getCenter().x, m_Thomas.getCenter().y);
-		}
-		else if (distance1 < 10)
-		{
-			bullets[currentBullet].shoot(m_Bob1->getCenter().x + 50, m_Bob1->getCenter().y, m_Thomas.getCenter().x, m_Thomas.getCenter().y);
-		}
-		else if (distance2 < 10)
-		{
-			bullets[currentBullet].shoot(m_Bob2->getCenter().x + 50, m_Bob2->getCenter().y, m_Thomas.getCenter().x, m_Thomas.getCenter().y);
-		}
+			if (distance < 10)
+			{
+				if (m_GameTimeTotal.asMilliseconds() - lastPressed.asMilliseconds() > 1000 / EfireRate && EbulletsInClip > 0)
+				{
+					//Shoot function takes in start pos and target pos
+					Ebullets[EcurrentBullet].shoot(m_Bob0->getCenter().x, m_Bob0->getCenter().y, m_Thomas.getCenter().x, m_Thomas.getCenter().y);
+					EcurrentBullet++;
+					if (EcurrentBullet > 500)
+					{
+						EcurrentBullet = 0;
+					}
+					lastPressed = m_GameTimeTotal;
+					//shoot.play();
+					EbulletsInClip--;
+				}
+			}
+			else if (distance1 < 10)
+			{
+				if (m_GameTimeTotal.asMilliseconds() - ElastPressed.asMilliseconds() > 1000 / EfireRate && EbulletsInClip > 0)
+				{
+					//Shoot function takes in start pos and target pos
+					Ebullets[EcurrentBullet].shoot(m_Bob1->getCenter().x, m_Bob1->getCenter().y, m_Thomas.getCenter().x, m_Thomas.getCenter().y);
+					EcurrentBullet++;
+					if (EcurrentBullet > 500)
+					{
+						EcurrentBullet = 0;
+					}
+					lastPressed = m_GameTimeTotal;
+					//shoot.play();
+					EbulletsInClip--;
+				}
+			}
+			else if (distance2 < 10)
+			{
+				if (m_GameTimeTotal.asMilliseconds() - lastPressed.asMilliseconds() > 1000 / EfireRate && EbulletsInClip > 0)
+				{
+					//Shoot function takes in start pos and target pos
+					Ebullets[EcurrentBullet].shoot(m_Bob2->getCenter().x, m_Bob2->getCenter().y, m_Thomas.getCenter().x, m_Thomas.getCenter().y);
+					EcurrentBullet++;
+					if (EcurrentBullet > 500)
+					{
+						EcurrentBullet = 0;
+					}
+					lastPressed = m_GameTimeTotal;
+					//shoot.play();
+					EbulletsInClip--;
+				}
+			}
 		
-		// Update any bullets that are in - flight
-		for (int i = 0; i < 100; i++)
-		{
+		// Update any bullets that are in flight
+		for (int i = 0; i < 500; i++)
+		{// && enemyBullets[i].isInFlight()
 			if (bullets[i].isInFlight())
 			{
 				bullets[i].update(dtAsSeconds);
 			}
-			/*
-			else if (enemyBullets[i].isInFlight())
+		}
+		for (int i = 0; i < 500; i++)
+		{// && enemyBullets[i].isInFlight()
+			if (Ebullets[i].isInFlight())
 			{
-				enemyBullets[i].update(dtAsSeconds);
+				Ebullets[i].update(dtAsSeconds);
 			}
 			*/
 		}
