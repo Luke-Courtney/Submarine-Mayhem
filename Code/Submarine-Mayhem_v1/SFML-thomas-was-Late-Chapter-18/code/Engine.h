@@ -2,6 +2,7 @@
 #include <sstream>
 #include <fstream>
 #include <SFML/Graphics.hpp>
+#include <list>
 #include "TextureHolder.h"
 #include "Thomas.h"
 #include "Bob.h"
@@ -25,28 +26,48 @@ private:
 
 	// Thomas and his friend, Bob
 	Thomas m_Thomas;
-	Bob m_Bob0;
-	Bob m_Bob1;
-	Bob m_Bob2;
+	Bob* m_Bob0;
+	Bob* m_Bob1;
+	Bob* m_Bob2;
+	int counter;
+	list<Bob*> Enemy;
 
 	Pickup healthPickup;
 	Pickup MaxSpeed;
 	Pickup healthPickup2;
+	Pickup SpeedBoost;
+	Pickup BulletFireRate;
+	Pickup BulletSpeed;
+	Pickup BulletDMG;
 
 	// Where is the mouse in relation to world coordinates
 	Vector2f mouseWorldPosition;
 	// Where is the mouse in relation to screen coordinates
 	Vector2i mouseScreenPosition;
 
+	Sprite spriteCrosshair;
+	Texture textureCrosshair = TextureHolder::GetTexture("graphics/crosshair.png");
+
 	// 100 bullets should do
-	Bullet bullets[999];
+	Bullet bullets[500];
+	//Bullet enemyBullets[999];
 	int currentBullet = 0;
-	int bulletsSpare = 999;
-	int bulletsInClip = 999;
-	int clipSize = 999;
+	int bulletsSpare = 100000;
+	int bulletsInClip = 100000;
+	int clipSize = 100000;
 	float fireRate = 1;
+
+	Bullet Ebullets[500];
+	//Bullet enemyBullets[999];
+	int EcurrentBullet = 0;
+	int EbulletsSpare = 999;
+	int EbulletsInClip = 999;
+	int EclipSize = 999;
+	float EfireRate = 1;
+
 	// When was the fire button last pressed?
 	Time lastPressed;
+	Time ElastPressed;
 	Bullet isInFlight;
 
 	// A class to manage all the levels
@@ -65,8 +86,11 @@ private:
 
 	// The force pushing the characters down
 	const int GRAVITY = 300;
+
 	//Text display
+	Font Font;
 	Text messageText;
+
 	// A regular RenderWindow
 	RenderWindow m_Window;
 	//Variable to control time
@@ -76,20 +100,19 @@ private:
 	//Make timebar a rectangle shape
 	RectangleShape timeBar;
 	//MENU
-	Sprite m_Menu;
-	Texture m_MenuTexture;
+	Texture MENU;
+	Sprite menu;
+	//MENU
+	Texture PAUSE;
+	Sprite pause;
 	//message
 	FloatRect textRect = messageText.getLocalBounds();
 
 	// The main Views
 	View m_MainView;
-	View m_LeftView;
-	View m_RightView;
 
 	// Three views for the background
 	View m_BGMainView;
-	View m_BGLeftView;
-	View m_BGRightView;
 
 	View m_HudView;
 
@@ -98,7 +121,8 @@ private:
 	Texture m_BackgroundTexture;
 	// Declare a shader for the background
 	Shader m_RippleShader;
-
+	//pause
+	bool paused = false;
 	// Is the game currently playing?
 	bool m_Playing = false;
 
@@ -108,9 +132,8 @@ private:
 	// Start in full screen mode
 	bool m_SplitScreen = false;
 
-	// How much time is left in the current level
-	float m_TimeRemaining = 10;
 	Time m_GameTimeTotal;
+	bool oxygenGone = false;
 
 	// Is it time for a new/first level?
 	bool m_NewLevelRequired = true;
@@ -129,6 +152,8 @@ private:
 	void input();
 	void update(float dtAsSeconds);
 	void draw();	
+	int plusHealth();
+	int minusHealth();
 
 	// Load a new level
 	void loadLevel();
@@ -144,16 +169,16 @@ private:
 	vector <Vector2f> m_FireEmitters;
 
 	
-
+public:
 	//Oxygen bar
 	float timeBarStartWidth = 400;
 	float timeBarHeight = 80;
-	float timeRemaining = 20.0f;
+	float timeRemaining =20.0f;
 	float timeBarWidthPerSecond;
 	Time dt;
 	//offset between player and timebar
 	sf::Vector2f offset;
-public:
+
 	// The Engine constructor
 	Engine();
 

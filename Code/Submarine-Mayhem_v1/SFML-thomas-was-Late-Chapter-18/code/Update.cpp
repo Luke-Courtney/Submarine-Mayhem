@@ -1,124 +1,91 @@
 #include "Engine.h"
 #include <SFML/Graphics.hpp>
 #include <sstream>
+#include <iostream>
 
 using namespace sf;
 
 void Engine::update(float dtAsSeconds)
 {
-	
-	// Measure time
-	dt = clock.restart();
-	// Subtract from the amount of time remaining
-	timeRemaining = timeRemaining - dt.asSeconds();
-	// size up the time bar
-	timeBar.setSize(Vector2f(timeBarWidthPerSecond *
-		timeRemaining, timeBarHeight));
-
-	timeBar.setPosition(m_Thomas.getCenter() + offset);
-	
-	//if oxygen runs out display a message
-	if (timeRemaining > 0.0f) {
-		//Message for out of oxygen
-		messageText.setCharacterSize(75);
-		messageText.setFillColor(Color::Red);
-		// Change the message shown to the player
-		messageText.setString("Ran Out Of Oxygen!");
+		// Measure time
+		dt = clock.restart();
 		
-		//Reposition the text based on its new size
-		FloatRect textRect = messageText.getLocalBounds();
-		messageText.setOrigin(textRect.left +
-			textRect.width / 2.0f,
-			textRect.top +
-			textRect.height / 2.0f);
-		
-		messageText.setPosition(m_Thomas.getCenter());
-		//draw message
-		m_Window.draw(messageText);
-	}
-
-
+	
 
 	if (m_NewLevelRequired)
 	{
-		// These calls to spawn will be moved to a new
-		// LoadLevel function soon
-		// Spawn Thomas and Bob
-		//m_Thomas.spawn(Vector2f(0,0), GRAVITY);
-		//m_Bob.spawn(Vector2f(100, 0), GRAVITY);
-
-		// Make sure spawn is called only once
-		//m_TimeRemaining = 10;
-		//m_NewLevelRequired = false;
-
 		// Load a level
 		loadLevel();
-		
+
+		//Start playing music on level load
+		m_SM.playMusic();
 	}
 
 	if (m_Playing)
 	{
-		Time dt2;
-		Clock clock;
+
+		list<Bob*>::const_iterator iter;
 		// Update Thomas
 		m_Thomas.update(dtAsSeconds);
 
 		// Update Bobs
-		m_Bob0.update(dtAsSeconds);
-		m_Bob1.update(dtAsSeconds);
-		m_Bob2.update(dtAsSeconds);
+		m_Bob0->update(dtAsSeconds);
+		m_Bob1->update(dtAsSeconds);
+		m_Bob2->update(dtAsSeconds);
 
 		//Update Pickups
 		healthPickup.update(dtAsSeconds);
-		//SpeedBoost.update(dtAsSeconds);
+		MaxSpeed.update(dtAsSeconds);
+		SpeedBoost.update(dtAsSeconds);
+		BulletFireRate.update(dtAsSeconds);
+		BulletSpeed.update(dtAsSeconds);
+		BulletDMG.update(dtAsSeconds);
 
 #		//Pickups for Bob0
-		if (healthPickup.spawnNum != 3)
+		for (iter = Enemy.begin(); iter != Enemy.end(); ++iter)
 		{
-			if ((m_Bob0.getHealth() < 1))
+			if ((*iter)->getHealth() < 1 && (*iter)->isAlive())
 			{
-				healthPickup.spawnNum = 2;
+				healthPickup.spawnNum = rand() % 13;
+				if (healthPickup.spawnNum >= 0 && healthPickup.spawnNum <= 1)
+				{
+					healthPickup.spawn(Vector2f((*iter)->getCenter().x, (*iter)->getCenter().y), GRAVITY);
+				}
+				else if (healthPickup.spawnNum >= 2 && healthPickup.spawnNum <= 3)
+				{
+					MaxSpeed.spawn(Vector2f((*iter)->getCenter().x, (*iter)->getCenter().y), GRAVITY);
+				}
+				else if (healthPickup.spawnNum >= 4 && healthPickup.spawnNum <= 5)
+				{
+					SpeedBoost.spawn(Vector2f((*iter)->getCenter().x, (*iter)->getCenter().y), GRAVITY);
+				}
+				else if (healthPickup.spawnNum >= 6 && healthPickup.spawnNum <= 7)
+				{
+					BulletFireRate.spawn(Vector2f((*iter)->getCenter().x, (*iter)->getCenter().y), GRAVITY);
+				}
+				else if (healthPickup.spawnNum >= 8 && healthPickup.spawnNum <= 9)
+				{
+					BulletSpeed.spawn(Vector2f((*iter)->getCenter().x, (*iter)->getCenter().y), GRAVITY);
+				}
+				else if (healthPickup.spawnNum >= 10 && healthPickup.spawnNum <= 11)
+				{
+					BulletDMG.spawn(Vector2f((*iter)->getCenter().x, (*iter)->getCenter().y), GRAVITY);
+				}
+				else if (healthPickup.spawnNum == 12)
+				{
+					healthPickup2.spawn(Vector2f((*iter)->getCenter().x, (*iter)->getCenter().y), GRAVITY);
+				}
+				(*iter)->die();
 			}
 		}
-		if (healthPickup.spawnNum == 2)
-		{
-			healthPickup.spawnNum = rand() % 5 + 4;
-			if (healthPickup.spawnNum >=4 && healthPickup.spawnNum <=5)
-			{
-				healthPickup.spawn(Vector2f(m_Bob2.getCenter().x, m_Bob2.getCenter().y), GRAVITY);
-			}
-			if (healthPickup.spawnNum >=6 && healthPickup.spawnNum <=7)
-			{
-				MaxSpeed.spawn(Vector2f(m_Bob0.getCenter().x, m_Bob0.getCenter().y), GRAVITY);
-			}
-			if (healthPickup.spawnNum == 8)
-			{
-				//SpeedBoost.spawn(Vector2f(m_Bob2.getCenter().x, m_Bob0.getCenter().y), GRAVITY);
-				healthPickup2.spawn(Vector2f(m_Bob0.getCenter().x, m_Bob0.getCenter().y), GRAVITY);
-			}
-
-			m_Bob2.die();
-			healthPickup.spawnNum = 3;
-		}
-
-		//if (SpeedBoost.BoostTimeEnd == false)
-		//{
-		//	dt2 = clock.restart();
-		//	SpeedBoost.boostTime -= dt2.asSeconds();
-
-		//}
-		//if (SpeedBoost.boostTime <= 0)
-		//{
-		//	SpeedBoost.BoostTimeEnd = true;
-		//	m_Thomas.setSpeed(4);
-		//}
 
 		// Detect collisions and see if characters have reached the goal tile
 		// The second part of the if condition is only executed
 		// when thomas is touching the home tile
-		if (detectCollisions(m_Thomas) && detectCollisions(m_Bob0) || detectCollisions(m_Thomas) && detectCollisions(m_Bob1) || detectCollisions(m_Thomas) && detectCollisions(m_Bob2))
+		if (detectCollisions(m_Thomas)) //&& detectCollisions(*m_Bob0) || detectCollisions(m_Thomas) && detectCollisions(*m_Bob1) || detectCollisions(m_Thomas) && detectCollisions(*m_Bob2))
 		{
 			// New level required
+
 			m_NewLevelRequired = true;
 
 			// Play the reach goal sound
@@ -128,18 +95,9 @@ void Engine::update(float dtAsSeconds)
 		else
 		{
 			// Run bobs collision detection
-			detectCollisions(m_Bob0);
-			detectCollisions(m_Bob1);
-			detectCollisions(m_Bob2);
-		}
-
-		// Count down the time the player has left
-		m_TimeRemaining -= dtAsSeconds;
-
-		// Have Thomas and Bob run out of time?
-		if (m_TimeRemaining <= 0)
-		{
-			m_NewLevelRequired = true;
+			detectCollisions(*m_Bob0);
+			detectCollisions(*m_Bob1);
+			detectCollisions(*m_Bob2);
 		}
 
 		// Where is the mouse pointer
@@ -148,40 +106,118 @@ void Engine::update(float dtAsSeconds)
 		// Convert mouse position to world coordinates of mainView
 		mouseWorldPosition = m_Window.mapPixelToCoords(Mouse::getPosition(), m_MainView);
 		
+		// Set the crosshair to the mouse world location
+		spriteCrosshair.setPosition(mouseWorldPosition);
+
 		// Fire a bullet
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 		{
 
 			if (m_GameTimeTotal.asMilliseconds()
 				- lastPressed.asMilliseconds()
-					> 1000 / fireRate && bulletsInClip > 0)
+			> 1000 / fireRate && bulletsInClip > 0)
 			{
-
 				// Pass the centre of the player and the centre of the crosshair
 				// to the shoot function
-				bullets[currentBullet].shoot(
-					m_Thomas.getCenter().x, m_Thomas.getCenter().y,
-					mouseWorldPosition.x, mouseWorldPosition.y);
-
+				if (m_Thomas.isFlipped == true)
+				{
+					bullets[currentBullet].shoot(
+						(m_Thomas.getCenter().x - 120), m_Thomas.getCenter().y,
+						mouseWorldPosition.x, mouseWorldPosition.y);
+					cout << m_Thomas.flipped;
+				}
+				else
+				{
+					bullets[currentBullet].shoot(
+						(m_Thomas.getCenter().x + 30), m_Thomas.getCenter().y,
+						mouseWorldPosition.x, mouseWorldPosition.y);
+				}
+				
 				currentBullet++;
-				if (currentBullet > 99)
+				if (currentBullet > 500)
 				{
 					currentBullet = 0;
 				}
 				lastPressed = m_GameTimeTotal;
-				//shoot.play();
+				m_SM.playShootSound();
 				bulletsInClip--;
 			}
 
 		}// End fire a bullet
+
+		float Bob0shoot = (m_Bob0->getCenter().x, m_Bob0->getCenter().y);
+		float Bob1shoot = (m_Bob1->getCenter().x, m_Bob1->getCenter().y);
+		float Bob2shoot = (m_Bob2->getCenter().x, m_Bob2->getCenter().y);
+
+		//Enemies shoot thomas
+		float distance = abs((m_Bob0->getCenter().x - m_Thomas.getCenter().x) + (m_Bob0->getCenter().y - m_Thomas.getCenter().y));
+		float distance1 = abs((m_Bob1->getCenter().x - m_Thomas.getCenter().x) + (m_Bob1->getCenter().y - m_Thomas.getCenter().y));
+		float distance2 = abs((m_Bob2->getCenter().x - m_Thomas.getCenter().x) + (m_Bob2->getCenter().y - m_Thomas.getCenter().y));
+
+			if (distance < 10)
+			{
+				if (m_GameTimeTotal.asMilliseconds() - lastPressed.asMilliseconds() > 1000 / EfireRate && EbulletsInClip > 0)
+				{
+					//Shoot function takes in start pos and target pos
+					Ebullets[EcurrentBullet].shoot(m_Bob0->getCenter().x, m_Bob0->getCenter().y, m_Thomas.getCenter().x, m_Thomas.getCenter().y);
+					EcurrentBullet++;
+					if (EcurrentBullet > 500)
+					{
+						EcurrentBullet = 0;
+					}
+					lastPressed = m_GameTimeTotal;
+					//shoot.play();
+					EbulletsInClip--;
+				}
+			}
+			else if (distance1 < 10)
+			{
+				if (m_GameTimeTotal.asMilliseconds() - ElastPressed.asMilliseconds() > 1000 / EfireRate && EbulletsInClip > 0)
+				{
+					//Shoot function takes in start pos and target pos
+					Ebullets[EcurrentBullet].shoot(m_Bob1->getCenter().x, m_Bob1->getCenter().y, m_Thomas.getCenter().x, m_Thomas.getCenter().y);
+					EcurrentBullet++;
+					if (EcurrentBullet > 500)
+					{
+						EcurrentBullet = 0;
+					}
+					lastPressed = m_GameTimeTotal;
+					//shoot.play();
+					EbulletsInClip--;
+				}
+			}
+			else if (distance2 < 10)
+			{
+				if (m_GameTimeTotal.asMilliseconds() - lastPressed.asMilliseconds() > 1000 / EfireRate && EbulletsInClip > 0)
+				{
+					//Shoot function takes in start pos and target pos
+					Ebullets[EcurrentBullet].shoot(m_Bob2->getCenter().x, m_Bob2->getCenter().y, m_Thomas.getCenter().x, m_Thomas.getCenter().y);
+					EcurrentBullet++;
+					if (EcurrentBullet > 500)
+					{
+						EcurrentBullet = 0;
+					}
+					lastPressed = m_GameTimeTotal;
+					//shoot.play();
+					EbulletsInClip--;
+				}
+			}
 		
-		// Update any bullets that are in - flight
-		for (int i = 0; i < 100; i++)
-		{
+		// Update any bullets that are in flight
+		for (int i = 0; i < 500; i++)
+		{// && enemyBullets[i].isInFlight()
 			if (bullets[i].isInFlight())
 			{
 				bullets[i].update(dtAsSeconds);
 			}
+		}
+		for (int i = 0; i < 500; i++)
+		{// && enemyBullets[i].isInFlight()
+			if (Ebullets[i].isInFlight())
+			{
+				Ebullets[i].update(dtAsSeconds);
+			}
+			
 		}
 		
 		// Reloading
@@ -201,9 +237,68 @@ void Engine::update(float dtAsSeconds)
 			}
 			
 		}
+
+		if (Keyboard::isKeyPressed(Keyboard::J))
+		{
+			plusHealth();
+
+		}
+
+		if (Keyboard::isKeyPressed(Keyboard::I))
+		{
+			minusHealth();
+		}
+		/*
+		/Have any enemies been shot?
+		for (int i = 0; i < 100; i++)
+		{
+			if (bullets[i].isInFlight() && m_Bob0.isAlive() || bullets[i].isInFlight() && m_Bob1.isAlive() ||
+				bullets[i].isInFlight() && m_Bob2.isAlive())
+			{
+				if (bullets[i].getPosition().intersects(m_Bob0.getPosition()) || bullets[i].getPosition().intersects(m_Bob1.getPosition()) ||
+					bullets[i].getPosition().intersects(m_Bob2.getPosition()))
+				{
+					// Stop the bullet
+					bullets[i].stop();
+
+					// Register the hit and see if it was a kill
+					//if (m_Bob0.damage() || m_Bob1.damage() || m_Bob2.damage()) {
+						// Not just a hit but a kill too
+						//die();
+					//}
+				}
+			}
+		}
+		*/
+
+		// size up the time bar
+		timeBar.setSize(Vector2f(timeBarWidthPerSecond *
+			timeRemaining, timeBarHeight));
+
+		timeBar.setPosition(m_Thomas.getCenter() + offset);
+
+		// Subtract from the amount of time remaining
+
+		if (timeRemaining > 0)
+		{
+
+			timeRemaining = timeRemaining - (dt.asSeconds()/20);
+		}
+
+		//if oxygen runs out display a message
+		if (timeRemaining < 1)
+		{
+
+			oxygenGone = true;
+		}
+
+		
+
 	}// End if playing
 
-	// Check if a fire sound needs to be played
+	
+	 /*
+	 // Check if a fire sound needs to be played
 	vector<Vector2f>::iterator it;
 
 	// Iterate through the vector of Vector2f objects
@@ -225,26 +320,10 @@ void Engine::update(float dtAsSeconds)
 			m_SM.playFire(Vector2f(posX, posY), m_Thomas.getCenter());
 		}
 	}
-		
-	// Set the appropriate view around the appropriate character
-	if (m_SplitScreen)
-	{
-		m_LeftView.setCenter(m_Thomas.getCenter());
-		m_RightView.setCenter(m_Bob0.getCenter());
-	}
-	else
-	{
-		// Centre full screen around appropriate character
-		if (m_Character1)
-		{
-			m_MainView.setCenter(m_Thomas.getCenter());
-		}
-		else
-		{
-			m_MainView.setCenter(m_Bob0.getCenter());
-		}
-	}
+	*/
 
+	m_MainView.setCenter(m_Thomas.getCenter());
+		
 	// Time to update the HUD?
 	// Increment the number of frames since the last HUD calculation
 	m_FramesSinceLastHUDUpdate++;
@@ -257,18 +336,14 @@ void Engine::update(float dtAsSeconds)
 		stringstream ssLevel;
 		stringstream ssAmmo;
 
-		// Update the time text
-		ssTime << (int)m_TimeRemaining;
-		m_Hud.setTime(ssTime.str());
-
 		// Update the level text
 		ssLevel << "Level:" << m_LM.getCurrentLevel();
 		m_Hud.setLevel(ssLevel.str());
 
 		// Update the ammo text
-		ssAmmo << "Ammo:" << m_LM.getCurrentLevel();
-		ssAmmo << bulletsInClip << "/" << bulletsSpare;
-		m_Hud.setAmmo(ssAmmo.str());
+		//ssAmmo << "Ammo:" << m_LM.getCurrentLevel();
+		//ssAmmo << bulletsInClip << "/" << bulletsSpare;
+		//m_Hud.setAmmo(ssAmmo.str());
 
 		m_FramesSinceLastHUDUpdate = 0;
 	}

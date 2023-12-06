@@ -2,6 +2,9 @@
 
 void Engine::loadLevel()
 {
+	list<Bob*>::const_iterator iter;
+	counter=0;
+
 	m_Playing = false;
 
 	// Delete the previously allocated memory
@@ -19,25 +22,59 @@ void Engine::loadLevel()
 	// Prepare the sound emitters
 	populateEmitters(m_FireEmitters, m_ArrayLevel);
 
-	// How long is this new time limit
-	m_TimeRemaining = m_LM.getTimeLimit();
-
 	// Spawn Thomas and Bob
 	m_Thomas.spawn(m_LM.getStartPosition(), GRAVITY);
 
-	m_Bob0.setType(0);
-	m_Bob0.spawn(Vector2f(750, 450), GRAVITY);
+	for (iter = Enemy.begin(); iter != Enemy.end(); ++iter)
+	{
+		(*iter)->setType(counter);
+		if (m_LM.getCurrentLevel() == 1)
+		{
+			if (counter == 0)
+			{
+				(*iter)->spawn(Vector2f(750, 450), GRAVITY);
+				(*iter)->SetPatrolPoint(Vector2f(750, 450));
+			}
+			if (counter == 1)
+			{
+				(*iter)->spawn(Vector2f(3700, 650), GRAVITY);
+				(*iter)->SetPatrolPoint(Vector2f(3700, 650));
+			}
+			if (counter == 2)
+			{
+				(*iter)->spawn(Vector2f(1800, 900), GRAVITY);
+				(*iter)->SetPatrolPoint(Vector2f(1800, 900));
+			}
+		}
+		else if (m_LM.getCurrentLevel() == 2)
+		{
+			if (counter == 0)
+			{
+				(*iter)->spawn(Vector2f(750, 450), GRAVITY);
+				(*iter)->SetPatrolPoint(Vector2f(750, 450));
+			}
+			if (counter == 1)
+			{
+				(*iter)->spawn(Vector2f(3700, 650), GRAVITY);
+				(*iter)->SetPatrolPoint(Vector2f(3700, 650));
+			}
+			if (counter == 2)
+			{
+				(*iter)->spawn(Vector2f(1800, 900), GRAVITY);
+				(*iter)->SetPatrolPoint(Vector2f(1800, 900));
+			}
+		}
+		counter++;
+	}
+	counter = 0;
 
-	m_Bob1.setType(1);
-	m_Bob1.spawn(Vector2f(3700, 650), GRAVITY);
-
-	m_Bob2.setType(2);
-	m_Bob2.spawn(Vector2f(1800, 900), GRAVITY);
-
-	healthPickup.spawn(Vector2f(6900, 1500), GRAVITY);
-	MaxSpeed.spawn(Vector2f(6900, 1600), GRAVITY);
-	healthPickup2.spawn(Vector2f(6900, 1700), GRAVITY);
-	//SpeedBoost.spawn(Vector2f(6900, 1600), GRAVITY);
+	healthPickup.spawn(Vector2f(7900, 1500), GRAVITY);
+	MaxSpeed.spawn(Vector2f(7900, 1600), GRAVITY);
+	healthPickup2.spawn(Vector2f(7900, 1700), GRAVITY);
+	SpeedBoost.spawn(Vector2f(7900, 1600), GRAVITY);
+	BulletSpeed.spawn(Vector2f(7900, 1600), GRAVITY);
+	BulletFireRate.spawn(Vector2f(7900, 1600), GRAVITY);
+	BulletDMG.spawn(Vector2f(7900, 1600), GRAVITY);
 	
 
 	// Make sure this code isn't run again

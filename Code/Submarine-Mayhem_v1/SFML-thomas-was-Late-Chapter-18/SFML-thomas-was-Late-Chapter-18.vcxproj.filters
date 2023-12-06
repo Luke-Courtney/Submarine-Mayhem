@@ -25,9 +25,6 @@
     <ClCompile Include="code\LevelManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="code\LoadLevel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="code\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -37,16 +34,19 @@
     <ClCompile Include="code\ParticleSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="code\LoadLevel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="code\Pickup.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="code\PlayableCharacter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="code\SoundManager.cpp">
+    <ClCompile Include="code\PopulateEmitters.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="code\PopulateEmitters.cpp">
+    <ClCompile Include="code\SoundManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="code\TextureHolder.cpp">
@@ -72,16 +72,16 @@
     <ClInclude Include="code\HUD.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="code\Particle.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="code\LevelManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="code\Pickup.h">
+    <ClInclude Include="code\Particle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="code\ParticleSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="code\Pickup.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="code\PlayableCharacter.h">
@@ -90,10 +90,10 @@
     <ClInclude Include="code\SoundManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="code\TextureHolder.h">
+    <ClInclude Include="code\Thomas.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="code\Thomas.h">
+    <ClInclude Include="code\TextureHolder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -102,10 +102,10 @@
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{036ef993-19b7-49aa-bd2d-36e7b126719b}</UniqueIdentifier>
+      <UniqueIdentifier>{06847c95-2238-4eb0-b557-dfc07420a1ad}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{283e2d2f-fe88-4dec-aa15-f07134977d30}</UniqueIdentifier>
+      <UniqueIdentifier>{70fa6cc9-de1c-4076-b050-b3a44f612425}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -1,5 +1,7 @@
 #include "Bob.h"
 #include "TextureHolder.h"
+#include "Bullet.h"
+#include "Engine.h"
 #include <iostream>
 
 /*
@@ -88,7 +90,7 @@ void Bob::setHealth(int newHealth)
 	m_Health = newHealth;
 	if (m_Health < 1)
 	{
-
+		//die();
 	}
 }
 
@@ -99,13 +101,14 @@ int Bob::getHealth()
 }
 
 //Deal damage
-void Bob::damage(int damage)
+int Bob::Getdamage()
 {
-	m_Health = m_Health - damage;
-	if (m_Health < 1)
-	{
-		die();
-	}
+	m_Health = m_Health - Damage;
+	return m_Health;
+}
+void Bob::Setdamage(int D)
+{
+	Damage = Damage + D;
 }
 
 //Heal health
@@ -149,12 +152,12 @@ bool Bob::handleInput()
 
 	//vvv TEST KEYS vvv
 	//Num1 - Damage Enemy
-	if (Keyboard::isKeyPressed(Keyboard::Num1))
-	{
-		//Deals 1 damage and outputs new health
-		damage(1);
-		std::cout << "Dealt 1 damage. Health: " << getHealth() << "\n";
-	}
+	//if (Keyboard::isKeyPressed(Keyboard::Num1))
+	//{
+	//	//Deals 1 damage and outputs new health
+	//	damage(1);
+	//	std::cout << "Dealt 1 damage. Health: " << getHealth() << "\n";
+	//}
 
 	//Num2 - Heal Enemy
 	if (Keyboard::isKeyPressed(Keyboard::Num2))
@@ -185,4 +188,5 @@ bool Bob::handleInput()
 	}
 
 	return m_JustJumped;
+
 }

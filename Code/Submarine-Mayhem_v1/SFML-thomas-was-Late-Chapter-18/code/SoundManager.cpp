@@ -1,5 +1,6 @@
 #include "SoundManager.h"
 #include <SFML/Audio.hpp>
+#include <iostream>
 
 using namespace sf;
 
@@ -10,7 +11,10 @@ SoundManager::SoundManager()
 	m_FallInFireBuffer.loadFromFile("sound/fallinfire.wav");
 	m_FallInWaterBuffer.loadFromFile("sound/fallinwater.wav");
 	m_JumpBuffer.loadFromFile("sound/jump.wav");
-	m_ReachGoalBuffer.loadFromFile("sound/reachgoal.wav");
+	m_ReachGoalBuffer.loadFromFile("sound/win.wav");
+	m_ShootBuffer.loadFromFile("sound/shoot.wav");
+	m_DamageBuffer.loadFromFile("sound/damage.wav");
+	m_PickupBuffer.loadFromFile("sound/pickup.wav");
 
 	// Associate the sounds with the buffers
 	m_Fire1Sound.setBuffer(m_FireBuffer);
@@ -20,6 +24,16 @@ SoundManager::SoundManager()
 	m_FallInWaterSound.setBuffer(m_FallInWaterBuffer);
 	m_JumpSound.setBuffer(m_JumpBuffer);
 	m_ReachGoalSound.setBuffer(m_ReachGoalBuffer);
+	m_ShootSound.setBuffer(m_ShootBuffer);
+	m_DamageSound.setBuffer(m_DamageBuffer);
+	m_PickupSound.setBuffer(m_PickupBuffer);
+
+	//Music
+	if (!m_Music.openFromFile("sound/music.wav"))
+	{
+		//Music failed to load
+		std::cout << "Failed to load music";
+	}
 
 	// When the player is 50 pixels away sound is full volume
 	float minDistance = 150;
@@ -114,4 +128,29 @@ void SoundManager::playReachGoal()
 {
 	m_ReachGoalSound.setRelativeToListener(true);
 	m_ReachGoalSound.play();
+}
+
+void SoundManager::playShootSound()
+{
+	m_ShootSound.setRelativeToListener(true);
+	m_ShootSound.play();
+}
+
+void SoundManager::playDamageSound()
+{
+	m_DamageSound.setRelativeToListener(true);
+	m_ShootSound.play();
+}
+
+void SoundManager::playPickupSound()
+{
+	m_PickupSound.setRelativeToListener(true);
+	m_PickupSound.play();
+}
+
+void SoundManager::playMusic()
+{
+	m_Music.setRelativeToListener(true);
+	m_Music.setLoop(true);
+	m_Music.play();
 }

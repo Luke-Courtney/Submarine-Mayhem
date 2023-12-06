@@ -2,14 +2,13 @@
 
 void Engine::draw()
 {
+	list<Bob*>::const_iterator iter;
 	// Rub out the last frame
 	m_Window.clear(Color::White);
 	
 	// Update the shader parameters
 	m_RippleShader.setUniform("uTime", m_GameTimeTotal.asSeconds());
 
-	if (!m_SplitScreen)
-	{
 		// Switch to background view
 		m_Window.setView(m_BGMainView);
 		// Draw the background
@@ -28,14 +27,20 @@ void Engine::draw()
 		m_Window.draw(m_Thomas.getSprite());
 
 		// Draw bobs
-		m_Window.draw(m_Bob0.getSprite());
-		m_Window.draw(m_Bob1.getSprite());
-		m_Window.draw(m_Bob2.getSprite());
+		for (iter = Enemy.begin(); iter != Enemy.end(); ++iter)
+		{
+			m_Window.draw((*iter)->getSprite());
+		}
 
 		//draw Pickup
 		m_Window.draw(healthPickup.getSprite());
 		m_Window.draw(MaxSpeed.getSprite());
 		m_Window.draw(healthPickup2.getSprite());
+		m_Window.draw(SpeedBoost.getSprite());
+		m_Window.draw(BulletFireRate.getSprite());
+		m_Window.draw(BulletSpeed.getSprite());
+		m_Window.draw(BulletDMG.getSprite());
+
 
 		//draw timebar
 		m_Window.draw(timeBar);
@@ -53,110 +58,42 @@ void Engine::draw()
 				m_Window.draw(bullets[i].getShape());
 			}
 		}
-	}
-	else
-	{
-		// Split-screen view is active
-
-		// First draw Thomas' side of the screen
-
-		// Switch to background view
-		m_Window.setView(m_BGLeftView);
-		// Draw the background
-		//m_Window.draw(m_BackgroundSprite);
-
-		// Draw the background, complete with shader effect
-		m_Window.draw(m_BackgroundSprite, &m_RippleShader);
-
-		// Switch to m_LeftView
-		m_Window.setView(m_LeftView);
-
-		// Draw the Level
-		m_Window.draw(m_VALevel, &m_TextureTiles);
+		for (int i = 0; i < 100; i++)
+		{// && enemyBullets[i].isInFlight()
+			if (Ebullets[i].isInFlight())
+			{
+				m_Window.draw(Ebullets[i].getShape());
+			}
 			
-		// Draw bobs
-		m_Window.draw(m_Bob0.getSprite());
-		m_Window.draw(m_Bob1.getSprite());
-		m_Window.draw(m_Bob2.getSprite());
-
-		// Draw thomas
-		m_Window.draw(m_Thomas.getSprite());
-
-		//draw Pickup
-		m_Window.draw(healthPickup.getSprite());
-		m_Window.draw(MaxSpeed.getSprite());
-
-		//draw timebar
-		m_Window.draw(timeBar);
-		m_Window.draw(m_Menu);
-		// Draw the particle system
-		if (m_PS.running())
-		{
-			m_Window.draw(m_PS);
 		}
-		
-		for (int i = 0; i < 100; i++)
-		{
-			if (bullets[i].isInFlight())
-			{
-				m_Window.draw(bullets[i].getShape());
-			}
-		}
-
-		// Now draw Bob's side of the screen
-
-		// Switch to background view
-		m_Window.setView(m_BGRightView);
-		// Draw the background
-		//m_Window.draw(m_BackgroundSprite);
-
-		// Draw the background, complete with shader effect
-		m_Window.draw(m_BackgroundSprite, &m_RippleShader);
-
-		// Switch to m_RightView
-		m_Window.setView(m_RightView);
-
-		// Draw the Level
-		m_Window.draw(m_VALevel, &m_TextureTiles);
-
-		// Draw thomas
-		m_Window.draw(m_Thomas.getSprite());
-
-		// Draw bobs
-		m_Window.draw(m_Bob0.getSprite());
-		m_Window.draw(m_Bob1.getSprite());
-		m_Window.draw(m_Bob2.getSprite());
-
-		//draw Pickup
-		m_Window.draw(healthPickup.getSprite());
-		m_Window.draw(MaxSpeed.getSprite());
-		m_Window.draw(healthPickup2.getSprite());
-
-		//draw timebar
-		m_Window.draw(timeBar);
-
-		// Draw the particle system
-		if (m_PS.running())
-		{
-			m_Window.draw(m_PS);
-		}
-				
-	}
+	
+		//Draw the crosshair
+		m_Window.draw(spriteCrosshair);
 	
 	// Draw the HUD
 	// Switch to m_HudView
 	m_Window.setView(m_HudView);
 	m_Window.draw(m_Hud.getLevel());
-	m_Window.draw(m_Hud.getTime());
 	//ammo text
-	m_Window.draw(m_Hud.getAmmo());
-	m_Window.draw(m_Menu);
+	//m_Window.draw(m_Hud.getAmmo());
+	//m_Window.draw(m_Menu);
+	//m_Window.draw(m_Hud.getTime());
+	m_Window.draw(menu);
 	if (!m_Playing)
 	{
 		m_Window.draw(m_Hud.getMessage());
 	}
-	
-	
+
+	if (oxygenGone)
+	{
+		m_Window.draw(messageText);
+	}
+
+	if (paused)
+	{
+		m_Window.draw(pause);
+	}
+
 	// Show everything we have just drawn
 	m_Window.display();
 }

@@ -27,30 +27,26 @@ int** LevelManager::nextLevel(VertexArray& rVaLevel)
 	{
 	case 1:
 		levelToLoad = "levels/level1.txt";
-		m_StartPosition.x = 100;
-		m_StartPosition.y = 450;
-		m_BaseTimeLimit = 300.0f;
+		m_StartPosition.x = 300;
+		m_StartPosition.y = 250;
 		break;
 
 	case 2:
 		levelToLoad = "levels/level2.txt";
-		m_StartPosition.x = 100;
-		m_StartPosition.y = 3600;
-		m_BaseTimeLimit = 100.0f;
+		m_StartPosition.x = 300;
+		m_StartPosition.y = 200;
 		break;
 
 	case 3:
 		levelToLoad = "levels/level3.txt";
 		m_StartPosition.x = 1250;
 		m_StartPosition.y = 0;
-		m_BaseTimeLimit = 30.0f;
 		break;
 
 	case 4:
 		levelToLoad = "levels/level4.txt";
 		m_StartPosition.x = 50;
 		m_StartPosition.y = 200;
-		m_BaseTimeLimit = 50.0f;
 		break;
 
 	
@@ -156,11 +152,6 @@ int LevelManager::getCurrentLevel()
 	return m_CurrentLevel;
 }
 
-float LevelManager::getTimeLimit()
-{
-	return m_BaseTimeLimit * m_TimeModifier;
-
-}
 Vector2f LevelManager::getStartPosition()
 {
 	return m_StartPosition;

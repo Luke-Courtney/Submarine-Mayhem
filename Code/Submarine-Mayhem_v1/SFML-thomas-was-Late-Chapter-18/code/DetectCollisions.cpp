@@ -1,9 +1,11 @@
 #include "Engine.h"
+#include "Bob.h"
 #include <iostream>
 
 bool Engine::detectCollisions(PlayableCharacter& character)
 {
 	bool reachedGoal = false;
+	list<Bob*>::const_iterator iter;
 	// Make a rect for all his parts
 	FloatRect detectionZone = character.getPosition();
 
@@ -34,15 +36,56 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 	FloatRect level(0, 0, m_LM.getLevelSize().x * TILE_SIZE, m_LM.getLevelSize().y * TILE_SIZE);
 	if (!character.getPosition().intersects(level))
 	{
-		// respawn the character
+		//respawn the character
 		//character.spawn(m_LM.getStartPosition(), GRAVITY);
 	}
 
+	//Has thomas fallen out of map?
+	if (!m_Thomas.getPosition().intersects(level))
+	{
+		m_Thomas.spawn(m_LM.getStartPosition(), GRAVITY);
+	}
+	
+
 	//Detect thomas collisions with enemy
-	if (m_Thomas.getPosition().intersects(m_Bob0.getPosition()) || m_Thomas.getPosition().intersects(m_Bob1.getPosition()) || m_Thomas.getPosition().intersects(m_Bob2.getPosition()))
+	if (m_Thomas.getPosition().intersects(m_Bob0->getPosition()) || m_Thomas.getPosition().intersects(m_Bob1->getPosition()) || m_Thomas.getPosition().intersects(m_Bob2->getPosition()))
 	{
 		//Collision detected
 		character.spawn(m_LM.getStartPosition(), GRAVITY);
+		m_Thomas.health--; //thomas loses health when colliding with enemy
+	}
+
+	//Check if bullet collides with the enemy or player
+	for (int i = 0; i < 100; i++)
+	{
+		if (bullets[i].isInFlight())
+		{
+			if (bullets[i].getPosition().intersects(m_Bob0->getPosition()) && m_Bob0->isAlive())
+			{
+				//stop the bullet
+				bullets[i].stop();
+				//enemy take damage
+				m_Bob0->Getdamage();
+			}
+			else if (bullets[i].getPosition().intersects(m_Bob1->getPosition()) && m_Bob1->isAlive())
+			{
+				bullets[i].stop();
+				m_Bob1->Getdamage();
+			}
+			else if (bullets[i].getPosition().intersects(m_Bob2->getPosition()) && m_Bob2->isAlive())
+			{
+				bullets[i].stop();
+				m_Bob2->Getdamage();
+			}
+			else if (Ebullets[i].getPosition().intersects(m_Thomas.getPosition()))
+			{
+				Ebullets[i].stop();
+				//character.spawn(m_LM.getStartPosition(), GRAVITY);
+				//m_Thomas.health--;
+				timeRemaining = timeRemaining - (dt.asSeconds()/2);
+			}
+		}
+
 	}
 
 	for (int x = startX; x < endX; x++)
@@ -106,13 +149,15 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 			{
 				healthPickup.spawn(Vector2f(6900, 1500), GRAVITY);
 				m_Thomas.setHealth(healthPickup.gotIt());
+				m_SM.playPickupSound();
 			}
-
+			
 			if (m_Thomas.getPosition().intersects
 			(healthPickup2.getPosition()))
 			{
 				healthPickup2.spawn(Vector2f(6900, 1500), GRAVITY);
 				m_Thomas.setHealth(healthPickup2.gotIt());
+				m_SM.playPickupSound();
 			}
 
 			if (m_Thomas.getPosition().intersects
@@ -120,8 +165,41 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 			{
 				MaxSpeed.spawn(Vector2f(6900, 1500), GRAVITY);
 				m_Thomas.setMaxSpeed(MaxSpeed.gotIt());
-				//SpeedBoost.BoostTimeEnd = false;
+				m_SM.playPickupSound();
 			}
+			if (m_Thomas.getPosition().intersects
+			(SpeedBoost.getPosition()))
+			{
+				SpeedBoost.spawn(Vector2f(6900, 1500), GRAVITY);
+				m_Thomas.setMaxSpeed(SpeedBoost.gotIt());
+				m_SM.playPickupSound();
+			}
+			if (m_Thomas.getPosition().intersects
+			(BulletFireRate.getPosition()))
+			{
+				BulletFireRate.spawn(Vector2f(6900, 1500), GRAVITY);
+				fireRate = fireRate + (BulletFireRate.gotIt());
+			}															  
+			if (m_Thomas.getPosition().intersects						  
+			(BulletSpeed.getPosition()))								  
+			{															  
+				BulletSpeed.spawn(Vector2f(6900, 1500), GRAVITY);
+				for (int i = 0; i < 100; i++)
+				{
+					bullets[i].SetBulletSpeed(BulletSpeed.gotIt());
+				}
+			}
+			if (m_Thomas.getPosition().intersects
+			(BulletDMG.getPosition()))
+			{
+				BulletDMG.spawn(Vector2f(6900, 1500), GRAVITY);
+				for (iter = Enemy.begin(); iter != Enemy.end(); ++iter)
+				{
+					(*iter)->Setdamage(BulletDMG.gotIt());
+				}
+			}
+			
+																		  
 
 
 			// More collision detection here once we have learned about particle effects
