@@ -50,6 +50,12 @@ void Pickup::refreshSprite()
 			"graphics/BulletSpeed_1.png"));
 		m_Sprite.setOrigin(25, 25);
 	}
+	else if (m_Type == 7)
+	{
+		m_Sprite = Sprite(TextureHolder::GetTexture(
+			"graphics/BulletDMG.png"));
+		m_Sprite.setOrigin(25, 25);
+	}
 }
 
 bool Pickup::isSpawned()

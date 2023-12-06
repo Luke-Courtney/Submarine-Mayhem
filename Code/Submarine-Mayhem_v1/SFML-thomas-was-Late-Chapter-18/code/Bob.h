@@ -19,6 +19,7 @@ public:
 
 	//Health and damage
 	int m_Health = 10;
+	int Damage = 1;
 	bool alive;
 
 	//Enemy type
@@ -30,7 +31,8 @@ public:
 
 	void setHealth(int newHealth);
 	int getHealth();
-	void damage(int damage);
+	int Getdamage();
+	void Setdamage(int D);
 	void heal(int heal);
 	void die();
 	bool isAlive();

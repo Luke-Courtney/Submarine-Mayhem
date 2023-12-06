@@ -117,6 +117,12 @@ void Bullet::stop()
 	m_InFlight = false;
 }
 
+int Bullet::SetBulletSpeed(int B)
+{
+	m_BulletSpeed = m_BulletSpeed + B;
+	return m_BulletSpeed;
+}
+
 bool Bullet::isInFlight()
 {
 	return m_InFlight;

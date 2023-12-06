@@ -5,6 +5,7 @@
 bool Engine::detectCollisions(PlayableCharacter& character)
 {
 	bool reachedGoal = false;
+	list<Bob*>::const_iterator iter;
 	// Make a rect for all his parts
 	FloatRect detectionZone = character.getPosition();
 
@@ -64,21 +65,21 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 				//stop the bullet
 				bullets[i].stop();
 				//enemy take damage
-				m_Bob0->damage(1);
+				m_Bob0->Getdamage();
 			}
 			else if (bullets[i].getPosition().intersects(m_Bob1->getPosition()) && m_Bob1->isAlive())
 			{
 				bullets[i].stop();
-				m_Bob1->damage(1);
+				m_Bob1->Getdamage();
 			}
 			else if (bullets[i].getPosition().intersects(m_Bob2->getPosition()) && m_Bob2->isAlive())
 			{
 				bullets[i].stop();
-				m_Bob2->damage(1);
+				m_Bob2->Getdamage();
 			}
-			/*else if (bullets[i].getPosition().intersects(m_Thomas.getPosition()))
+			/*else if (Ebullets[i].getPosition().intersects(m_Thomas.getPosition()))
 			{
-				bullets[i].stop();
+				Ebullets[i].stop();
 				character.spawn(m_LM.getStartPosition(), GRAVITY);
 			}*/
 		}
@@ -171,14 +172,27 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 			(BulletFireRate.getPosition()))
 			{
 				BulletFireRate.spawn(Vector2f(6900, 1500), GRAVITY);
-				//m_Thomas.setMaxSpeed(BulletFireRate.gotIt());           need to set how the pickup is applied
+				fireRate = fireRate + (BulletFireRate.gotIt());
 			}															  
 			if (m_Thomas.getPosition().intersects						  
 			(BulletSpeed.getPosition()))								  
 			{															  
-				BulletSpeed.spawn(Vector2f(6900, 1500), GRAVITY);		  
-				//m_Thomas.setMaxSpeed(BulletSpeed.gotIt());              need to set how the pickup is applied
-			}															  
+				BulletSpeed.spawn(Vector2f(6900, 1500), GRAVITY);
+				for (int i = 0; i < 100; i++)
+				{
+					bullets[i].SetBulletSpeed(BulletSpeed.gotIt());
+				}
+			}
+			if (m_Thomas.getPosition().intersects
+			(BulletDMG.getPosition()))
+			{
+				BulletDMG.spawn(Vector2f(6900, 1500), GRAVITY);
+				for (iter = Enemy.begin(); iter != Enemy.end(); ++iter)
+				{
+					(*iter)->Setdamage(BulletDMG.gotIt());
+				}
+			}
+			
 																		  
 
 

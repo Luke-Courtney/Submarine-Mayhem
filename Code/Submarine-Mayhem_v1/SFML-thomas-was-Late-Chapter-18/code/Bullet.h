@@ -43,6 +43,8 @@ public:
 	// Stop the bullet
 	void stop();
 
+	int SetBulletSpeed(int B);
+
 	// Returns the value of m_InFlight
 	bool isInFlight();
 

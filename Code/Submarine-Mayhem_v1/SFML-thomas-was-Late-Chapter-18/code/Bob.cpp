@@ -101,9 +101,14 @@ int Bob::getHealth()
 }
 
 //Deal damage
-void Bob::damage(int damage)
+int Bob::Getdamage()
 {
-	m_Health = m_Health - damage;
+	m_Health = m_Health - Damage;
+	return m_Health;
+}
+void Bob::Setdamage(int D)
+{
+	Damage = Damage + D;
 }
 
 //Heal health
