@@ -54,7 +54,7 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 		m_Thomas.health--; //thomas loses health when colliding with enemy
 	}
 
-	//Check if bullet collide enemy or player
+	//Check if bullet collides with the enemy or player
 	for (int i = 0; i < 100; i++)
 	{
 		if (bullets[i].isInFlight())
@@ -76,11 +76,13 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 				bullets[i].stop();
 				m_Bob2->damage(1);
 			}
-			/*else if (bullets[i].getPosition().intersects(m_Thomas.getPosition()))
+			else if (bullets[i].getPosition().intersects(m_Thomas.getPosition()))
 			{
 				bullets[i].stop();
-				character.spawn(m_LM.getStartPosition(), GRAVITY);
-			}*/
+				//character.spawn(m_LM.getStartPosition(), GRAVITY);
+				//m_Thomas.health--;
+				timeRemaining = timeRemaining - (dt.asSeconds()/2);
+			}
 		}
 
 	}

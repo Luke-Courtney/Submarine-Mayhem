@@ -31,6 +31,7 @@ void PlayableCharacter::update(float elapsedTime)
 
 		m_Position.x += m_RightSpeed * elapsedTime;
 		m_Sprite.setScale(Vector2f(1, 1));
+		isFlipped = false;
 	}
 	else if (m_RightSpeed > 0)
 	{
@@ -50,6 +51,7 @@ void PlayableCharacter::update(float elapsedTime)
 
 		m_Position.x += m_LeftSpeed * elapsedTime;
 		m_Sprite.setScale(Vector2f(-1, 1));
+		isFlipped = true;
 	}
 	else if (m_LeftSpeed < 0)
 	{

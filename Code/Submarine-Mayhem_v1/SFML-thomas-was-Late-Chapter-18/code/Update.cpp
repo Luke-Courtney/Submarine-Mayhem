@@ -1,6 +1,7 @@
 #include "Engine.h"
 #include <SFML/Graphics.hpp>
 #include <sstream>
+#include <iostream>
 
 using namespace sf;
 
@@ -91,6 +92,9 @@ void Engine::update(float dtAsSeconds)
 		// Convert mouse position to world coordinates of mainView
 		mouseWorldPosition = m_Window.mapPixelToCoords(Mouse::getPosition(), m_MainView);
 		
+		// Set the crosshair to the mouse world location
+		spriteCrosshair.setPosition(mouseWorldPosition);
+
 		// Fire a bullet
 		if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
 		{
@@ -99,13 +103,22 @@ void Engine::update(float dtAsSeconds)
 				- lastPressed.asMilliseconds()
 					> 1000 / fireRate && bulletsInClip > 0)
 			{
-
 				// Pass the centre of the player and the centre of the crosshair
 				// to the shoot function
-				bullets[currentBullet].shoot(
-					(m_Thomas.getCenter().x + 50), m_Thomas.getCenter().y,
-					mouseWorldPosition.x, mouseWorldPosition.y);
-
+				if (m_Thomas.isFlipped == true)
+				{
+					bullets[currentBullet].shoot(
+						(m_Thomas.getCenter().x - 120), m_Thomas.getCenter().y,
+						mouseWorldPosition.x, mouseWorldPosition.y);
+					cout << m_Thomas.flipped;
+				}
+				else
+				{
+					bullets[currentBullet].shoot(
+						(m_Thomas.getCenter().x + 30), m_Thomas.getCenter().y,
+						mouseWorldPosition.x, mouseWorldPosition.y);
+				}
+				
 				currentBullet++;
 				if (currentBullet > 99)
 				{
@@ -130,25 +143,30 @@ void Engine::update(float dtAsSeconds)
 		if (distance < 10)
 		{
 			//Shoot function takes in start pos and target pos
-			bullets[currentBullet].shoot(m_Bob0->getCenter().x, m_Bob0->getCenter().y, m_Thomas.getCenter().x, m_Thomas.getCenter().y);
+			bullets[currentBullet].shoot(m_Bob0->getCenter().x + 50, m_Bob0->getCenter().y, m_Thomas.getCenter().x, m_Thomas.getCenter().y);
 		}
 		else if (distance1 < 10)
 		{
-			bullets[currentBullet].shoot(m_Bob1->getCenter().x, m_Bob1->getCenter().y, m_Thomas.getCenter().x, m_Thomas.getCenter().y);
+			bullets[currentBullet].shoot(m_Bob1->getCenter().x + 50, m_Bob1->getCenter().y, m_Thomas.getCenter().x, m_Thomas.getCenter().y);
 		}
 		else if (distance2 < 10)
 		{
-			bullets[currentBullet].shoot(m_Bob2->getCenter().x, m_Bob2->getCenter().y, m_Thomas.getCenter().x, m_Thomas.getCenter().y);
+			bullets[currentBullet].shoot(m_Bob2->getCenter().x + 50, m_Bob2->getCenter().y, m_Thomas.getCenter().x, m_Thomas.getCenter().y);
 		}
 		
 		// Update any bullets that are in - flight
 		for (int i = 0; i < 100; i++)
-		{// && enemyBullets[i].isInFlight()
+		{
 			if (bullets[i].isInFlight())
 			{
 				bullets[i].update(dtAsSeconds);
-				//enemyBullets[i].update(dtAsSeconds);
 			}
+			/*
+			else if (enemyBullets[i].isInFlight())
+			{
+				enemyBullets[i].update(dtAsSeconds);
+			}
+			*/
 		}
 		
 		// Reloading
@@ -168,28 +186,6 @@ void Engine::update(float dtAsSeconds)
 			}
 			
 		}
-		/*
-		// Have any enemies been shot?
-		for (int i = 0; i < 100; i++)
-		{
-			if (bullets[i].isInFlight() && m_Bob0.isAlive() || bullets[i].isInFlight() && m_Bob1.isAlive() ||
-				bullets[i].isInFlight() && m_Bob2.isAlive())
-			{
-				if (bullets[i].getPosition().intersects(m_Bob0.getPosition()) || bullets[i].getPosition().intersects(m_Bob1.getPosition()) ||
-					bullets[i].getPosition().intersects(m_Bob2.getPosition()))
-				{
-					// Stop the bullet
-					bullets[i].stop();
-
-					// Register the hit and see if it was a kill
-					//if (m_Bob0.damage() || m_Bob1.damage() || m_Bob2.damage()) {
-						// Not just a hit but a kill too
-						//die();
-					//}
-				}
-			}
-		}
-		*/
 
 		// size up the time bar
 		timeBar.setSize(Vector2f(timeBarWidthPerSecond *
@@ -259,9 +255,9 @@ void Engine::update(float dtAsSeconds)
 		m_Hud.setLevel(ssLevel.str());
 
 		// Update the ammo text
-		ssAmmo << "Ammo:" << m_LM.getCurrentLevel();
-		ssAmmo << bulletsInClip << "/" << bulletsSpare;
-		m_Hud.setAmmo(ssAmmo.str());
+		//ssAmmo << "Ammo:" << m_LM.getCurrentLevel();
+		//ssAmmo << bulletsInClip << "/" << bulletsSpare;
+		//m_Hud.setAmmo(ssAmmo.str());
 
 		m_FramesSinceLastHUDUpdate = 0;
 	}
