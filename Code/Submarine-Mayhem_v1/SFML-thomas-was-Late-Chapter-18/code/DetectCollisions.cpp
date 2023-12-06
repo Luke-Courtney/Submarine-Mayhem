@@ -77,9 +77,9 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 				bullets[i].stop();
 				m_Bob2->Getdamage();
 			}
-			else if (bullets[i].getPosition().intersects(m_Thomas.getPosition()))
+			else if (Ebullets[i].getPosition().intersects(m_Thomas.getPosition()))
 			{
-				bullets[i].stop();
+				Ebullets[i].stop();
 				//character.spawn(m_LM.getStartPosition(), GRAVITY);
 				//m_Thomas.health--;
 				timeRemaining = timeRemaining - (dt.asSeconds()/2);

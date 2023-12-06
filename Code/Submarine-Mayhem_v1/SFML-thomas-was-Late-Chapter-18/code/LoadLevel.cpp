@@ -52,23 +52,21 @@ void Engine::loadLevel()
 			{
 				(*iter)->spawn(Vector2f(750, 450), GRAVITY);
 				(*iter)->SetPatrolPoint(Vector2f(750, 450));
-				counter++;
 			}
 			if (counter == 1)
 			{
 				(*iter)->spawn(Vector2f(3700, 650), GRAVITY);
 				(*iter)->SetPatrolPoint(Vector2f(3700, 650));
-				counter++;
 			}
 			if (counter == 2)
 			{
 				(*iter)->spawn(Vector2f(1800, 900), GRAVITY);
 				(*iter)->SetPatrolPoint(Vector2f(1800, 900));
-				counter++;
 			}
 		}
-		counter=0;
+		counter++;
 	}
+	counter = 0;
 
 	healthPickup.spawn(Vector2f(7900, 1500), GRAVITY);
 	MaxSpeed.spawn(Vector2f(7900, 1600), GRAVITY);
