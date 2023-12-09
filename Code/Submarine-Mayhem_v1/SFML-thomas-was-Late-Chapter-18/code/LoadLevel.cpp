@@ -29,59 +29,62 @@ void Engine::loadLevel()
 	for (iter = Enemy.begin(); iter != Enemy.end(); ++iter)
 	{
 		(*iter)->setType(type);
+
+		//Level 1
 		if (m_LM.getCurrentLevel() == 1)
 		{
 			if (counter == 0)
 			{
-				(*iter)->spawn(Vector2f(750, 450), GRAVITY);
-				(*iter)->SetPatrolPoint(Vector2f(750, 450));
+				(*iter)->spawn(Vector2f(750, 550), GRAVITY);
+				(*iter)->SetPatrolPoint(Vector2f(750, 550));
 			}
 			if (counter == 1)
 			{
-				(*iter)->spawn(Vector2f(3700, 650), GRAVITY);
-				(*iter)->SetPatrolPoint(Vector2f(3700, 650));
+				(*iter)->spawn(Vector2f(2500, 200), GRAVITY);
+				(*iter)->SetPatrolPoint(Vector2f(2500, 200));
 			}
 			if (counter == 2)
 			{
-				(*iter)->spawn(Vector2f(1800, 900), GRAVITY);
-				(*iter)->SetPatrolPoint(Vector2f(1800, 900));
+				(*iter)->spawn(Vector2f(5000, 150), GRAVITY);
+				(*iter)->SetPatrolPoint(Vector2f(5000, 150));
 			}
 			if (counter == 3)
 			{
-				(*iter)->spawn(Vector2f(1222221, 173), GRAVITY);
-				(*iter)->SetPatrolPoint(Vector2f(1222221, 173));
+				(*iter)->spawn(Vector2f(5100, 500), GRAVITY);
+				(*iter)->SetPatrolPoint(Vector2f(5100, 500));
 			}
 			if (counter == 4)
 			{
-				(*iter)->spawn(Vector2f(541, 573), GRAVITY);
-				(*iter)->SetPatrolPoint(Vector2f(541, 573));
+				(*iter)->spawn(Vector2f(2500, 400), GRAVITY);
+				(*iter)->SetPatrolPoint(Vector2f(2500, 400));
 			}
 			if (counter == 5)
 			{
-				(*iter)->spawn(Vector2f(241, 1073), GRAVITY);
-				(*iter)->SetPatrolPoint(Vector2f(241, 1073));
+				(*iter)->spawn(Vector2f(2400, 700), GRAVITY);
+				(*iter)->SetPatrolPoint(Vector2f(2400, 700));
 			}
 			if (counter == 6)
 			{
-				(*iter)->spawn(Vector2f(641, 2073), GRAVITY);
-				(*iter)->SetPatrolPoint(Vector2f(641, 2073));
+				(*iter)->spawn(Vector2f(4650, 800), GRAVITY);
+				(*iter)->SetPatrolPoint(Vector2f(4650, 800));
 			}
 			if (counter == 7)
 			{
-				(*iter)->spawn(Vector2f(341, 3073), GRAVITY);
-				(*iter)->SetPatrolPoint(Vector2f(341, 3073));
+				(*iter)->spawn(Vector2f(5450, 1000), GRAVITY);
+				(*iter)->SetPatrolPoint(Vector2f(5450, 1000));
 			}
 			if (counter == 8)
-			{
-				(*iter)->spawn(Vector2f(1041, 4073), GRAVITY);
-				(*iter)->SetPatrolPoint(Vector2f(1041, 4073));
+			{	
+				(*iter)->spawn(Vector2f(2950, 1050), GRAVITY);
+				(*iter)->SetPatrolPoint(Vector2f(5450, 1050));
 			}
 			if (counter == 9)
 			{
-				(*iter)->spawn(Vector2f(441, 5073), GRAVITY);
-				(*iter)->SetPatrolPoint(Vector2f(441, 5073));
+				(*iter)->spawn(Vector2f(5450, 1000), GRAVITY);
+				(*iter)->SetPatrolPoint(Vector2f(5450, 1000));
 			}
 		}
+		//Level 2
 		else if (m_LM.getCurrentLevel() == 2)
 		{
 			if (counter == 0)
