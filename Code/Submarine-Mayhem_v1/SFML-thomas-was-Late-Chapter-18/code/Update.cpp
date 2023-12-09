@@ -29,9 +29,10 @@ void Engine::update(float dtAsSeconds)
 		m_Thomas.update(dtAsSeconds);
 
 		// Update Bobs
-		m_Bob0->update(dtAsSeconds);
-		m_Bob1->update(dtAsSeconds);
-		m_Bob2->update(dtAsSeconds);
+		for (iter = Enemy.begin(); iter != Enemy.end(); ++iter)
+		{
+			(*iter)->update(dtAsSeconds);
+		}
 
 		//Update Pickups
 		healthPickup.update(dtAsSeconds);
@@ -82,7 +83,7 @@ void Engine::update(float dtAsSeconds)
 		// Detect collisions and see if characters have reached the goal tile
 		// The second part of the if condition is only executed
 		// when thomas is touching the home tile
-		if (detectCollisions(m_Thomas)) //&& detectCollisions(*m_Bob0) || detectCollisions(m_Thomas) && detectCollisions(*m_Bob1) || detectCollisions(m_Thomas) && detectCollisions(*m_Bob2))
+		if (detectCollisions(m_Thomas))
 		{
 			// New level required
 
@@ -95,9 +96,10 @@ void Engine::update(float dtAsSeconds)
 		else
 		{
 			// Run bobs collision detection
-			detectCollisions(*m_Bob0);
-			detectCollisions(*m_Bob1);
-			detectCollisions(*m_Bob2);
+			for (iter = Enemy.begin(); iter != Enemy.end(); ++iter)
+			{
+				detectCollisions(*(*iter));
+			}
 		}
 
 		// Where is the mouse pointer
@@ -145,21 +147,17 @@ void Engine::update(float dtAsSeconds)
 
 		}// End fire a bullet
 
-		float Bob0shoot = (m_Bob0->getCenter().x, m_Bob0->getCenter().y);
-		float Bob1shoot = (m_Bob1->getCenter().x, m_Bob1->getCenter().y);
-		float Bob2shoot = (m_Bob2->getCenter().x, m_Bob2->getCenter().y);
-
 		//Enemies shoot thomas
-		float distance = abs((m_Bob0->getCenter().x - m_Thomas.getCenter().x) + (m_Bob0->getCenter().y - m_Thomas.getCenter().y));
-		float distance1 = abs((m_Bob1->getCenter().x - m_Thomas.getCenter().x) + (m_Bob1->getCenter().y - m_Thomas.getCenter().y));
-		float distance2 = abs((m_Bob2->getCenter().x - m_Thomas.getCenter().x) + (m_Bob2->getCenter().y - m_Thomas.getCenter().y));
+		for (iter = Enemy.begin(); iter != Enemy.end(); ++iter)
+		{
+			float distance = abs((*iter)->getCenter().x - m_Thomas.getCenter().x + (*iter)->getCenter().y - m_Thomas.getCenter().y);
 
 			if (distance < 10)
 			{
 				if (m_GameTimeTotal.asMilliseconds() - lastPressed.asMilliseconds() > 1000 / EfireRate && EbulletsInClip > 0)
 				{
 					//Shoot function takes in start pos and target pos
-					Ebullets[EcurrentBullet].shoot(m_Bob0->getCenter().x, m_Bob0->getCenter().y, m_Thomas.getCenter().x, m_Thomas.getCenter().y);
+					Ebullets[EcurrentBullet].shoot((*iter)->getCenter().x, (*iter)->getCenter().y, m_Thomas.getCenter().x, m_Thomas.getCenter().y);
 					EcurrentBullet++;
 					if (EcurrentBullet > 500)
 					{
@@ -170,38 +168,7 @@ void Engine::update(float dtAsSeconds)
 					EbulletsInClip--;
 				}
 			}
-			else if (distance1 < 10)
-			{
-				if (m_GameTimeTotal.asMilliseconds() - ElastPressed.asMilliseconds() > 1000 / EfireRate && EbulletsInClip > 0)
-				{
-					//Shoot function takes in start pos and target pos
-					Ebullets[EcurrentBullet].shoot(m_Bob1->getCenter().x, m_Bob1->getCenter().y, m_Thomas.getCenter().x, m_Thomas.getCenter().y);
-					EcurrentBullet++;
-					if (EcurrentBullet > 500)
-					{
-						EcurrentBullet = 0;
-					}
-					lastPressed = m_GameTimeTotal;
-					//shoot.play();
-					EbulletsInClip--;
-				}
-			}
-			else if (distance2 < 10)
-			{
-				if (m_GameTimeTotal.asMilliseconds() - lastPressed.asMilliseconds() > 1000 / EfireRate && EbulletsInClip > 0)
-				{
-					//Shoot function takes in start pos and target pos
-					Ebullets[EcurrentBullet].shoot(m_Bob2->getCenter().x, m_Bob2->getCenter().y, m_Thomas.getCenter().x, m_Thomas.getCenter().y);
-					EcurrentBullet++;
-					if (EcurrentBullet > 500)
-					{
-						EcurrentBullet = 0;
-					}
-					lastPressed = m_GameTimeTotal;
-					//shoot.play();
-					EbulletsInClip--;
-				}
-			}
+		}
 		
 		// Update any bullets that are in flight
 		for (int i = 0; i < 500; i++)

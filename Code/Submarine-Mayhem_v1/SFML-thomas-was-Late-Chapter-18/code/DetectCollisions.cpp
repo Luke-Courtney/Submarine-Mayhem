@@ -48,44 +48,38 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 	
 
 	//Detect thomas collisions with enemy
-	if (m_Thomas.getPosition().intersects(m_Bob0->getPosition()) || m_Thomas.getPosition().intersects(m_Bob1->getPosition()) || m_Thomas.getPosition().intersects(m_Bob2->getPosition()))
+	for (iter = Enemy.begin(); iter != Enemy.end(); ++iter)
 	{
-		//Collision detected
-		character.spawn(m_LM.getStartPosition(), GRAVITY);
-		m_Thomas.health--; //thomas loses health when colliding with enemy
-	}
-
-	//Check if bullet collides with the enemy or player
-	for (int i = 0; i < 100; i++)
-	{
-		if (bullets[i].isInFlight())
+		if (m_Thomas.getPosition().intersects((*iter)->getPosition()))
 		{
-			if (bullets[i].getPosition().intersects(m_Bob0->getPosition()) && m_Bob0->isAlive())
-			{
-				//stop the bullet
-				bullets[i].stop();
-				//enemy take damage
-				m_Bob0->Getdamage();
-			}
-			else if (bullets[i].getPosition().intersects(m_Bob1->getPosition()) && m_Bob1->isAlive())
-			{
-				bullets[i].stop();
-				m_Bob1->Getdamage();
-			}
-			else if (bullets[i].getPosition().intersects(m_Bob2->getPosition()) && m_Bob2->isAlive())
-			{
-				bullets[i].stop();
-				m_Bob2->Getdamage();
-			}
-			else if (Ebullets[i].getPosition().intersects(m_Thomas.getPosition()))
-			{
-				Ebullets[i].stop();
-				//character.spawn(m_LM.getStartPosition(), GRAVITY);
-				//m_Thomas.health--;
-				timeRemaining = timeRemaining - (dt.asSeconds()/2);
-			}
+			//Collision detected
+			character.spawn(m_LM.getStartPosition(), GRAVITY);
+			m_Thomas.health--; //thomas loses health when colliding with enemy
 		}
 
+
+		//Check if bullet collides with the enemy or player
+		for (int i = 0; i < 100; i++)
+		{
+			if (bullets[i].isInFlight())
+			{
+				if (bullets[i].getPosition().intersects((*iter)->getPosition()) && (*iter)->isAlive())
+				{
+					//stop the bullet
+					bullets[i].stop();
+					//enemy take damage
+					(*iter)->Getdamage();
+			}
+				else if (Ebullets[i].getPosition().intersects(m_Thomas.getPosition()))
+				{
+					Ebullets[i].stop();
+					//character.spawn(m_LM.getStartPosition(), GRAVITY);
+					//m_Thomas.health--;
+					timeRemaining = timeRemaining - (dt.asSeconds() / 2);
+				}
+			}
+
+		}
 	}
 
 	for (int x = startX; x < endX; x++)

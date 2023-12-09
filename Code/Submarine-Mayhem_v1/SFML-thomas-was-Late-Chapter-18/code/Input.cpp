@@ -1,6 +1,8 @@
 #include "Engine.h"
 void Engine::input()
 {
+	list<Bob*>::const_iterator iter;
+
 	Event event;
 	while (m_Window.pollEvent(event))
 	{
@@ -37,22 +39,13 @@ void Engine::input()
 		m_SM.playJump();
 	}
 
-	// Handle input specific to Bobs
-	if (m_Bob0->handleInput())
+	 ///Handle input specific to Bobs
+	for (iter = Enemy.begin(); iter != Enemy.end(); ++iter)
 	{
-		// Play a jump sound
-		m_SM.playJump();
-	}
-
-	if (m_Bob1->handleInput())
-	{
-		// Play a jump sound
-		m_SM.playJump();
-	}
-
-	if (m_Bob2->handleInput())
-	{
-		// Play a jump sound
-		m_SM.playJump();
+		if ((*iter)->handleInput())
+		{
+			// Play a jump sound
+			m_SM.playJump();
+		}
 	}
 }

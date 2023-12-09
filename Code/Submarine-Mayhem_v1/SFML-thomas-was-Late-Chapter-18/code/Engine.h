@@ -29,6 +29,13 @@ private:
 	Bob* m_Bob0;
 	Bob* m_Bob1;
 	Bob* m_Bob2;
+	Bob* m_Bob3;
+	Bob* m_Bob4;
+	Bob* m_Bob5;
+	Bob* m_Bob6;
+	Bob* m_Bob7;
+	Bob* m_Bob8;
+	Bob* m_Bob9;
 	int counter;
 	list<Bob*> Enemy;
 

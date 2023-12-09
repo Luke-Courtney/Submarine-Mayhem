@@ -4,6 +4,7 @@ void Engine::loadLevel()
 {
 	list<Bob*>::const_iterator iter;
 	counter=0;
+	int type = 0;
 
 	m_Playing = false;
 
@@ -27,7 +28,7 @@ void Engine::loadLevel()
 
 	for (iter = Enemy.begin(); iter != Enemy.end(); ++iter)
 	{
-		(*iter)->setType(counter);
+		(*iter)->setType(type);
 		if (m_LM.getCurrentLevel() == 1)
 		{
 			if (counter == 0)
@@ -44,6 +45,41 @@ void Engine::loadLevel()
 			{
 				(*iter)->spawn(Vector2f(1800, 900), GRAVITY);
 				(*iter)->SetPatrolPoint(Vector2f(1800, 900));
+			}
+			if (counter == 3)
+			{
+				(*iter)->spawn(Vector2f(1222221, 173), GRAVITY);
+				(*iter)->SetPatrolPoint(Vector2f(1222221, 173));
+			}
+			if (counter == 4)
+			{
+				(*iter)->spawn(Vector2f(541, 573), GRAVITY);
+				(*iter)->SetPatrolPoint(Vector2f(541, 573));
+			}
+			if (counter == 5)
+			{
+				(*iter)->spawn(Vector2f(241, 1073), GRAVITY);
+				(*iter)->SetPatrolPoint(Vector2f(241, 1073));
+			}
+			if (counter == 6)
+			{
+				(*iter)->spawn(Vector2f(641, 2073), GRAVITY);
+				(*iter)->SetPatrolPoint(Vector2f(641, 2073));
+			}
+			if (counter == 7)
+			{
+				(*iter)->spawn(Vector2f(341, 3073), GRAVITY);
+				(*iter)->SetPatrolPoint(Vector2f(341, 3073));
+			}
+			if (counter == 8)
+			{
+				(*iter)->spawn(Vector2f(1041, 4073), GRAVITY);
+				(*iter)->SetPatrolPoint(Vector2f(1041, 4073));
+			}
+			if (counter == 9)
+			{
+				(*iter)->spawn(Vector2f(441, 5073), GRAVITY);
+				(*iter)->SetPatrolPoint(Vector2f(441, 5073));
 			}
 		}
 		else if (m_LM.getCurrentLevel() == 2)
@@ -65,6 +101,11 @@ void Engine::loadLevel()
 			}
 		}
 		counter++;
+		type++;
+		if(type >2)
+		{ 
+			type = 0;
+		}
 	}
 	counter = 0;
 

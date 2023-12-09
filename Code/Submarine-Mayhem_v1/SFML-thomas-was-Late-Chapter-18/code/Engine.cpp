@@ -81,11 +81,25 @@ Engine::Engine()
 	m_Bob0 = new Bob();
 	m_Bob1 = new Bob();
 	m_Bob2 = new Bob();
+	m_Bob3 = new Bob();
+	m_Bob4 = new Bob();
+	m_Bob5 = new Bob();
+	m_Bob6 = new Bob();
+	m_Bob7 = new Bob();
+	m_Bob8 = new Bob();
+	m_Bob9 = new Bob();
 
 	//put enemy on list
 	Enemy.push_back(m_Bob0);
 	Enemy.push_back(m_Bob1);
 	Enemy.push_back(m_Bob2);
+	Enemy.push_back(m_Bob3);
+	Enemy.push_back(m_Bob4);
+	Enemy.push_back(m_Bob5);
+	Enemy.push_back(m_Bob6);
+	Enemy.push_back(m_Bob7);
+	Enemy.push_back(m_Bob8);
+	Enemy.push_back(m_Bob9);
 
 	// how much does it increase whatever it increases
 	healthPickup.m_Value = 10;
