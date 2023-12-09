@@ -66,23 +66,31 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 				bullets[i].stop();
 				//enemy take damage
 				m_Bob0->Getdamage();
+				m_SM.playDamageSound();
 			}
 			else if (bullets[i].getPosition().intersects(m_Bob1->getPosition()) && m_Bob1->isAlive())
 			{
 				bullets[i].stop();
 				m_Bob1->Getdamage();
+				m_SM.playDamageSound();
 			}
 			else if (bullets[i].getPosition().intersects(m_Bob2->getPosition()) && m_Bob2->isAlive())
 			{
 				bullets[i].stop();
 				m_Bob2->Getdamage();
+				m_SM.playDamageSound();
 			}
-			else if (Ebullets[i].getPosition().intersects(m_Thomas.getPosition()))
+		}
+		else if (Ebullets[i].isInFlight())
+		{
+			if (Ebullets[i].getPosition().intersects(m_Thomas.getPosition()))
 			{
 				Ebullets[i].stop();
 				//character.spawn(m_LM.getStartPosition(), GRAVITY);
 				//m_Thomas.health--;
-				timeRemaining = timeRemaining - (dt.asSeconds()/2);
+				//timeRemaining = timeRemaining - (dt.asSeconds()/2);
+				minusHealth();
+				m_SM.playDamageSound();
 			}
 		}
 

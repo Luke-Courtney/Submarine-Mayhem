@@ -163,11 +163,11 @@ void Engine::run()
 }
 int Engine::plusHealth()
 {
-	timeRemaining = timeRemaining - 1;
+	timeRemaining = timeRemaining + 1;
 	return timeRemaining;
 }
 int Engine::minusHealth()
 {
-	timeRemaining = timeRemaining + 1;
+	timeRemaining = timeRemaining - 0.5;
 	return timeRemaining;
 }
