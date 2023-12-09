@@ -78,7 +78,18 @@ void Engine::update(float dtAsSeconds)
 				(*iter)->die();
 			}
 		}
+		//reset stats function basically resets everything 
+		if (resetStats)
+		{
+			timeBarStartWidth = 400;//timebar width
+			timeBarHeight = 80;//timebar height
+			timeRemaining = 20.0f;//time remaining
+			bulletsInClip = 999;//bullets
+			timeBar.setSize(Vector2f(timeBarStartWidth, timeBarHeight));//setting size
+			m_Thomas.spawn(m_LM.getStartPosition(), GRAVITY);//reset submarine position
 
+			resetStats = false;
+		}
 		// Detect collisions and see if characters have reached the goal tile
 		// The second part of the if condition is only executed
 		// when thomas is touching the home tile
@@ -279,20 +290,24 @@ void Engine::update(float dtAsSeconds)
 
 		// Subtract from the amount of time remaining
 
-		if (timeRemaining > 0)
+		if (timeRemaining > 0)//if time is greater than 0
 		{
 
-			timeRemaining = timeRemaining - (dt.asSeconds()/20);
+			timeRemaining = timeRemaining - (dt.asSeconds()/20);//20/20 every 20 game ticks substract from time remaining
 		}
 
-		//if oxygen runs out display a message
-		if (timeRemaining < 1)
+		//if oxygen runs out set oxygenGone for restart menu
+		if (timeRemaining < 1)//if less than 1
 		{
 
-			oxygenGone = true;
+			oxygenGone = true;//set to true
+			restart.setPosition(0, 0);//show restart menu
 		}
-
-		
+		if (oxygenGone)
+		{
+			restarted = true;//set restart state to true
+			oxygenGone = false;//set oxygen gone to false because we reset oxygen to full
+		}
 
 	}// End if playing
 

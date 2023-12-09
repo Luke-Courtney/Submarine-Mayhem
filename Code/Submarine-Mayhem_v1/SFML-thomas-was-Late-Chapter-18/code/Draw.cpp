@@ -93,7 +93,11 @@ void Engine::draw()
 	{
 		m_Window.draw(pause);
 	}
-
+	//draw restart menu
+	if (restarted)
+	{
+		m_Window.draw(restart);
+	}
 	// Show everything we have just drawn
 	m_Window.display();
 }

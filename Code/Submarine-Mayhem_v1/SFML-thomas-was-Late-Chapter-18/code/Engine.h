@@ -105,6 +105,9 @@ private:
 	//MENU
 	Texture PAUSE;
 	Sprite pause;
+	//restart
+	Texture RESTART;
+	Sprite restart;
 	//message
 	FloatRect textRect = messageText.getLocalBounds();
 
@@ -123,6 +126,8 @@ private:
 	Shader m_RippleShader;
 	//pause
 	bool paused = false;
+	//restart
+	bool restarted = false;
 	// Is the game currently playing?
 	bool m_Playing = false;
 
@@ -134,7 +139,7 @@ private:
 
 	Time m_GameTimeTotal;
 	bool oxygenGone = false;
-
+	bool resetStats = false;
 	// Is it time for a new/first level?
 	bool m_NewLevelRequired = true;
 
