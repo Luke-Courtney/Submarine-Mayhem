@@ -2,11 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-<<<<<<< HEAD
-      <FullPath>C:\Users\aj27s\Submarine-Mayhem\Code\Submarine-Mayhem_v1\x64\Debug\Submarine-Mayhem.exe</FullPath>
-=======
-      <FullPath>C:\Users\ISHKA\Submarine-Mayhem\Submarine-Mayhem\Code\Submarine-Mayhem_v1\x64\Debug\Submarine-Mayhem.exe</FullPath>
->>>>>>> origin/Restart
+      <FullPath>C:\Users\lukec\Submarine-Mayhem\Code\Submarine-Mayhem_v1\x64\Debug\Submarine-Mayhem.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />
