@@ -39,17 +39,9 @@ int** LevelManager::nextLevel(VertexArray& rVaLevel)
 
 	case 3:
 		levelToLoad = "levels/level3.txt";
-		m_StartPosition.x = 1250;
-		m_StartPosition.y = 0;
+		m_StartPosition.x = 300;
+		m_StartPosition.y = 250;
 		break;
-
-	case 4:
-		levelToLoad = "levels/level4.txt";
-		m_StartPosition.x = 50;
-		m_StartPosition.y = 200;
-		break;
-
-	
 	}
 
 	ifstream inputFile(levelToLoad);

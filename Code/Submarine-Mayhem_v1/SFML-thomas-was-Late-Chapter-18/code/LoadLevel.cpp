@@ -89,20 +89,110 @@ void Engine::loadLevel()
 		{
 			if (counter == 0)
 			{
-				(*iter)->spawn(Vector2f(750, 450), GRAVITY);
-				(*iter)->SetPatrolPoint(Vector2f(750, 450));
+				(*iter)->spawn(Vector2f(750, 550), GRAVITY);
+				(*iter)->SetPatrolPoint(Vector2f(750, 550));
 			}
 			if (counter == 1)
 			{
-				(*iter)->spawn(Vector2f(3700, 650), GRAVITY);
-				(*iter)->SetPatrolPoint(Vector2f(3700, 650));
+				(*iter)->spawn(Vector2f(2500, 200), GRAVITY);
+				(*iter)->SetPatrolPoint(Vector2f(2500, 200));
 			}
 			if (counter == 2)
 			{
-				(*iter)->spawn(Vector2f(1800, 900), GRAVITY);
-				(*iter)->SetPatrolPoint(Vector2f(1800, 900));
+				(*iter)->spawn(Vector2f(2500, 150), GRAVITY);
+				(*iter)->SetPatrolPoint(Vector2f(5000, 150));
+			}
+			if (counter == 3)
+			{
+				(*iter)->spawn(Vector2f(800, 400), GRAVITY);
+				(*iter)->SetPatrolPoint(Vector2f(800, 400));
+			}
+			if (counter == 4)
+			{
+				(*iter)->spawn(Vector2f(2500, 400), GRAVITY);
+				(*iter)->SetPatrolPoint(Vector2f(2500, 400));
+			}
+			if (counter == 5)
+			{
+				(*iter)->spawn(Vector2f(2400, 700), GRAVITY);
+				(*iter)->SetPatrolPoint(Vector2f(2400, 700));
+			}
+			if (counter == 6)
+			{
+				(*iter)->spawn(Vector2f(2500, 800), GRAVITY);
+				(*iter)->SetPatrolPoint(Vector2f(2500, 800));
+			}
+			if (counter == 7)
+			{
+				(*iter)->spawn(Vector2f(3000, 1000), GRAVITY);
+				(*iter)->SetPatrolPoint(Vector2f(3000, 1000));
+			}
+			if (counter == 8)
+			{
+				(*iter)->spawn(Vector2f(2950, 1000), GRAVITY);
+				(*iter)->SetPatrolPoint(Vector2f(2950, 1000));
+			}
+			if (counter == 9)
+			{
+				(*iter)->spawn(Vector2f(3000, 1500), GRAVITY);
+				(*iter)->SetPatrolPoint(Vector2f(3000, 1500));
 			}
 		}
+		//Level 3
+		else if (m_LM.getCurrentLevel() == 3)
+		{
+			if (counter == 0)
+			{
+				(*iter)->spawn(Vector2f(2050, 200), GRAVITY);
+				(*iter)->SetPatrolPoint(Vector2f(2050, 200));
+			}
+			if (counter == 1)
+			{
+				(*iter)->spawn(Vector2f(2050, 500), GRAVITY);
+				(*iter)->SetPatrolPoint(Vector2f(2050, 500));
+			}
+			if (counter == 2)
+			{
+				(*iter)->spawn(Vector2f(2500, 300), GRAVITY);
+				(*iter)->SetPatrolPoint(Vector2f(2500, 300));
+			}
+			if (counter == 3)
+			{
+				(*iter)->spawn(Vector2f(2050, 200), GRAVITY);
+				(*iter)->SetPatrolPoint(Vector2f(2050, 200));
+			}
+			if (counter == 4)
+			{
+				(*iter)->spawn(Vector2f(2200, 850), GRAVITY);
+				(*iter)->SetPatrolPoint(Vector2f(2200, 850));
+			}
+			if (counter == 5)
+			{
+				(*iter)->spawn(Vector2f(2150, 800), GRAVITY);
+				(*iter)->SetPatrolPoint(Vector2f(2200, 800));
+			}
+			if (counter == 6)
+			{
+				(*iter)->spawn(Vector2f(2300, 900), GRAVITY);
+				(*iter)->SetPatrolPoint(Vector2f(2300, 900));
+			}
+			if (counter == 7)
+			{
+				(*iter)->spawn(Vector2f(2050, 200), GRAVITY);
+				(*iter)->SetPatrolPoint(Vector2f(2050, 200));
+			}
+			if (counter == 8)
+			{
+				(*iter)->spawn(Vector2f(2050, 200), GRAVITY);
+				(*iter)->SetPatrolPoint(Vector2f(2050, 200));
+			}
+			if (counter == 9)
+			{
+				(*iter)->spawn(Vector2f(2050, 200), GRAVITY);
+				(*iter)->SetPatrolPoint(Vector2f(2050, 200));
+			}
+		}
+
 		counter++;
 		type++;
 		if(type >2)

@@ -12,7 +12,7 @@ private:
 	Vector2f m_StartPosition;
 	float m_TimeModifier = 1;
 
-	const int NUM_LEVELS = 4;
+	const int NUM_LEVELS = 3;
 
 public:
 
