@@ -18,7 +18,7 @@ public:
 	bool flipped = false;	//Non-flipped = Right
 
 	//Health and damage
-	int m_Health = 10;
+	int m_Health = 5;
 	int Damage = 1;
 	bool alive;
 

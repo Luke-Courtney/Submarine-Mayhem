@@ -54,7 +54,8 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 		{
 			//Collision detected
 			character.spawn(m_LM.getStartPosition(), GRAVITY);
-			m_Thomas.health--; //thomas loses health when colliding with enemy
+			m_Thomas.health--; //thomas loses health when colliding with 
+			minusHealth();
 		}
 
 
@@ -69,15 +70,21 @@ bool Engine::detectCollisions(PlayableCharacter& character)
 					bullets[i].stop();
 					//enemy take damage
 					(*iter)->Getdamage();
+				m_SM.playDamageSound();
 			}
-				else if (Ebullets[i].getPosition().intersects(m_Thomas.getPosition()))
-				{
-					Ebullets[i].stop();
-					//character.spawn(m_LM.getStartPosition(), GRAVITY);
-					//m_Thomas.health--;
-					timeRemaining = timeRemaining - (dt.asSeconds() / 2);
-				}
+		}
+		else if (Ebullets[i].isInFlight())
+		{
+			if (Ebullets[i].getPosition().intersects(m_Thomas.getPosition()))
+			{
+				Ebullets[i].stop();
+				//character.spawn(m_LM.getStartPosition(), GRAVITY);
+				//m_Thomas.health--;
+				//timeRemaining = timeRemaining - (dt.asSeconds()/2);
+				minusHealth();
+				m_SM.playDamageSound();
 			}
+		}
 
 		}
 	}

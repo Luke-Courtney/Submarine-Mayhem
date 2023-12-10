@@ -164,7 +164,7 @@ void Engine::update(float dtAsSeconds)
 						EcurrentBullet = 0;
 					}
 					lastPressed = m_GameTimeTotal;
-					//shoot.play();
+					m_SM.playShootSound();
 					EbulletsInClip--;
 				}
 			}
