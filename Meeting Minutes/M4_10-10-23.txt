@@ -1,0 +1,20 @@
+Third Year Team Project Meeting
+
+Date:	...	...	[10/10/23]
+Members Absent:		Cillian
+Start Time:	...	12:02
+End Time:	...	12:13
+Location:	...	Thurles Campus B223
+
+Design and Technical review doc
+	Decided on division of work
+		Luke - SFML Write up
+		Ishka - Assets write up
+		Adam - Class Diagram
+		Cillian - Sequence Diagram
+
+Coding start discussed
+	Focus on review doc until Thursday
+	Work on core game before thurday
+	On thursday discuss division of work, and have work done before tuesday.
+

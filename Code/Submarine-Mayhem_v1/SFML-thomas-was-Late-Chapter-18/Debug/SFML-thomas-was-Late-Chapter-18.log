@@ -1,0 +1,39 @@
+﻿  Bob.cpp
+C:\Users\cilli\source\repos\Luke-Courtney\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\PlayableCharacter.h(2,10): fatal  error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  Bullet.cpp
+C:\Users\cilli\source\repos\Luke-Courtney\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\bullet.h(2,10): fatal  error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  DetectCollisions.cpp
+C:\Users\cilli\source\repos\Luke-Courtney\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\Engine.h(4,10): fatal  error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  Draw.cpp
+C:\Users\cilli\source\repos\Luke-Courtney\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\Engine.h(4,10): fatal  error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  Engine.cpp
+C:\Users\cilli\source\repos\Luke-Courtney\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\Engine.h(4,10): fatal  error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  HUD.cpp
+C:\Users\cilli\source\repos\Luke-Courtney\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\Hud.h(2,10): fatal  error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  Input.cpp
+C:\Users\cilli\source\repos\Luke-Courtney\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\Engine.h(4,10): fatal  error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  LevelManager.cpp
+C:\Users\cilli\source\repos\Luke-Courtney\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\LevelManager.cpp(1,10): fatal  error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  LoadLevel.cpp
+C:\Users\cilli\source\repos\Luke-Courtney\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\Engine.h(4,10): fatal  error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  Main.cpp
+C:\Users\cilli\source\repos\Luke-Courtney\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\Engine.h(4,10): fatal  error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  Particle.cpp
+C:\Users\cilli\source\repos\Luke-Courtney\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\Particle.h(2,10): fatal  error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  ParticleSystem.cpp
+C:\Users\cilli\source\repos\Luke-Courtney\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\ParticleSystem.cpp(1,10): fatal  error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  Pickup.cpp
+C:\Users\cilli\source\repos\Luke-Courtney\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\Pickup.h(2,10): fatal  error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  PlayableCharacter.cpp
+C:\Users\cilli\source\repos\Luke-Courtney\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\PlayableCharacter.h(2,10): fatal  error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  PopulateEmitters.cpp
+C:\Users\cilli\source\repos\Luke-Courtney\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\Engine.h(4,10): fatal  error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  SoundManager.cpp
+C:\Users\cilli\source\repos\Luke-Courtney\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\SoundManager.h(2,10): fatal  error C1083: Cannot open include file: 'SFML/Audio.hpp': No such file or directory
+  TextureHolder.cpp
+C:\Users\cilli\source\repos\Luke-Courtney\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\TextureHolder.h(5,10): fatal  error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  Thomas.cpp
+C:\Users\cilli\source\repos\Luke-Courtney\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\PlayableCharacter.h(2,10): fatal  error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  Update.cpp
+C:\Users\cilli\source\repos\Luke-Courtney\Submarine-Mayhem\Code\Submarine-Mayhem_v1\SFML-thomas-was-Late-Chapter-18\code\Engine.h(4,10): fatal  error C1083: Cannot open include file: 'SFML/Graphics.hpp': No such file or directory
+  Generating Code...

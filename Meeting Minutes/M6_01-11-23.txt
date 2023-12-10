@@ -1,0 +1,24 @@
+Third Year Team Project Meeting
+
+Date:	...	...	[01/11/23]
+Members Absent:		N/A
+Start Time:	...	12:45
+End Time:	...	12:57
+Location:	...	Thurles Campus B223
+
+
+Discussed progress and what each member is currently working on
+
+Luke - Progress made on enemies
+     - Working on audio
+     - Working to merge and resolve conflicts with all work branches
+
+Ishka - Main menu added
+      - Oxygen bar in progress
+      - Working on pause and game over screens
+
+Adam - Player shooting working
+     - Working on enemy shooting
+
+Cillian - Added pickups
+	- Working further on pickups

@@ -1,0 +1,18 @@
+Third Year Team Project Meeting
+
+Date:	...	...	[28/11/23]
+Members Absent:		Luke, Cillian
+Start Time:	...	10:57
+End Time:	...	11:06
+Location:	...	Thurles Campus B223
+
+
+Discussed progress and what each member is currently working on
+
+Luke is working on audio
+
+Ishka working on slowing oxygen down, make a restart function, finishing the menu
+
+Cillian working on making more level
+
+Adam working on the enemy shoot properly and make the player lose oxygen when hit by bullet
