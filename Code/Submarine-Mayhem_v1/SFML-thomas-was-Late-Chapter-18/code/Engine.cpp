@@ -25,6 +25,9 @@ Engine::Engine()
 	// Set up a pause screen
 	PAUSE.loadFromFile("graphics/pause.png");
 	pause.setTexture(PAUSE);
+	//set up restart menu
+	RESTART.loadFromFile("graphics/go.png");
+	restart.setTexture(RESTART);
 	// Time bar
 	//timeRemaining = 20;
 	timeBar.setSize(Vector2f(timeBarStartWidth, timeBarHeight));

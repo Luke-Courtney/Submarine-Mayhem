@@ -29,9 +29,28 @@ void Engine::input()
 				m_Playing = true;
 				menu.setPosition(-5000, -5000);//GET RID OF MENU
 			}
+			//handling restart menu
+			if (restarted)
+			{
+				restarted = true;
+
+				if (event.type == Event::KeyPressed)
+				{
+					if (event.key.code == Keyboard::Return)//press enter to restart
+					{
+
+						m_Playing = true;//playing set to true
+						restart.setPosition(-5000, -5000);//get rid of menu
+						resetStats = true;//reset stats to true
+						restarted = false;//restart set to false because we are in a playing state
+					}
+
+				}
+
+			}
 		}
 	}	
-
+			
 	// Handle input specific to Thomas
 	if (m_Thomas.handleInput())
 	{
